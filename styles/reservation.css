@@ -1,0 +1,260 @@
+#reservation .body {
+    width: 100%;
+
+    padding: 50px 100px;
+    padding-bottom: 100px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 1000px) {
+    #reservation .body {
+        padding: 50px;
+    }
+}
+
+@media (max-width: 700px) {
+    #reservation .body {
+        padding: 50px 15px;
+    }
+}
+
+#reservation .body .content {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#reservation .body .content .title {
+    color: black;
+    font-size: 25px;
+    font-weight: 700;
+
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+
+#reservation .body .content .form {
+    display: flex;
+    flex-direction: column;
+}
+
+#reservation .body .content .form .row {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 50px;
+}
+
+@media (max-width: 600px) {
+    #reservation .body .content .form {
+        width: 100%;
+    }
+
+    #reservation .body .content .form .row {
+        display: grid;
+        grid-template-columns: auto;
+        gap: 20px;
+
+        width: 100%;
+    }
+    
+    #reservation .body .content .form .row .field {
+        width: 100%;
+    }
+}
+
+#reservation .body .content .form .heading {
+    color: black;
+    font-size: 15px;
+    font-weight: 700;
+
+    margin-bottom: 8px;
+}
+
+#reservation .body .content .chooser {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    gap: 20px;
+}
+
+@media (max-width: 900px) {
+    #reservation .body .content .chooser {
+        grid-template-columns: auto auto auto;
+    }
+}
+
+@media (max-width: 500px) {
+    #reservation .body .content .chooser {
+        width: 100%;
+
+        grid-template-columns: 100%;
+        gap: 15px;
+    }
+}
+
+#reservation .body .content .chooser .item {
+    color: black;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 30px;
+
+    background-color: rgba(0, 0, 0, 0.06);
+
+    cursor: pointer;
+    transition: all 150ms;
+}
+
+#reservation .body .content .chooser .item:hover {
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+#reservation .body .content .bookings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#reservation .body .content .bookings .booking {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: 70%;
+
+    padding: 20px;
+    margin: 10px 0px;
+
+    cursor: pointer;
+
+    border: 1px solid lightgray;
+}
+
+@media (max-width: 1000px) {
+    #reservation .body .content .bookings .booking {
+        width: 100%;
+    }
+}
+
+#reservation .body .content .bookings .booking .name {
+    color: black;
+    font-size: 20px;
+    font-weight: 700;
+
+    margin-bottom: 10px;
+}
+
+#reservation .body .content .bookings .booking .description {
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+}
+
+#reservation .body .content .bookings .booking .line-clamp {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+#reservation .body .content .bookings .booking .bottom-panel {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
+
+#reservation .body .content .bookings .booking .bottom-panel .left-panel {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#reservation .body .content .bookings .booking .parameter {
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+
+    margin: 5px 0px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#reservation .body .content .bookings .booking .parameter ion-icon {
+    width: 20px;
+    height: 20px;
+
+    padding: 5px;
+    margin-right: 10px;
+
+    border-radius: 50%;
+
+    color: white;
+    background-color: rgb(235, 172, 1);
+}
+
+#reservation .body .content .month-choice {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+#reservation .body .content .month-choice ion-icon {
+    color: rgb(235, 172, 1);
+    
+    width: 20px;
+    height: 20px;
+
+    padding: 5px;
+
+    border-radius: 50%;
+}
+
+#reservation .body .content .month-choice ion-icon:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+#reservation .body .content .month-choice .month {
+    color: black;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+
+    width: 200px;
+}
+
+@media (max-width: 800px) {
+    #reservation .body .content .month-choice .month {
+        font-size: 16px;
+    
+        width: 150px;
+    }
+}
+
+#reservation .body .content .message {
+    color: black;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+#reservation .body .content .button {
+    margin-top: 50px;
+}

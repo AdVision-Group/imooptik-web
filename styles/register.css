@@ -1,0 +1,43 @@
+#register {
+    
+}
+
+#register .body {
+    align-items: center;
+}
+
+#register .body .form {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+
+    margin-top: 50px;
+}
+
+#register .body .form .heading {
+    color: black;
+    font-size: 15px;
+    font-weight: 700;
+
+    margin-bottom: 8px;
+}
+
+#register .body .form .field {
+    width: 400px;
+
+    margin-bottom: 15px;
+}
+
+@media (max-width: 800px) {
+    #register .body .form .field {
+        width: 100%;
+    }
+
+    #register .body .form {
+        width: 100%;
+    }
+}
+
+#register .body .form .button {
+    margin-top: 50px;
+}

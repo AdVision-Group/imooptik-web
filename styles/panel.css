@@ -1,0 +1,102 @@
+.panel-screen {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    z-index: 100;
+}
+
+.panel-screen .panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: 700px;
+
+    padding: 30px;
+
+    border-radius: 5px;
+
+    background-color: white;
+}
+
+.panel-screen .panel .title {
+    color: black;
+    font-size: 25px;
+    font-weight: 700;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 30px;
+}
+
+.panel-screen .panel .title ion-icon {
+    width: 22px;
+    height: 22px;
+
+    padding: 5px;
+
+    border-radius: 50%;
+
+    transition: all 150ms;
+}
+
+.panel-screen .panel .title ion-icon:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+.panel-screen .panel .heading {
+    color: black;
+    font-size: 20px;
+    font-weight: 700;
+
+    margin-bottom: 10px;
+}
+
+.panel-screen .panel .item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: 100%;
+
+    margin: 3px 0px;
+}
+
+.panel-screen .panel .item .name {
+    color: black;
+    font-size: 20px;
+    font-weight: 700;
+
+    margin-right: 30px;
+}
+
+.panel-screen .panel .item .code {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.panel-screen .panel .item .price {
+    color: black;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.panel-screen .panel .button {
+    align-self: flex-end;
+    margin-top: 40px;
+}

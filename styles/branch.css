@@ -1,0 +1,434 @@
+#branch {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#branch .body {
+    width: 100%;
+    max-width: 1500px;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 100px;
+}
+
+@media (max-width: 1000px) {
+    #branch .body {
+        padding: 100px 50px;
+    }
+}
+
+@media (max-width: 700px) {
+    #branch .body {
+        padding: 50px 15px;
+    }
+}
+
+#branch .body .section {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 50px 0px;
+}
+
+#branch .body .contact-panel {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding-top: 0px;
+}
+
+#branch .body .contact-panel .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 250px;
+}
+
+#branch .body .contact-panel .item ion-icon {
+    width: 50px;
+    height: 50px;
+
+    padding: 25px;
+    margin-bottom: 25px;
+
+    border-radius: 50%;
+
+    color: white;
+
+    background-color: rgb(235, 172, 1);
+}
+
+@media (max-width: 700px) {
+    #branch .body .contact-panel {
+        display: grid;
+        grid-template-columns: auto;
+        gap: 30px;
+
+        justify-content: center;
+    }
+
+    #branch .body .contact-panel .item {
+        width: 100%;
+    }
+
+    #branch .body .contact-panel .item ion-icon {
+        width: 50px;
+        height: 50px;
+    
+        padding: 25px;
+        margin-bottom: 25px;
+    
+        border-radius: 50%;
+    
+        color: white;
+    
+        background-color: rgb(235, 172, 1);
+    }
+}
+
+#branch .body .contact-panel .item .info {
+    color: black;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 18px;
+
+    margin-bottom: 8px;
+}
+
+#branch .body .services-panel {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+
+    padding-top: 100px;
+}
+
+@media (max-width: 1270px) {
+    #branch .body .services-panel {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media (max-width: 800px) {
+    #branch .body .services-panel {
+        grid-template-columns: auto;
+        gap: 15px;
+
+        padding-top: 75px;
+    }
+}
+
+#branch .body .services-panel .pricing-panel {
+    display: flex;
+    flex-direction: column;
+
+    cursor: pointer;
+
+    transition: all 200ms;
+
+    text-decoration: none;
+}
+
+#branch .body .services-panel .pricing-panel .top-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 25px;
+
+    background-color: rgba(0, 0, 0, 0.1);
+
+    border-radius: 5px 5px 0px 0px;
+
+    transition: all 200ms;
+}
+
+#branch .body .services-panel .pricing-panel .top-panel .name {
+    color: black;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+
+    margin-bottom: 20px;
+
+    transition: all 200ms;
+}
+
+#branch .body .services-panel .pricing-panel .top-panel .price {
+    color: black;
+    font-size: 25px;
+    font-weight: 700;
+    text-align: center;
+
+    transition: all 200ms;
+}
+
+#branch .body .services-panel .pricing-panel .bottom-panel {
+    display: flex;
+    flex-direction: column;
+
+    padding: 25px;
+
+    background-color: white;
+
+    border: 1px solid rgba(0, 0, 0, 0.1);
+
+    border-radius: 0px 0px 5px 5px;
+
+    transition: all 200ms;
+}
+
+#branch .body .services-panel .pricing-panel .bottom-panel .parameter {
+    color: black;
+    font-size: 16px;
+    font-weight: 700;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    transition: all 200ms;
+}
+
+#branch .body .services-panel .pricing-panel .bottom-panel .parameter ion-icon {
+    width: 20px;
+    height: 20px;
+
+    padding: 5px;
+    margin-right: 10px;
+
+    border-radius: 50%;
+
+    color: white;
+    background-color: rgb(235, 172, 1);
+}
+
+#branch .body .services-panel .pricing-panel .bottom-panel .text {
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+
+    margin: 20px 0px 30px 0px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+
+    transition: all 200ms;
+}
+
+#branch .body .services-panel .pricing-panel:hover { transform: scale(1.05); }
+#branch .body .services-panel .pricing-panel:hover .top-panel { background-color: black; }
+#branch .body .services-panel .pricing-panel:hover .name { color: white; }
+#branch .body .services-panel .pricing-panel:hover .price { color: white; }
+#branch .body .services-panel .pricing-panel:hover .bottom-panel { background-color: rgb(20, 20, 20); border: none; }
+#branch .body .services-panel .pricing-panel:hover .parameter { color: white; }
+#branch .body .services-panel .pricing-panel:hover .text { color: white; opacity: 0.5; }
+
+#branch .body .team-panel {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    gap: 40px;
+
+    padding-top: 100px;
+}
+
+@media (max-width: 1300px) {
+    #branch .body .team-panel {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 1000px) {
+    #branch .body .team-panel {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 800px) {
+    #branch .body .team-panel {
+        padding-top: 75px;
+    }
+}
+
+@media (max-width: 600px) {
+    #branch .body .team-panel {
+        display: grid;
+        grid-template-columns: auto;
+        gap: 40px;
+    }
+}
+
+#branch .body .team-panel .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 200px;
+}
+
+#branch .body .team-panel .item .image {
+    width: 140px;
+    height: 140px;
+
+    margin-bottom: 20px;
+
+    border-radius: 50%;
+
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#branch .body .team-panel .item .name {
+    color: black;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+#branch .body .gallery-panel {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+
+    padding-top: 100px;
+}
+
+@media (max-width: 1200px) {
+    #branch .body .gallery-panel {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 900px) {
+    #branch .body .gallery-panel {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 800px) {
+    #branch .body .gallery-panel {
+        padding-top: 75px;
+    }
+}
+
+
+@media (max-width: 600px) {
+    #branch .body .gallery-panel {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 15px;
+    }
+}
+
+#branch .body .gallery-panel .image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+
+    border-radius: 2px;
+
+    filter: grayscale();
+
+    background-color: rgba(0, 0, 0, 0.1);
+
+    transition: all 150ms;
+}
+
+#branch .body .gallery-panel .image:hover {
+    filter: none;
+}
+
+#branch .body .form-panel {
+    width: 100%;
+
+    padding-top: 100px;
+}
+
+#branch .body .form-panel .form {
+    width: 500px;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 25px;
+
+    margin-top: 50px;
+}
+
+#branch .body .form-panel .form .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0px 25px;
+}
+
+@media (max-width: 700px) {
+    #branch .body .form-panel .form {
+        width: 100%;
+
+        padding: 0px;
+        padding-top: 30px;
+    }
+
+    #branch .body .form-panel .form .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    #branch .body .form-panel .form .grid .field {
+        width: 100%;
+    }
+}
+
+#branch .body .form-panel .form .heading {
+    color: black;
+    font-size: 15px;
+    font-weight: 700;
+
+    margin-bottom: 8px;
+}
+
+#branch .body .form-panel .form .field {
+    width: 100%;
+    resize: none;
+}
+
+#branch .map {
+    width: 100%;
+    height: 500px;
+
+    border: none;
+}
+
+@media (max-width: 600px) {
+    #branch .map {
+        height: 300px;
+    }
+}

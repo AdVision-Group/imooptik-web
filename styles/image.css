@@ -1,0 +1,19 @@
+.loading-image {
+    background-color: rgb(210, 210, 210);
+
+    animation: shimmer 500ms infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-color: rgb(210, 210, 210);
+    }
+    
+    50% {
+        background-color: rgb(240, 240, 240);
+    }
+
+    100% {
+        background-color: rgb(210, 210, 210);
+    }
+  }

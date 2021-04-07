@@ -1,0 +1,87 @@
+#about {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#about .body {
+    width: 100%;
+    max-width: 1500px;
+
+    padding: 50px 100px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#about .body .content {
+    width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 50px;
+}
+
+#about .body .content .panel {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin: 40px 0px;
+}
+
+#about .body p {
+    flex: 1;
+
+    color: black;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 35px;
+}
+
+#about .body .content .panel .image {
+    width: 400px;
+    height: 300px;
+
+    object-fit: cover;
+
+    filter: grayscale() brightness(80%);
+
+    transition: all 200ms;
+
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#about .body .content .image:hover {
+    filter: none;
+}
+
+#about .body .content .paragraph {
+    align-self: center;
+
+    text-align: center;
+
+    width: 600px;
+
+    margin-top: 50px;
+}
+
+#about .body .content .signature {
+    align-self: center;
+
+    font-weight: 700;
+
+    margin-top: 20px;
+}
+
+#about .body .content .button {
+    align-self: center;
+
+    margin-top: 40px;
+}

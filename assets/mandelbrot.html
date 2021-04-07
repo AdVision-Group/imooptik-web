@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="800" height="800"></canvas><br>
+    <script>
+        var xmin = -2;
+        var ymin = -2;
+        var scale = 50;
+
+        var x, y, i, xt;
+        var cx, cy;
+        var color;
+
+        var width = window.innerWidth;
+        var height = window.innerHeight;
+
+        var canvas = document.getElementById('myCanvas');
+
+        canvas.style.width = 800;
+        canvas.style.height = 800;
+
+        canvas.addEventListener("mousedown", zoom, false);
+
+        var context = canvas.getContext('2d');
+
+        mandelbrot();
+
+        function zoom(event) {
+            xmin = xmin + Math.floor(event.pageX / 4) / scale;
+            ymin = -Math.floor(event.pageY / 4) / scale + 200 / scale + ymin;
+            scale = scale * 1.1;
+            mandelbrot();
+        }
+
+        function mandelbrot() {
+            for(x = 0; x < width; x++) {
+                for(y = 0; y < height; y++) {
+                    i = 0;
+                    cx = xmin + (x / scale);
+                    cy = ymin + (y / scale);
+                    zx = 0;
+                    zy = 0;                        
+
+                    do {
+                        xt = zx * zy;
+                        zx = zx * zx - zy * zy + cx;
+                        zy = 2 * xt + cy;
+                        i++;
+                    } while (i < 255 && (zx * zx + zy * zy) < 4);
+
+                    color = i.toString(16);
+                    context.beginPath();
+                    context.rect(x * 4, height - y * 4, 4, 4);
+                    context.fillStyle = '#' + color + color + color;
+                    context.fill();
+                }
+            }
+        }
+    </script>
+</body>
+</html>

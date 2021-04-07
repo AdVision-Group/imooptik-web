@@ -1,0 +1,99 @@
+#gallery-panel {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+
+    width: 100vw;
+    height: 100vh;
+
+    padding: 100px 0px;
+
+    display: flex;
+    flex-direction: row;
+
+    background-color: rgba(0, 0, 0, 0.7);
+
+    z-index: 999;
+}
+
+#gallery-panel .arrow {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#gallery-panel .arrow ion-icon {
+    width: 30px;
+    height: 30px;
+
+    padding: 10px;
+
+    color: white;
+
+    border-radius: 50%;
+
+    transition: all 200ms;
+}
+
+#gallery-panel .arrow ion-icon:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#gallery-panel .arrow ion-icon:active {
+    width: 20px;
+    height: 20px;
+
+    padding: 15px;
+}
+
+#gallery-panel .wrapper {
+    width: 80vw;
+    height: 100%;
+
+    overflow: hidden;
+}
+
+#gallery-panel .wrapper .list {
+    height: 100%;
+
+    transition: all 500ms;
+}
+
+#gallery-panel .wrapper .list .image {
+    width: 80vw;
+    height: 100%;
+    object-fit: contain;
+
+    float: left;
+
+    float: left;
+}
+
+#gallery-panel .progress {
+    width: 50vw;
+    height: 6px;
+
+    position: fixed;
+    bottom: 5vh;
+    left: 25vw;
+
+    border-radius: 100px;
+
+    background-color: rgb(120, 120, 120);
+
+    z-index: 2;
+}
+
+#gallery-panel .progress .indicator {
+    width: 0px;
+    height: 6px;
+
+    border-radius: 100px;
+
+    background-color: white;
+
+    transition: all 500ms;
+}

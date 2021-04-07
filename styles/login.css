@@ -1,0 +1,61 @@
+#login {
+    
+}
+
+#login .body {
+    
+}
+
+#login .body .form {
+    display: flex;
+    flex-direction: column;
+
+    align-self: center;
+
+    margin-top: 70px;
+}
+
+#login .body .form .heading {
+    color: black;
+    font-size: 15px;
+    font-weight: 700;
+
+    margin-bottom: 8px;
+}
+
+#login .body .form .field {
+    width: 400px;
+
+    margin-bottom: 15px;
+}
+
+@media (max-width: 800px) {
+    #login .body .form .field {
+        width: 100%;
+    }
+
+    #login .body .form {
+        width: 100%;
+    }
+}
+
+#login .body .form .forgot-link {
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 14px;
+    font-weight: 400;
+
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+#login .body .form .button-panel {
+    display: flex;
+    flex-direction: row;
+
+    margin-top: 20px;
+}
+
+#login .body .form .button {
+    flex: 1;
+}

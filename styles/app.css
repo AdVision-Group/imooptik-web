@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+
+    box-sizing: border-box;
+    font-family: 'Titillium Web', sans-serif;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+input, textarea, button, select, a, div {
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    text-decoration: none;
+}
+
+.app {
+    width: 100vw;
+
+    overflow: hidden;
+}
+
+.screen {
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    overflow: hidden;
+
+    /*padding-top: 130px;*/
+}
+
+.body {
+    width: 100%;
+    max-width: 1500px;
+
+    padding: 100px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 1000px) {
+    .body {
+        padding: 100px 50px;
+    }
+}
+
+@media (max-width: 700px) {
+    .body {
+        padding: 50px 15px;
+    }
+}
+
+.button {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+
+    padding: 8px 30px;
+
+    border-radius: 2px;
+
+    cursor: pointer;
+
+    background-color: #D89C24;
+
+    background-color: rgb(235, 172, 1);
+}
+
+.field {
+    width: 250px;
+
+    color: black;
+    font-size: 14px;
+    font-weight: 400;
+
+    padding: 8px;
+
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    outline: none;
+
+    border-radius: 2px;
+}

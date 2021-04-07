@@ -1,0 +1,56 @@
+#soon {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#soon .content {
+    width: 100%;
+    max-width: 1500px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 100px 100px;
+}
+
+@media (max-width: 1000px) {
+    #soon .content {
+        padding: 100px 50px;
+    }
+}
+
+@media (max-width: 700px) {
+    #soon .content {
+        padding: 50px 15px;
+    }
+}
+
+#soon .title {
+    color: black;
+    font-size: 50px;
+    font-weight: 700;
+    text-align: center;
+}
+
+#soon .text {
+    color: rgba(0, 0, 0, 1);
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 28px;
+
+    width: 60%;
+
+    margin: 50px 0px 50px 0px;
+}
+
+@media (max-width: 1000px) {
+    #soon .text {
+        width: 100%;
+    }
+}

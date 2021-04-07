@@ -1,0 +1,441 @@
+#profile {
+    
+}
+
+#profile .body {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+#profile .body .content {
+    width: 100%;
+
+    padding: 0px;
+    margin: 0px;
+
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 1100px) {
+    #profile .body .content {
+        flex-direction: column;
+    }
+}
+
+#profile .body .content .sidebar {
+    display: flex;
+    flex-direction: column;
+
+    width: 300px;
+
+    padding-bottom: 30px;
+
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#profile .body .content .sidebar .title {
+    color: black;
+    font-size: 30px;
+    font-weight: 700;
+
+    margin: 50px;
+    margin-left: 0px;
+    margin-bottom: 35px;
+}
+
+#profile .body .content .sidebar .item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+
+    padding: 15px 50px;
+    padding-left: 0px;
+    padding-right: 100px;
+
+    cursor: pointer;
+
+    transition: all 150ms;
+}
+
+#profile .body .content .sidebar .item ion-icon {
+    width: 22px;
+    height: 22px;
+
+    margin-right: 15px;
+
+    color: black;
+    color: rgb(235, 172, 1);
+}
+
+#profile .body .content .sidebar .active {
+    font-weight: 700;
+}
+
+#profile .body .content .sidebar .active ion-icon {
+    color: rgb(235, 172, 1);
+}
+
+@media (max-width: 1100px) {
+    #profile .body .content .sidebar {
+        width: 100%;
+
+        border: none;
+    }
+
+    #profile .body .content .sidebar .title {
+        font-size: 40px;
+
+        margin-top: 20px;
+    }
+
+    #profile .body .content .sidebar .menu {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        gap: 30px;
+
+        align-self: flex-start;
+
+        justify-items: start;
+    }
+
+    #profile .body .content .sidebar .item {
+        padding: 0px;
+    }
+}
+
+@media (max-width: 650px) {
+    #profile .body .content .sidebar .menu {
+        grid-template-columns: auto;
+        gap: 15px;
+
+        align-items: flex-start;
+    }
+}
+
+#profile .body .content .data {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 50px;
+    padding-right: 0px;
+}
+
+#profile .body .content .data .text {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+@media (max-width: 1100px) {
+    #profile .body .content .data {
+        padding: 30px 0px 50px 0px;
+
+        width: 100%;
+    }
+}
+
+#profile .body .content .data .title {
+    color: black;
+    font-size: 30px;
+    font-weight: 700;
+
+    margin-bottom: 50px;
+}
+
+#profile .body .content .data .form {
+    display: flex;
+    flex-direction: column;
+}
+
+#profile .body .content .data .form .section {
+    color: black;
+    font-size: 22px;
+    font-weight: 700;
+
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#profile .body .content .data .form .section .button {
+    margin: 0px;
+}
+
+#profile .section .empty {
+    color: black;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+#profile .body .content .data .form .row {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 50px;
+
+    margin: 0px;
+    padding: 0px;
+}
+
+@media (max-width: 650px) {
+    #profile .body .content .data .form {
+        width: 100%;
+    }
+
+    #profile .body .content .data .form .row {
+        grid-template-columns: auto;
+        gap: 20px;
+    }
+
+    #profile .body .content .data .form .row .field {
+        width: 100%;
+    }
+}
+
+#profile .body .content .data .form .heading {
+    color: black;
+    font-size: 15px;
+    font-weight: 700;
+
+    margin-bottom: 8px;
+}
+
+#profile .body .content .data .form .button {
+    align-self: flex-start;
+
+    margin: 20px 0px 10px 0px;
+}
+
+#profile .body .content .data .form .grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+
+    align-items: center;
+}
+
+#profile .body .content .data .form .grid .heading {
+    color: black;
+    font-size: 16px;
+
+    padding: 0px;
+}
+
+#profile .body .content .data .form .grid .field {
+    width: 100px;
+
+    margin: 0px;
+}
+
+@media (max-width: 650px) {
+    #profile .body .content .data .form .grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+    
+        align-items: center;
+    }
+
+    #profile .body .content .data .form .grid .heading {
+        font-size: 14px;
+    }
+
+    #profile .body .content .data .form .grid .field {
+        width: 45px;
+    }
+
+    #profile .body .content .data .form #pds {
+        display: grid;
+        grid-template-columns: auto;
+        gap: 10px;
+    }   
+}
+
+#profile .body .content .data .orders {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#profile .body .content .data .orders .order-item {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 15px;
+    margin-bottom: 30px;
+
+    border-radius: 5px;
+
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+#profile .body .content .data .orders .order-item .top-panel {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+}
+
+#profile .body .content .data .orders .order-item .top-panel .info-panel {
+    flex: 1;
+
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 5px 40px;
+    align-content: flex-start;
+    justify-content: flex-start;
+
+    padding: 15px;
+    margin-right: 15px;
+
+    border-radius: 5px;
+
+    background-color: white;
+}
+
+#profile .body .content .data .orders .order-item .top-panel .heading {
+    color: black;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+#profile .body .content .data .orders .order-item .top-panel .info {
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+#profile .body .content .data .orders .order-item .top-panel .summary-panel {
+    flex: 1;
+
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 5px 40px;
+    align-content: flex-start;
+    justify-content: flex-start;
+
+    padding: 15px;
+
+    border-radius: 5px;
+
+    background-color: white;
+}
+
+@media (max-width: 700px) {
+    #profile .body .content .data .orders .order-item .top-panel {
+        flex-direction: column;
+    }
+
+    #profile .body .content .data .orders .order-item .top-panel .info-panel {
+        margin-right: 0px;
+        margin-bottom: 15px;
+
+        justify-content: space-between;
+    }
+
+    #profile .body .content .data .orders .order-item .top-panel .summary-panel {
+        justify-content: space-between;
+    }
+}
+
+#profile .body .content .data .orders .order-item .products-panel {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 15px;
+}
+
+#profile .body .content .data .orders .order-item .products-panel .product {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: auto 250px 1fr auto;
+    gap: 15px;
+    justify-content: start;
+
+    padding: 10px 15px;
+    margin-bottom: 15px;
+
+    border-radius: 5px;
+
+    background-color: white;
+}
+
+#profile .body .content .data .orders .order-item .products-panel .product .image {
+    height: 40px;
+}
+
+#profile .body .content .data .orders .order-item .products-panel .product .number {
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+
+    width: 28px;
+    height: 28px;
+
+    margin-right: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background-color: rgb(235, 172, 1);
+}
+
+#profile .body .content .data .orders .order-item .products-panel .product .name {
+    color: black;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#profile .body .content .data .orders .order-item .products-panel .product .info {
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+@media (max-width: 600px) {
+    #profile .body .content .data .orders .order-item .products-panel .product {
+        grid-template-columns: auto;
+        gap: 5px;
+        justify-content: start;
+    }
+    
+    #profile .body .content .data .orders .order-item .products-panel .product .image {
+        height: 40px;
+    }
+    
+    #profile .body .content .data .orders .order-item .products-panel .product .number {
+        margin-bottom: 5px;
+    }
+}
+
+#profile .body .content .data .orders .order-item .button {
+    align-self: flex-start;
+}
