@@ -16,103 +16,82 @@ class Menu extends React.Component {
         return(
             <div id="menu">
                 <div className="content">
-                    <div
+                    <a
                         className="link"
-                        to={{ pathname: "/obchod", state: { category: 1 } }}
-                        onClick={() => {
-                            redirect(this.props.location, "/obchod");
-                            closeMenu();
-                        }}
+                        href="/obchod?kategoria=1"
+                        onClick={() => closeMenu()}
                     >
                         <img className="icon" src={require("../assets/icons/dioptricke-okuliare.svg")} alt="Ikona pre dioptrické okuliare" />
                         Dioptrické
-                    </div>
+                    </a>
 
-                    <div
+                    <a
                         className="link"
-                        to={{ pathname: "/obchod", state: { category: 2 } }}
-                        onClick={() => {
-                            redirect(this.props.location.pathname);
-                            closeMenu();
-                        }}
+                        href="/obchod?kategoria=2"
+                        onClick={() => closeMenu()}
                     >
                         <img className="icon" src={require("../assets/icons/slnecne-okuliare.svg")} alt="Ikona pre slnečné okuliare" />
                         Slnečné
-                    </div>
+                    </a>
 
-                    <div
+                    <a
                         className="link"
-                        to={{ pathname: "/obchod", state: { category: 4 } }}
-                        onClick={() => {
-                            redirect(this.props.location.pathname, "/obchod");
-                            closeMenu();
-                        }}
+                        href="/obchod?kategoria=4"
+                        onClick={() => closeMenu()}
                     >
                         <img className="icon" src={require("../assets/icons/sportove-okuliare.svg")} alt="Ikona pre športové okuliare" />
                         Športové
-                    </div>
+                    </a>
 
-                    <div
+                    <a
                         className="link"
-                        to={{ pathname: "/obchod", state: { category: 3 } }}
-                        onClick={() => {
-                            redirect(this.props.location.pathname, "/obchod");
-                            closeMenu();
-                        }}
+                        href="/obchod?kategoria=3"
+                        onClick={() => closeMenu()}
                     >
                         <img className="icon" src={require("../assets/icons/sosovky.svg")} alt="Ikona pre šošovky" />
                         Šošovky
-                    </div>
+                    </a>
 
-                    <div
+                    <a
                         className="link"
-                        to={{ pathname: "/obchod", state: { category: 5 } }}
-                        onClick={() => {
-                            redirect(this.props.location.pathname, "/obchod");
-                            closeMenu();
-                        }}
+                        href="/obchod?kategoria=5"
+                        onClick={() => closeMenu()}
                     >
                         <img className="icon" src={require("../assets/icons/doplnky.svg")} alt="Ikona pre doplnky" />
                         Doplnky
-                    </div>
+                    </a>
 
-                    <div
+                    <a
                         className="link"
-                        to="/blog"
-                        onClick={() => {
-                            redirect(this.props.location, "/blog");
-                            closeMenu();
-                        }}
+                        href="/blog"
+                        onClick={() => closeMenu()}
                     >
                         Blog
-                    </div>
+                    </a>
 
-                    <div
+                    <a
                         className="link"
-                        to="/"
+                        href="/"
                     >
                         Služby
-                    </div>
+                    </a>
 
-                    <div
+                    <a
                         className="link"
-                        to="/"
+                        href="/"
                     >
                         Prevádzky
-                    </div>
+                    </a>
 
-                    <div
+                    <a
                         className="button"
-                        to="/rezervacia-terminu"
-                        onClick={() => {
-                            redirect(this.props.location, "/rezervacia-terminu");
-                            closeMenu();
-                        }}
+                        href="/rezervacia-terminu"
+                        onClick={() => closeMenu()}
                     >
                         <img className="icon open" src={require("../assets/eye-open.png")} alt="Ikona pre otvorené oko" />
                         <img className="icon closed" src={require("../assets/eye-closed.png")} alt="Ikona pre zavreté oko" />
                         Rezervácia online
-                    </div>
+                    </a>
                 </div>
             </div>
         )
