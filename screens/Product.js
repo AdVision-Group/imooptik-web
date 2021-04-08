@@ -180,8 +180,8 @@ class Product extends React.Component {
     async loadImages(image, moreImages) {
         var images = [];
         var gallery = [];
-        images.push(image);
-        gallery.push(API_URL + "/uploads/" + image.imagePath);
+        if (image) images.push(image);
+        if (image) gallery.push(API_URL + "/uploads/" + image.imagePath);
 
         for (let i = 0; i < moreImages.length; i++) {
             const call = await Api.getImage(moreImages[i]);
@@ -191,6 +191,9 @@ class Product extends React.Component {
                 gallery.push(API_URL + "/uploads/" + call.image.imagePath);
             }
         }
+
+        if (images.length === 0) images.push(null);
+        if (gallery.length === 0) gallery.push(null);
 
         this.setState({ images: images, gallery: gallery }, () => {
             this.handleImageResize();
@@ -825,19 +828,22 @@ class Product extends React.Component {
                     <div className="left-panel">
                         <div id="image-panel">
                             <div id="image-wrapper">
-                                {this.state.images.map((image, index) => 
-                                    <img
-                                        className="image"
-                                        src={API_URL + "/uploads/" + image.imagePath}
-                                        alt={"Fotka produktu " + product.name}
-                                        onClick={() => this.openGallery(index)}
-                                        style={{ width: this.state.imageWidth }}
-                                    />
-                                )}
+                                {this.state.images.map((image, index) => (
+                                    image ? 
+                                        <img
+                                            className="image"
+                                            src={API_URL + "/uploads/" + image.imagePath}
+                                            alt={"Fotka produktu " + product.name}
+                                            onClick={() => this.openGallery(index)}
+                                            style={{ width: this.state.imageWidth }}
+                                        />
+                                    :
+                                        <div className="placeholder" style={{ width: this.state.imageWidth }} />
+                                ))}
                             </div>
 
-                            <ion-icon name="arrow-back" class="arrow arrow-back" onClick={() => this.changeImage(-1)}></ion-icon>
-                            <ion-icon name="arrow-forward" class="arrow arrow-forward" onClick={() => this.changeImage(1)}></ion-icon>
+                            {this.state.images.length > 1 && <ion-icon name="arrow-back" class="arrow arrow-back" onClick={() => this.changeImage(-1)}></ion-icon>}
+                            {this.state.images.length > 1 && <ion-icon name="arrow-forward" class="arrow arrow-forward" onClick={() => this.changeImage(1)}></ion-icon>}
                         </div>
 
                         {this.state.device === "phone" ?
