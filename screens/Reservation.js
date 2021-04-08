@@ -308,9 +308,11 @@ class Reservation extends React.Component {
 
                         <div className="title">Vyberte si pobočku</div>
 
-                        <div className="chooser">
-                            {this.state.calendars.map((calendar) => <div className="item" onClick={() => this.setCalendar(calendar)} style={this.state.calendar ? (this.state.calendar._id === calendar._id ? { backgroundColor: "rgb(235, 172, 1)", color: "white" } : null) : null}>{calendar.name}</div>)}
-                        </div>
+                        {this.state.calendars.length === 0 ? <div className="message">Nenašli sa žiadne pobočky</div> :
+                            <div className="chooser">
+                                {this.state.calendars.map((calendar) => <div className="item" onClick={() => this.setCalendar(calendar)} style={this.state.calendar ? (this.state.calendar._id === calendar._id ? { backgroundColor: "rgb(235, 172, 1)", color: "white" } : null) : null}>{calendar.name}</div>)}
+                            </div>
+                        }
 
                         {this.state.step >= 2 ? (
                             <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }} id="reservation-service-choice">
