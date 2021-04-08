@@ -191,6 +191,15 @@
     margin-bottom: 10px;
 }
 
+#home .bestsellers .carousel .item .placeholder {
+    width: 100%;
+    height: 180px;
+
+    margin-bottom: 10px;
+
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
 @media (max-width: 600px) {
     #home .bestsellers .carousel .item {
         width: 70vw;

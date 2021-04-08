@@ -2,15 +2,11 @@ import React from "react";
 import { withRouter } from "next/router";
 
 import Api from "../config/Api";
-import { branches } from "../config/Database";
 import Title from "../components/Title";
 import Popup from "../components/Popup";
 import Heading from "../components/Heading";
-import { hideTransition, redirect } from "../config/Config";
 
 import Gallery from "../components/Gallery";
-
-//import "../styles/branch.css";
 
 class Branch extends React.Component {
 
@@ -90,7 +86,7 @@ class Branch extends React.Component {
 
     render() {
         const branch = this.props.branch;
-        const services = this.props.services ? this.props.services : [];
+        const services = this.props.services || [];
 
         return(
             <div className="screen" id="branch">

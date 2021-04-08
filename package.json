@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@brainhubeu/react-carousel": "^1.12.9-alpha",
     "@stripe/react-stripe-js": "^1.4.0",
     "@stripe/stripe-js": "^1.13.2",
     "jquery": "^3.6.0",

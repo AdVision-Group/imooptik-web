@@ -1,13 +1,10 @@
 import React from "react";
 import { withRouter } from "next/router";
-import Link from "next/link";
+import dynamic from "next/dynamic";
 
-//import Carousel from 'react-spring-3d-carousel';
-import { redirect, hideTransition } from "../config/Config";
 import Api, { API_URL } from "../config/Api";
 import SmoothScroll from "../components/SmoothScroll";
 import ArticleBox from "../components/ArticleBox";
-import Image from "../components/Image";
 import Popup from "../components/Popup";
 
 import Heading from "../components/Heading";
@@ -18,8 +15,6 @@ class Home extends React.Component {
 
     state = {
         newsletter: "",
-
-        blog: [],
 
         references: [
             {
@@ -59,73 +54,25 @@ class Home extends React.Component {
 
         popup: false,
         loading: false,
-        message: ""
+        message: "",
+
+        allowCarousel: false,
+        carousel: null
     }
 
     constructor() {
         super();
 
-        this.loadBlog = this.loadBlog.bind(this);
         this.resetReferencesInterval = this.resetReferencesInterval.bind(this);
         this.resetBestsellersInterval = this.resetBestsellersInterval.bind(this);
         this.subscribeToNewsletter = this.subscribeToNewsletter.bind(this);
-        this.animateBrands = this.animateBrands.bind(this);
-    }
-
-    async loadBlog() {
-        const call = await Api.getBlogs({
-            sortBy: {
-                date: 1
-            },
-            limit: 3
-        });
-
-        if (call.blogs) {
-            this.setState({ blog: call.blogs });
-        }
     }
 
     async componentDidMount() {
         this.referencesInterval = setInterval(() => this.setState((state) => ({ currentReference: state.currentReference + 1 })), 5000);
         this.bestsellersInterval = setInterval(() => this.setState((state) => ({ currentBestseller: state.currentBestseller + 1 })), 5000);
 
-        await this.loadBlog();
-        await this.loadBestsellers();
-    }
-
-    animateBrands() {
-        var brands = document.getElementById("brands");
-
-        if (brands === null) return;
-
-        const speed = 1;
-
-        for (let i = 0; i < brands.childNodes.length; i++) {
-            var child = brands.childNodes[i];
-
-            child.style.left = (child.getBoundingClientRect().left + speed) + "px";
-
-            const xPosition = child.getBoundingClientRect().left;
-
-            if (xPosition >= window.innerWidth) {
-                var leftChild = child;
-                
-                for (let j = 0; j < brands.childNodes.length; j++) {
-                    var current = brands.childNodes[j];
-
-                    if (current.getBoundingClientRect().left < leftChild.getBoundingClientRect().left) {
-                        leftChild = current;
-                    }
-                }
-
-                child.style.left = (leftChild.getBoundingClientRect().left - window.innerWidth) + "px";
-                break;
-            }
-
-            brands.style.height = child.clientHeight + 100 + "px";
-        }
-
-        setTimeout(this.animateBrands, 10);
+        this.loadBestsellers();
     }
 
     componentWillUnmount() {
@@ -157,7 +104,8 @@ class Home extends React.Component {
             });
         }
 
-        this.setState({ bestsellers: bestsellers });
+        const Carousel = dynamic(() => import("react-spring-3d-carousel"));
+        this.setState({ bestsellers: bestsellers, carousel: Carousel, allowCarousel: true });
     }
 
     async subscribeToNewsletter() {
@@ -190,6 +138,10 @@ class Home extends React.Component {
     }
 
     render() {
+        const blogs = this.props.blogs;
+        const bestsellers = this.state.bestsellers;
+        const references = this.state.references;
+
         return(
             <div className="screen" id="home">
                 <div className="landing">
@@ -214,7 +166,7 @@ class Home extends React.Component {
                     />
 
                     <div className="carousel">
-                        {/*<Carousel slides={this.state.bestsellers} offsetRadius={5} goToSlide={this.state.currentBestseller} animationConfig={{ tension: 120, friction: 14 }} />*/}
+                        {this.state.allowCarousel && <this.state.carousel slides={bestsellers} offsetRadius={5} goToSlide={this.state.currentBestseller} animationConfig={{ tension: 120, friction: 14 }} />}
                     </div>
                 </div>
 
@@ -292,7 +244,7 @@ class Home extends React.Component {
                 </div>
 
                 <div className="brands" id="brands">
-                    <a href="/obchod"><img className="image" id="brands-1" src={require("../assets/brands.svg")} alt="Značky" onClick={() => redirect(this.props.location, "/obchod")} /></a>
+                    <a href="/obchod"><img className="image" id="brands-1" src={require("../assets/brands.svg")} alt="Značky" /></a>
                 </div>
 
                 <div className="whyus">
@@ -349,13 +301,13 @@ class Home extends React.Component {
                     />
 
                     <div className="carousel">
-                        {/*<Carousel slides={this.state.references} offsetRadius={5} goToSlide={this.state.currentReference} animationConfig={{ tension: 120, friction: 14 }} />*/}
+                        {this.state.allowCarousel && <this.state.carousel slides={references} offsetRadius={5} goToSlide={this.state.currentReference} animationConfig={{ tension: 120, friction: 14 }} />}
                     </div>
 
                     <a className="button" href="https://www.google.com/search?rlz=1C5CHFA_enSK927SK927&sxsrf=ALeKk00w1gIXx89HcMErjeoM3ZHUfI6Y0g:1611140068218&ei=3gsIYKPBErTYxgPZ-LzwDw&q=imooptik&oq=imooptik&gs_lcp=CgZwc3ktYWIQAzIECCMQJzIICAAQxwEQrwEyCAgAEMcBEK8BMggIABDHARCvATIHCAAQChDLATIICAAQxwEQrwEyCAgAEMcBEK8BOgYIIxAnEBM6CAgAELEDEIMBOgsIABCxAxDHARCjAjoCCAA6BQgAELEDOgQIABBDOgsIABCxAxDHARCvAToHCAAQsQMQCjoECAAQCjoKCAAQxwEQrwEQClDPHljdJWDfJmgAcAB4AIABhQGIAYsGkgEDNS4zmAEAoAEBqgEHZ3dzLXdpesABAQ&sclient=psy-ab&ved=2ahUKEwiq4cu7rKruAhVFDOwKHSU4C5MQvS4wAHoECAIQKw&uact=5&tbs=lf:1,lf_ui:10&tbm=lcl&rflfq=1&num=10&rldimm=11019453920574646706&lqi=CghpbW9vcHRpa1oUCghpbW9vcHRpayIIaW1vb3B0aWs&phdesc=Bsb5PBOmfa8&rlst=f#lrd=0x476c8945b3f52397:0x98ecf6f50aa329b2,1,,,&rlfi=hd:;si:11019453920574646706,l,CghpbW9vcHRpa1oUCghpbW9vcHRpayIIaW1vb3B0aWs,y,Bsb5PBOmfa8;mv:[[48.154985599999996,17.135518400000002],[48.1484129,17.1113925]];tbs:lrf:!1m4!1u3!2m2!3m1!1e1!1m4!1u2!2m2!2m1!1e1!2m1!1e2!2m1!1e3!3sIAE,lf:1,lf_ui:10">Prejsť na Google referencie</a>
                 </div>
 
-                {this.state.blog.length > 0 ?
+                {blogs.length > 0 ?
                 <div className="blog">
                     <Heading
                         heading="BLOG"
@@ -364,7 +316,7 @@ class Home extends React.Component {
                     />
 
                     <div className="content">
-                        {this.state.blog.map((article, index) => <ArticleBox article={article} index={index} history={this.props.history} location={this.props.location}  />)}
+                        {blogs.map((article, index) => <ArticleBox article={article} index={index} history={this.props.history} location={this.props.location}  />)}
                     </div>
                 </div>
                 : null}
@@ -488,12 +440,16 @@ function Bestseller(props) {
 
     return(
         <div className="item">
-            <img className="image" src={API_URL + "/uploads/" + product.image.imagePath} alt={"Najpredávanejšie okuliare s názvom " + product.name} />
+            {product.image ?
+                <img className="image" src={API_URL + "/uploads/" + product.image.imagePath} alt={"Fotka produktu " + product.name} />
+            :
+                <div className="placeholder" />
+            }
             <div className="name">{product.name}</div>
             <div className="available" style={{ color: available ? colors.green : colors.red }}>{available ? "Na sklade" : "Nedostupné"}</div>
             
             <div className="bottom">
-                <a className="button" href={"/obchod/" + product.link} onClick={() => redirect(props.location, "/obchod/" + product.link)}>Kúpiť</a>
+                <a className="button" href={"/obchod/" + product.link}>Kúpiť</a>
                 <div className="price">{(product.price / 100).toFixed(2)}€</div>
             </div>
         </div>

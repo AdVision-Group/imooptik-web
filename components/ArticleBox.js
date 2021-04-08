@@ -11,10 +11,9 @@ export default function ArticleBox(props) {
     const src = API_URL + "/uploads/" + article.image.imagePath;
 
     return(
-        <Link
+        <a
             className="article-box"
-            to={"/blog/" + article._id}
-            onClick={() => redirect(props.location, "/blog/" + article._id)}
+            href={"/blog/" + article._id}
         >
             <img className="article-box-image" src={src} alt="Titulná fotka blogového príspevku" />
             
@@ -23,7 +22,7 @@ export default function ArticleBox(props) {
             <p className="article-box-description">{article.description}</p>
 
             <div className="button">Čítať viac</div>
-        </Link>
+        </a>
     )
 }
 

@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Home from "../screens/Home";
 import Api from "../config/Api";
 
-export default function HomeScreen({ bestsellers }) {
+export default function HomeScreen({ bestsellers, blogs }) {
     return (
         <div>
             <Head>
@@ -10,28 +10,41 @@ export default function HomeScreen({ bestsellers }) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <Home bestsellers={bestsellers} />
+            <Home bestsellers={bestsellers} blogs={blogs} />
         </div>
     )
 }
 
 export async function getServerSideProps(context) {
-    const call = await Api.getDistinctProducts({
+    const getBestsellers = await Api.getDistinctProducts({
         sortBy: {
             soldAmount: 1
         },
         limit: 5
     });
 
-    var bestsellers = [];
+    const getBlogs = await Api.getBlogs({
+        sortBy: {
+            date: 1
+        },
+        limit: 3
+    });
 
-    if (call.products) {
-        bestsellers = call.products;
+    var bestsellers = [];
+    var blogs = [];
+
+    if (getBestsellers.products) {
+        bestsellers = getBestsellers.products;
+    }
+
+    if (getBlogs.blogs) {
+        blogs = getBlogs.blogs;
     }
   
     return {
         props: {
-            bestsellers: bestsellers
+            bestsellers: bestsellers,
+            blogs: blogs
         }
     }
 }
