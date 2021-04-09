@@ -30,25 +30,25 @@ export async function getServerSideProps({ req }) {
             fetchedUser = {
                 firstname: user.name.split(" ")[0],
                 lastname: user.name.split(" ")[1],
-                email: user.email,
-                phone: user.phone,
-                address: user.address,
-                psc: user.psc,
-                city: user.city,
-                country: user.country,
+                email: user.email || "",
+                phone: user.phone || "",
+                address: user.address || "",
+                psc: user.psc || "",
+                city: user.city || "",
+                country: user.country || "",
                 company: null
             }
 
             if (user.company) {
                 company = {
-                    companyName: user.company.name,
-                    companyIco: user.company.ico,
-                    companyDic: user.company.dic,
-                    companyIcdph: user.company.icdph,
-                    companyAddress: user.company.address,
-                    companyPsc: user.company.psc,
-                    companyCity: user.company.city,
-                    companyCountry: user.company.country
+                    companyName: user.company.name || "",
+                    companyIco: user.company.ico || "",
+                    companyDic: user.company.dic || "",
+                    companyIcdph: user.company.icdph || "",
+                    companyAddress: user.company.address || "",
+                    companyPsc: user.company.psc || "",
+                    companyCity: user.company.city || "",
+                    companyCountry: user.company.country || ""
                 }
             }
 

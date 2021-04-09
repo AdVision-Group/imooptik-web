@@ -515,8 +515,7 @@ class Product extends React.Component {
                         loading: false,
                         message: "Produkt úspešne pridaný do košíka",
                         onPopupClose: () => {
-                            this.props.history.push("/kosik");
-                            redirect(this.props.location, "/kosik");
+                            window.location.href = "/kosik";
                         },
                         secondButtonClose: false
                     });
@@ -581,8 +580,7 @@ class Product extends React.Component {
                         loading: false,
                         message: "Produkt úspešne pridaný do košíka",
                         onPopupClose: () => {
-                            this.props.history.push("/kosik");
-                            redirect(this.props.location, "/kosik");
+                            window.location.href = "/kosik";
                         },
                         secondButtonClose: false
                     });
