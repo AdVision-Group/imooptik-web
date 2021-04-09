@@ -8,8 +8,6 @@ export default class SmoothScroll extends React.Component {
     }
 
     static scroll(hash, yOffset=0) {
-        var targetPosition = document.getElementById(hash.substring(1)).getBoundingClientRect().top;
-        var currentPosition = document.getElementById("header").getBoundingClientRect().top;
         var offset = document.getElementById("header").offsetHeight;
 
         if (hash === "#services" || hash === "#products") offset += 30;

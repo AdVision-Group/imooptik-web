@@ -11,6 +11,18 @@ import Heading from "../components/Heading";
 
 //import "../styles/home.css";
 
+import Lottie from "react-lottie";
+import brands from "../assets/animation/brands.json";
+
+const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: brands,
+    rendererSettings: {
+        preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+
 class Home extends React.Component {
 
     state = {
@@ -245,6 +257,10 @@ class Home extends React.Component {
 
                 <div className="brands" id="brands">
                     <a href="/obchod"><img className="image" id="brands-1" src={require("../assets/brands.svg")} alt="Značky" /></a>
+                    <Lottie options={defaultOptions}
+                        height={400}
+                        width={400}
+                    />
                 </div>
 
                 <div className="whyus">

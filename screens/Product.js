@@ -132,36 +132,17 @@ class Product extends React.Component {
     }
 
     async loadUser() {
-        const token = getStorageItem("token");
+        const { values } = this.props;
 
-        const call = await Api.profile(token);
-
-        if (call.user) {
-            const user = call.user;
-
-            var distanceOption = "short";
-
-            if (Object.values(user.lenses.diopters)[2] === 1001) {
-                distanceOption = "short"
-            } else {
-                distanceOption = "long";
-            }
-
+        if (values) {
             this.setState({
-                diopters: Object.values(user.lenses.diopters),
-                cylinder: Object.values(user.lenses.cylinder),
-                cylinderAxes: Object.values(user.lenses.cylinderAxes),
-                distance: Object.values(user.lenses.distance),
+                diopters: values.diopters,
+                cylinder: values.cylinder,
+                cylinderAxes: values.cylinderAxes,
+                distance: values.distance,
 
-                distanceOption: distanceOption,
-            });
-        } else {
-            this.setState({
-                diopters: [ "1001", "1001", "1001", "1001" ],
-                cylinder: [ "1001", "1001", "1001", "1001" ],
-                cylinderAxes: [ "1001", "1001", "1001", "1001" ],
-                distance: [ "1001", "1001", "1001", "1001" ],
-            });
+                distanceOption: values.distanceOption
+            })
         }
     }
 
@@ -336,16 +317,25 @@ class Product extends React.Component {
         const { modificationStage } = this.state;
 
         this.setState({ withDiopters: withDiopters }, () => {
-            if (withDiopters === "no-lens") {
-                this.setState({ modificationStage: 1 }, () => SmoothScroll.scroll("#add-to-cart-button", -30));
-                return;
-            };
-
-            if (modificationStage === 1) {
-                this.setState({ modificationStage: 2 }, () => SmoothScroll.scroll("#section-2", -30));
-            } else if (modificationStage === 3) {
-                this.loadLenses();
-                SmoothScroll.scroll("#section-4", -30);
+            if (withDiopters === "dioptric") {
+                if (modificationStage === 1) this.setState({ modificationStage: 2 }, () => SmoothScroll.scroll("#section-2", -30));
+                if (modificationStage === 2) SmoothScroll.scroll("#section-2", -30);
+                if (modificationStage === 3) {
+                    if (this.dioptersSet()) {
+                        this.loadLenses();
+                        SmoothScroll.scroll("#section-4", -30);
+                    } else {
+                        SmoothScroll.scroll("#section-3", -30);
+                    }
+                }
+            } else if (withDiopters === "non-dioptric") {
+                if (modificationStage === 1) this.setState({ modificationStage: 2 }, () => SmoothScroll.scroll("#section-2", -30));
+                if (modificationStage === 2) SmoothScroll.scroll("#section-2", -30);
+                if (modificationStage === 3) {
+                    SmoothScroll.scroll("#section-4", -30);
+                }
+            } else if (withDiopters === "no-lens") {
+                this.setState({ modificationStage: 1, lensType: "", polarised: null }, () => SmoothScroll.scroll("#add-to-cart-button", -30));
             }
         });
     }
@@ -354,37 +344,78 @@ class Product extends React.Component {
         const { modificationStage, withDiopters } = this.state;
 
         this.setState({
-            lensType: type,
+            lensType: type
         }, async () => {
-            if (modificationStage === 3) {
-                this.loadLenses();
-                SmoothScroll.scroll("#section-4", -30);
-            } else {
-                if (type !== "slnečné") {
-                    this.setState({
-                        modificationStage: 3
-                    }, () => {
-                        if (this.dioptersSet()) {
+            if (type === "slnečné") {
+                this.setState({ modificationStage: 2, polarised: null });
+                return;
+            }
+
+            if (withDiopters === "dioptric") {
+                if (modificationStage === 2) {
+                    if (this.dioptersSet()) {
+                        this.setState({ modificationStage: 3 }, () => {
                             this.loadLenses();
                             SmoothScroll.scroll("#section-4", -30);
-                        } else {
-                            SmoothScroll.scroll("#section-3", -30);
-                        }
+                        });
+                    } else {
+                        this.setState({ modificationStage: 3 }, () => SmoothScroll.scroll("#section-3", -30));
+                    }
+                } else if (modificationStage === 3) {
+                    if (this.dioptersSet()) {
+                        this.loadLenses();
+                        SmoothScroll.scroll("#section-4", -30);
+                    } else {
+                        SmoothScroll.scroll("#section-3", -30);
+                    }
+                }
+            } else if (withDiopters === "non-dioptric") {
+                if (modificationStage === 2) {
+                    this.setState({ modificationStage: 3 }, () => {
+                        this.loadLenses();
+                        SmoothScroll.scroll("#section-4", -30);
                     });
+                } else if (modificationStage === 3) {
+                    this.loadLenses();
+                    SmoothScroll.scroll("#section-4", -30);
                 }
             }
         });
     }
 
     changePolarised(polarised) {
-        const { modificationStage } = this.state;
+        const { modificationStage, withDiopters } = this.state;
 
         this.setState({ polarised: polarised, modificationStage: 3 }, () => {
-            if (modificationStage === 2) {
-                SmoothScroll.scroll("#section-3", -30);
-            } else if (modificationStage === 3) {
-                this.loadLenses();
-                SmoothScroll.scroll("#section-4", -30);
+            if (withDiopters === "dioptric") {
+                if (modificationStage === 2) {
+                    if (this.dioptersSet()) {
+                        this.setState({ modificationStage: 3 }, () => {
+                            this.loadLenses();
+                            SmoothScroll.scroll("#section-4", -30);
+                        });
+                    } else {
+                        this.setState({ modificationStage: 3 }, () => {
+                            SmoothScroll.scroll("#section-3", -30);
+                        });
+                    }
+                } else if (modificationStage === 3) {
+                    if (this.dioptersSet()) {
+                        this.setState({ modificationStage: 3 }, () => {
+                            this.loadLenses();
+                            SmoothScroll.scroll("#section-4", -30);
+                        });
+                    } else {
+                        this.setState({ modificationStage: 3 }, () => {
+                            SmoothScroll.scroll("#section-3", -30);
+                        });
+                    }
+                }
+            } else if (withDiopters === "non-dioptric") {
+                this.setState({ modificationStage: 3 }, () => {
+                    this.loadLenses();
+                    SmoothScroll.scroll("#section-4", -30);
+                });
             }
         });
     }
@@ -659,36 +690,38 @@ class Product extends React.Component {
     }
 
     dioptersSet() {
-        const { diopters, cylinder, cylinderAxes, distance, distanceOption } = this.state;
+        const { diopters, cylinder, cylinderAxes, distance, distanceOption, withDiopters } = this.state;
+
+        if (withDiopters === "non-dioptric") return false;
 
         if (distanceOption === "short") {
-            if (cylinder[0] === "1001" && cylinder[1] === "1001") {
-                if (diopters[0] !== "1001" && diopters[1] !== "1001" &&
-                    distance[0] !== "1001" && distance[1] !== "1001") {
+            if (cylinder[0] == "1001" && cylinder[1] == "1001") {
+                if (diopters[0] != "1001" && diopters[1] != "1001" &&
+                    distance[0] != "1001" && distance[1] != "1001") {
                 
                     return true;
                 }
             } else {
-                if (diopters[0] !== "1001" && diopters[1] !== "1001" &&
-                    cylinder[0] !== "1001" && cylinder[1] !== "1001" &&
-                    cylinderAxes[0] !== "1001" && cylinderAxes[1] !== "1001" &&
-                    distance[0] !== "1001" && distance[1] !== "1001") {
+                if (diopters[0] != "1001" && diopters[1] != "1001" &&
+                    cylinder[0] != "1001" && cylinder[1] != "1001" &&
+                    cylinderAxes[0] != "1001" && cylinderAxes[1] != "1001" &&
+                    distance[0] != "1001" && distance[1] != "1001") {
                 
                     return true;
                 }
             }
         } else {
-            if (cylinder[2] === "1001" && cylinder[3] === "1001") {
-                if (diopters[2] !== "1001" && diopters[3] !== "1001" &&
-                    distance[2] !== "1001" && distance[3] !== "1001") {
+            if (cylinder[2] == "1001" && cylinder[3] == "1001") {
+                if (diopters[2] != "1001" && diopters[3] != "1001" &&
+                    distance[2] != "1001" && distance[3] != "1001") {
                 
                     return true;
                 }
             } else {
-                if (diopters[2] !== "1001" && diopters[3] !== "1001" &&
-                    cylinder[2] !== "1001" && cylinder[3] !== "1001" &&
-                    cylinderAxes[2] !== "1001" && cylinderAxes[3] !== "1001" &&
-                    distance[2] !== "1001" && distance[3] !== "1001") {
+                if (diopters[2] != "1001" && diopters[3] != "1001" &&
+                    cylinder[2] != "1001" && cylinder[3] != "1001" &&
+                    cylinderAxes[2] != "1001" && cylinderAxes[3] != "1001" &&
+                    distance[2] != "1001" && distance[3] != "1001") {
                 
                     return true;
                 }
@@ -921,8 +954,8 @@ class Product extends React.Component {
                                                             distance={this.state.distance}
 
                                                             distanceOption={this.state.distanceOption}
-                                                            setDistanceShort={() => this.setState({ distanceOption: "short" }, () => this.state.modificationStage === 3 && this.dioptersSet() ? this.loadLenses() : {})}
-                                                            setDistanceLong={() => this.setState({ distanceOption: "long" }, () => this.state.modificationStage === 3 && this.dioptersSet() ? this.loadLenses() : {})}
+                                                            setDistanceShort={() => this.setState({ distanceOption: "short" })}
+                                                            setDistanceLong={() => this.setState({ distanceOption: "long" })}
 
                                                             lensId={this.state.lensId}
                                                             changeLens={this.changeLens}
@@ -1393,7 +1426,7 @@ function Modification(props) {
             </div>
             : null}
 
-            {props.modificationStage >= 3 && props.dioptersSet() ?
+            {props.modificationStage >= 3 && ((props.withDiopters === "dioptric" && props.dioptersSet()) || props.withDiopters === "non-dioptric") ?
             <div className="section" id="section-4">
                 <div className="title">
                     <div className="step">{props.withDiopters === "dioptric" ? "4" : "3"}</div>
