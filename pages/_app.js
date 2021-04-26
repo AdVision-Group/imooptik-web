@@ -51,6 +51,7 @@ function App({ Component, pageProps }) {
     <Layout>
       <Head>
           <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"></link>
       </Head>
 
       <Component {...pageProps} />

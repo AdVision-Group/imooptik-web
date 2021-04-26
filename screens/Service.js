@@ -27,7 +27,7 @@ class Service extends React.Component {
             <div className="screen" id="service">
                 <Title
                     title={service.title}
-                    image={require("../assets/about-2.jpg")}
+                    image={service.photo}
                 />
 
                 <div className="content">
@@ -39,6 +39,10 @@ class Service extends React.Component {
                         />
 
                         <div className="description">{service.description}</div>
+
+                        {service && service.video &&
+                            <iframe className="video" src={service.video} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        }
                     </div>
 
                     <div className="section section-2">
@@ -57,6 +61,10 @@ class Service extends React.Component {
                                         <div className="image" />
                                         <div className="name">{person.name}</div>
                                         <div className="role">{person.role.toUpperCase()}</div>
+
+                                        <div className="icon-panel">
+                                            {person.icons && person.icons.map(icon => <img className="icon" src={icon} />)}
+                                        </div>
                                     </div>
                                 )
                             }) : null}

@@ -1,5 +1,3 @@
-import React from "react";
-
 export const branches = [
     {
         name: "Bratislava - Obchodná 57",
@@ -11,17 +9,30 @@ export const branches = [
         hours: [ "Pon - Pia: 9:00 - 19:00", "So: 10:00 - 13:00" ],
         phone: "+421 904 533 732",
         email: "obchodna@imooptik.sk",
-        employees: [ "Daniela Kolarčíková", "Martina Hudecová", "Peter Imrich", "Lenka Dominová", "Ingrid Matuškovičová" ],
+        services: [
+            { title: "Vyšetrenie zraku", icon: require("../assets/sluzby/icons/vysetrenie-zraku.png") },
+            { title: "Aplikácia šošoviek", icon: require("../assets/sluzby/icons/aplikacia-sosoviek.png") },
+            { title: "Servis okuliarov", icon: require("../assets/sluzby/icons/servis-okuliarov.png") },
+            { title: "Expres vyhotovenie okuliarov", icon: require("../assets/sluzby/icons/expres-vyhotovenie-okuliarov.png") },
+            { title: "Individuálne multifokálne sklá", icon: require("../assets/sluzby/icons/individualne-multifokalne-skla.png") },
+        ],
+        employees: [],
         gallery: [
-            require("../assets/bratislava-obchodna/image-1.jpg"),
-            require("../assets/bratislava-obchodna/image-2.jpg"),
-            require("../assets/bratislava-obchodna/image-3.jpg"),
-            require("../assets/bratislava-obchodna/image-4.jpg"),
-            require("../assets/bratislava-obchodna/image-5.jpg"),
-            require("../assets/bratislava-obchodna/image-6.jpg"),
-            require("../assets/bratislava-obchodna/image-7.jpg"),
-            require("../assets/bratislava-obchodna/image-8.jpg"),
-            require("../assets/bratislava-obchodna/image-9.jpg"),
+            require("../assets/bratislava-obchodna/1.jpg"),
+            require("../assets/bratislava-obchodna/2.jpg"),
+            require("../assets/bratislava-obchodna/3.jpg"),
+            require("../assets/bratislava-obchodna/4.jpg"),
+            require("../assets/bratislava-obchodna/5.jpg"),
+            require("../assets/bratislava-obchodna/6.jpg"),
+            require("../assets/bratislava-obchodna/7.jpg"),
+            require("../assets/bratislava-obchodna/8.jpg"),
+            require("../assets/bratislava-obchodna/9.jpg"),
+            require("../assets/bratislava-obchodna/10.jpg"),
+            require("../assets/bratislava-obchodna/11.jpg"),
+            require("../assets/bratislava-obchodna/12.jpg"),
+            require("../assets/bratislava-obchodna/13.jpg"),
+            require("../assets/bratislava-obchodna/14.jpg"),
+            require("../assets/bratislava-obchodna/15.jpg"),
         ],
         calendar: 2,
         map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2662.001901968301!2d17.110490951550315!3d48.148768558258176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476c8945b3f52397%3A0x98ecf6f50aa329b2!2sImooptik!5e0!3m2!1ssk!2ssk!4v1617619173625!5m2!1ssk!2ssk"
@@ -36,17 +47,23 @@ export const branches = [
         hours: [ "Pon - Štv: 10:00 - 18:00", "Pia: 10:00 - 17:00", "Obed: 13:00 - 13:30" ],
         phone: "+421 948 784 197",
         email: "mileticova@imooptik.sk",
-        employees: [ "Daniela Kolarčíková", "Martina Hudecová", "Ingrid Matuškovičová" ],
+        services: [
+            { title: "Vyšetrenie zraku", icon: require("../assets/sluzby/icons/vysetrenie-zraku.png") },
+            { title: "Expres vyhotovenie okuliarov", icon: require("../assets/sluzby/icons/expres-vyhotovenie-okuliarov.png") },
+            { title: "Servis okuliarov", icon: require("../assets/sluzby/icons/servis-okuliarov.png") },
+        ],
+        employees: [],
         gallery: [
-            require("../assets/bratislava-obchodna/image-1.jpg"),
-            require("../assets/bratislava-obchodna/image-2.jpg"),
-            require("../assets/bratislava-obchodna/image-3.jpg"),
-            require("../assets/bratislava-obchodna/image-4.jpg"),
-            require("../assets/bratislava-obchodna/image-5.jpg"),
-            require("../assets/bratislava-obchodna/image-6.jpg"),
-            require("../assets/bratislava-obchodna/image-7.jpg"),
-            require("../assets/bratislava-obchodna/image-8.jpg"),
-            require("../assets/bratislava-obchodna/image-9.jpg"),
+            require("../assets/bratislava-mileticova/1.jpg"),
+            require("../assets/bratislava-mileticova/2.jpg"),
+            require("../assets/bratislava-mileticova/3.jpg"),
+            require("../assets/bratislava-mileticova/4.jpg"),
+            require("../assets/bratislava-mileticova/5.jpg"),
+            require("../assets/bratislava-mileticova/6.jpg"),
+            require("../assets/bratislava-mileticova/7.jpg"),
+            require("../assets/bratislava-mileticova/8.jpg"),
+            require("../assets/bratislava-mileticova/9.jpg"),
+            require("../assets/bratislava-mileticova/10.jpg"),
         ],
         calendar: 3,
         map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2661.6974886596026!2d17.132031851550458!3d48.154637057848944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476c8951fded2231%3A0xfacd2b3178518887!2sIMOOPTIK%20-%20O%C4%8Dn%C3%A1%20optika%20Mileti%C4%8Dova!5e0!3m2!1ssk!2ssk!4v1617619328873!5m2!1ssk!2ssk"
@@ -55,23 +72,30 @@ export const branches = [
         name: "Bratislava - Poliklinika Vajnory",
         link: "bratislava-rolnicka",
         label: "IMOOPTIK BRATISLAVA - Roľnícka 1",
-        address: "Roľnícka 1",
+        address: "Poliklinika Vajnory, Roľnícka 1",
         psc: "83107",
         city: "Bratislava",
         hours: [ "Uto - Pia: 9:00 - 19:00", "So: Vyšetrenia na objednávku" ],
         phone: "+421 917 093 148",
         email: "vajnory@imooptik.sk",
-        employees: [ "Martina Hudecová", "Peter Imrich", "Lenka Dominová", "Ingrid Matuškovičová" ],
+        services: [],
+        employees: [],
         gallery: [
-            require("../assets/bratislava-obchodna/image-1.jpg"),
-            require("../assets/bratislava-obchodna/image-2.jpg"),
-            require("../assets/bratislava-obchodna/image-3.jpg"),
-            require("../assets/bratislava-obchodna/image-4.jpg"),
-            require("../assets/bratislava-obchodna/image-5.jpg"),
-            require("../assets/bratislava-obchodna/image-6.jpg"),
-            require("../assets/bratislava-obchodna/image-7.jpg"),
-            require("../assets/bratislava-obchodna/image-8.jpg"),
-            require("../assets/bratislava-obchodna/image-9.jpg"),
+            require("../assets/bratislava-vajnory/1.jpg"),
+            require("../assets/bratislava-vajnory/2.jpg"),
+            require("../assets/bratislava-vajnory/3.jpg"),
+            require("../assets/bratislava-vajnory/4.jpg"),
+            require("../assets/bratislava-vajnory/5.jpg"),
+            require("../assets/bratislava-vajnory/6.jpg"),
+            require("../assets/bratislava-vajnory/7.jpg"),
+            require("../assets/bratislava-vajnory/8.jpg"),
+            require("../assets/bratislava-vajnory/9.jpg"),
+            require("../assets/bratislava-vajnory/10.jpg"),
+            require("../assets/bratislava-vajnory/11.jpg"),
+            require("../assets/bratislava-vajnory/12.jpg"),
+            require("../assets/bratislava-vajnory/13.jpg"),
+            require("../assets/bratislava-vajnory/14.jpg"),
+            require("../assets/bratislava-vajnory/15.jpg"),
         ],
         calendar: 4,
         map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2659.2477473362705!2d17.199340551551572!3d48.20184375455924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476c8fba1ba0efe9%3A0x596b772bd314e4e8!2sIMOOPTIK%20-%20O%C4%8Dn%C3%A1%20optika%20Poliklinika%20Vajnory!5e0!3m2!1ssk!2ssk!4v1617619368230!5m2!1ssk!2ssk"
@@ -86,18 +110,13 @@ export const branches = [
         hours: [ "Uto - Pia: 9:00 - 19:00", "So: Vyšetrenia na objednávku" ],
         phone: "+421 917 093 148",
         email: "vajnorska@imooptik.sk",
-        employees: [ "Martina Hudecová", "Peter Imrich", "Lenka Dominová", "Ingrid Matuškovičová" ],
-        gallery: [
-            require("../assets/bratislava-obchodna/image-1.jpg"),
-            require("../assets/bratislava-obchodna/image-2.jpg"),
-            require("../assets/bratislava-obchodna/image-3.jpg"),
-            require("../assets/bratislava-obchodna/image-4.jpg"),
-            require("../assets/bratislava-obchodna/image-5.jpg"),
-            require("../assets/bratislava-obchodna/image-6.jpg"),
-            require("../assets/bratislava-obchodna/image-7.jpg"),
-            require("../assets/bratislava-obchodna/image-8.jpg"),
-            require("../assets/bratislava-obchodna/image-9.jpg"),
+        services: [
+            { title: "Vyšetrenie zraku", icon: require("../assets/sluzby/icons/vysetrenie-zraku.png") },
+            { title: "Expres vyhotovenie okuliarov", icon: require("../assets/sluzby/icons/expres-vyhotovenie-okuliarov.png") },
+            { title: "Servis okuliarov", icon: require("../assets/sluzby/icons/servis-okuliarov.png") },
         ],
+        employees: [],
+        gallery: [],
         calendar: 5,
         map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2660.653722918552!2d17.142490451550927!3d48.17475475644741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476c8ec2e311eb9d%3A0xcf4f93695902fc22!2sVajnorsk%C3%A1%2C%20Bratislava!5e0!3m2!1ssk!2ssk!4v1617619436569!5m2!1ssk!2ssk"
     },
@@ -105,26 +124,43 @@ export const branches = [
         name: "Senica - OC Branč",
         link: "senica-namestie-oslobodenia",
         label: "IMOOPTIK SENICA - Nám. Oslobodenia 17",
-        address: "Nám. Oslobodenia 17",
+        address: "OC Branč, Nám. Oslobodenia 17",
         psc: "90501",
         city: "Senica",
         hours: [ "Pon - Pia: 9:00 - 17:00", "Obed: 11:30 - 12:00" ],
         phone: "+421 948 176 626",
         email: "senica@imooptik.sk",
-        employees: [ "Daniela Kolarčíková", "Ingrid Matuškovičová" ],
+        services: [
+            { title: "Vyšetrenie zraku", icon: require("../assets/sluzby/icons/vysetrenie-zraku.png") },
+            { title: "Aplikácia šošoviek", icon: require("../assets/sluzby/icons/aplikacia-sosoviek.png") },
+            { title: "Servis okuliarov", icon: require("../assets/sluzby/icons/servis-okuliarov.png") },
+            { title: "Expres vyhotovenie okuliarov", icon: require("../assets/sluzby/icons/expres-vyhotovenie-okuliarov.png") },
+            { title: "Individuálne multifokálne sklá", icon: require("../assets/sluzby/icons/individualne-multifokalne-skla.png") },
+        ],
+        employees: [
+            [ "Kristína Bendová", "Odborný predajca", require("../assets/senica-namestie-oslobodenia/zamestnanci/1-serious.jpg"), require("../assets/senica-namestie-oslobodenia/zamestnanci/1-funny.jpg") ],
+            [ "Veronika Španková", "Optometrista", require("../assets/senica-namestie-oslobodenia/zamestnanci/2-serious.jpg"), require("../assets/senica-namestie-oslobodenia/zamestnanci/2-funny.jpg") ],
+            [ "Juraj Škrabák", "Očný optik", require("../assets/senica-namestie-oslobodenia/zamestnanci/3-serious.jpg"), require("../assets/senica-namestie-oslobodenia/zamestnanci/3-funny.jpg") ]
+        ],
         gallery: [
-            require("../assets/bratislava-obchodna/image-1.jpg"),
-            require("../assets/bratislava-obchodna/image-2.jpg"),
-            require("../assets/bratislava-obchodna/image-3.jpg"),
-            require("../assets/bratislava-obchodna/image-4.jpg"),
-            require("../assets/bratislava-obchodna/image-5.jpg"),
-            require("../assets/bratislava-obchodna/image-6.jpg"),
-            require("../assets/bratislava-obchodna/image-7.jpg"),
-            require("../assets/bratislava-obchodna/image-8.jpg"),
-            require("../assets/bratislava-obchodna/image-9.jpg"),
+            require("../assets/senica-namestie-oslobodenia/1.jpg"),
+            require("../assets/senica-namestie-oslobodenia/2.jpg"),
+            require("../assets/senica-namestie-oslobodenia/3.jpg"),
+            require("../assets/senica-namestie-oslobodenia/4.jpg"),
+            require("../assets/senica-namestie-oslobodenia/5.jpg"),
+            require("../assets/senica-namestie-oslobodenia/6.jpg"),
+            require("../assets/senica-namestie-oslobodenia/7.jpg"),
+            require("../assets/senica-namestie-oslobodenia/8.jpg"),
+            require("../assets/senica-namestie-oslobodenia/9.jpg"),
+            require("../assets/senica-namestie-oslobodenia/10.jpg"),
+            require("../assets/senica-namestie-oslobodenia/11.jpg"),
+            require("../assets/senica-namestie-oslobodenia/12.jpg"),
+            require("../assets/senica-namestie-oslobodenia/13.jpg"),
+            require("../assets/senica-namestie-oslobodenia/14.jpg"),
+            require("../assets/senica-namestie-oslobodenia/15.jpg"),
         ],
         calendar: 6,
-        map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2634.2533040819526!2d17.364752551562884!3d48.68152152099559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476cb520f3a12c49%3A0xcd18d07335e92de3!2sIMOOPTIK%20-%20O%C4%8Dn%C3%A1%20Optika!5e0!3m2!1ssk!2ssk!4v1617619471644!5m2!1ssk!2ssk"
+        map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2634.334573959307!2d17.364791915974877!3d48.67996757927054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476cb520f3a12c49%3A0x5934b72b6c8e0066!2sN%C3%A1mestie%20Oslobodenia%2011%2F17%2C%20905%2001%20Senica!5e0!3m2!1ssk!2ssk!4v1619445581568!5m2!1ssk!2ssk"
     }
 ]
 
@@ -144,25 +180,31 @@ export const services = [
     {
         title: "Vyšetrenie zraku",
         link: "vysetrenie-zraku",
+        photo: require("../assets/sluzby/vysetrenie-zraku/photo.jpg"),
+        video: "https://www.youtube.com/embed/YlTZehELz7Y",
         heading: "Prečo absolvovať vyšetrenie zraku?",
         description: "Naše zrakové centrum disponuje kompletným moderným prístrojovým zariadením na aplikáciu kontaktných šošoviek a vyšetrenie zrakovej ostrosti. Náš tím optometristov je pripravený Vám pomôcť. Prikladáme zaujímavé video prečo by ste mali absolvovať vyšetrenie zrakovej ostrosti v rámci Vašej prevencie.",
         teamDescription: "Náš tím optometristov disponuje potrebným vzdelaním v oblasti optometrie a kontaktológie. Zabezpečujeme odborné vyšetrenie zraku, aplikáciu kontaktných šošoviek a poradenstvo. Na naše vyšetrenia poskytujeme plnú záruku. V prípade akýchkoľvek otázok nás neváhajte kontaktovať.",
         team: [
             {
                 name: "Bc. Pavel Honek",
-                role: "Optometrista, kontaktológ"
+                role: "Optometrista, kontaktológ",
+                icons: [ require("../assets/sluzby/icons/vysetrenie-zraku.png"), require("../assets/sluzby/icons/aplikacia-sosoviek.png") ]
             },
             {
                 name: "Helena Šišuláková",
-                role: "Optometrista, kontaktológ"
+                role: "Optometrista, kontaktológ",
+                icons: [ require("../assets/sluzby/icons/vysetrenie-zraku.png"), require("../assets/sluzby/icons/aplikacia-sosoviek.png") ]
             },
             {
                 name: "Daniela Kolarčíková",
-                role: "Optometrista"
+                role: "Optometrista",
+                icons: [ require("../assets/sluzby/icons/vysetrenie-zraku.png") ]
             },
             {
                 name: "Ingrid Matuškovičová",
-                role: "Optometrista, kontaktológ"
+                role: "Optometrista, kontaktológ",
+                icons: [ require("../assets/sluzby/icons/vysetrenie-zraku.png"), require("../assets/sluzby/icons/aplikacia-sosoviek.png") ]
             }
         ],
         pricingDescription: "Informácie o cenách a rozsah poskytovaných služieb v našom zrakovom centre. Upozorňujeme že u nás pri kúpe kompletných dioptrických okuliarov je vyšetrenie zraku zdarma. V cene aplikácie kontaktných šošoviek je zahrnutý roztok na šošovky, kontaktné šošovky, konzultácia, tréning a kontrola zákazníka. Kontaktné šošovky nám dodávajú firmy Cooper Vision a Johnson & Johnson.",
@@ -170,6 +212,7 @@ export const services = [
     },
     {
         title: "Aplikácia kontaktných šošoviek",
+        photo: require("../assets/sluzby/vysetrenie-zraku/photo.jpg"),
         link: "aplikacia-kontaktnych-sosoviek",
         heading: "Aplikácia šošoviek u nás",
         description: "Naše zrakové centrum disponuje kompletným moderným prístrojovým zariadením na aplikáciu kontaktných šošoviek a vyšetrenie zrakovej ostrosti. Náš tím optometristov je pripravený Vám pomôcť. Prikladáme zaujímavé video prečo by ste mali absolvovať vyšetrenie zrakovej ostrosti v rámci Vašej prevencie.",
@@ -177,19 +220,23 @@ export const services = [
         team: [
             {
                 name: "Bc. Pavel Honek",
-                role: "Optometrista, kontaktológ"
+                role: "Optometrista, kontaktológ",
+                icons: [ require("../assets/sluzby/icons/vysetrenie-zraku.png"), require("../assets/sluzby/icons/aplikacia-sosoviek.png") ]
             },
             {
                 name: "Helena Šišuláková",
-                role: "Optometrista, kontaktológ"
+                role: "Optometrista, kontaktológ",
+                icons: [ require("../assets/sluzby/icons/vysetrenie-zraku.png"), require("../assets/sluzby/icons/aplikacia-sosoviek.png") ]
             },
             {
                 name: "Daniela Kolarčíková",
-                role: "Optometrista"
+                role: "Optometrista",
+                icons: [ require("../assets/sluzby/icons/vysetrenie-zraku.png") ]
             },
             {
                 name: "Ingrid Matuškovičová",
-                role: "Optometrista, kontaktológ"
+                role: "Optometrista, kontaktológ",
+                icons: [ require("../assets/sluzby/icons/vysetrenie-zraku.png"), require("../assets/sluzby/icons/aplikacia-sosoviek.png") ]
             }
         ],
         pricingDescription: "Informácie o cenách a rozsah poskytovaných služieb v našom zrakovom centre. Upozorňujeme že u nás pri kúpe kompletných dioptrických okuliarov je vyšetrenie zraku zdarma. V cene aplikácie kontaktných šošoviek je zahrnutý roztok na šošovky, kontaktné šošovky, konzultácia, tréning a kontrola zákazníka. Kontaktné šošovky nám dodávajú firmy Cooper Vision a Johnson & Johnson.",
@@ -197,6 +244,7 @@ export const services = [
     },
     {
         title: "Servis okuliarov",
+        photo: require("../assets/sluzby/vysetrenie-zraku/photo.jpg"),
         link: "servis-okuliarov",
         heading: "Ako robíme servis okuliarov?",
         description: "Naše zrakové centrum disponuje kompletným moderným prístrojovým zariadením na aplikáciu kontaktných šošoviek a vyšetrenie zrakovej ostrosti. Náš tím optometristov je pripravený Vám pomôcť. Prikladáme zaujímavé video prečo by ste mali absolvovať vyšetrenie zrakovej ostrosti v rámci Vašej prevencie.",
@@ -204,19 +252,23 @@ export const services = [
         team: [
             {
                 name: "Bc. Pavel Honek",
-                role: "Optometrista, kontaktológ"
+                role: "Optometrista, kontaktológ",
+                icons: [ require("../assets/sluzby/icons/vysetrenie-zraku.png"), require("../assets/sluzby/icons/aplikacia-sosoviek.png") ]
             },
             {
                 name: "Helena Šišuláková",
-                role: "Optometrista, kontaktológ"
+                role: "Optometrista, kontaktológ",
+                icons: [ require("../assets/sluzby/icons/vysetrenie-zraku.png"), require("../assets/sluzby/icons/aplikacia-sosoviek.png") ]
             },
             {
                 name: "Daniela Kolarčíková",
-                role: "Optometrista"
+                role: "Optometrista",
+                icons: [ require("../assets/sluzby/icons/vysetrenie-zraku.png") ]
             },
             {
                 name: "Ingrid Matuškovičová",
-                role: "Optometrista, kontaktológ"
+                role: "Optometrista, kontaktológ",
+                icons: [ require("../assets/sluzby/icons/vysetrenie-zraku.png"), require("../assets/sluzby/icons/aplikacia-sosoviek.png") ]
             }
         ],
         pricingDescription: "Informácie o cenách a rozsah poskytovaných služieb v našom zrakovom centre. Upozorňujeme že u nás pri kúpe kompletných dioptrických okuliarov je vyšetrenie zraku zdarma. V cene aplikácie kontaktných šošoviek je zahrnutý roztok na šošovky, kontaktné šošovky, konzultácia, tréning a kontrola zákazníka. Kontaktné šošovky nám dodávajú firmy Cooper Vision a Johnson & Johnson.",

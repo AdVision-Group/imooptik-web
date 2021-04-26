@@ -109,6 +109,61 @@
     margin-bottom: 8px;
 }
 
+#branch .body .icon-panel {
+    display: flex;
+    flex-direction: row;
+
+    margin-top: 75px;
+}
+
+@media (max-width: 1200px) {
+    #branch .body .icon-panel {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 50px;
+    }
+}
+
+@media (max-width: 700px) {
+    #branch .body .icon-panel {
+        grid-template-columns: auto;
+        gap: 50px;
+    }
+}
+
+#branch .body .icon-panel .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 250px;
+}
+
+@media (max-width: 700px) {
+    #branch .body .icon-panel .item {
+        width: 100%;
+    }
+}
+
+#branch .body .icon-panel .item .icon {
+    width: 100px;
+    height: 100px;
+
+    margin-bottom: 25px;
+
+    border-radius: 50%;
+}
+
+#branch .body .icon-panel .item .info {
+    color: black;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 23px;
+
+    margin-bottom: 8px;
+}
+
 #branch .body .services-panel {
     width: 100%;
 
@@ -290,20 +345,76 @@
     width: 200px;
 }
 
-#branch .body .team-panel .item .image {
+#branch .body .team-panel .item .image-panel {
     width: 140px;
     height: 140px;
 
     margin-bottom: 20px;
 
     border-radius: 50%;
+}
 
-    background-color: rgba(0, 0, 0, 0.1);
+#branch .body .team-panel .item .image-panel {
+    width: 150px;
+    height: 150px;
+
+    margin-bottom: 20px;
+
+    overflow: hidden;
+
+    border-radius: 50%;
+
+    position: relative;
+}
+
+#branch .body .team-panel .item .image-panel .image-serious {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    filter: grayscale();
+
+    border-radius: 50%;
+
+    z-index: 2;
+}
+
+#branch .body .team-panel .item .image-panel .image-funny {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    opacity: 0;
+
+    border-radius: 50%;
+
+    z-index: 3;
+}
+
+#branch .body .team-panel .item .image-panel .image-funny:hover {
+    opacity: 1;
 }
 
 #branch .body .team-panel .item .name {
     color: black;
-    font-size: 19px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 20px;
+
+    margin-bottom: 5px;
+}
+
+#branch .body .team-panel .item .position {
+    color: rgb(235, 172, 1);
+    font-size: 14px;
     font-weight: 700;
 }
 

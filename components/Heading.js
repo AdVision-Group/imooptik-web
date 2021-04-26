@@ -1,6 +1,8 @@
 import React from "react";
+import Fade from "react-reveal";
 
 import { logout } from "../config/Config";
+import Animated from "./Animated";
 
 //import "../styles/heading.css";
 

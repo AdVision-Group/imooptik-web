@@ -6,8 +6,10 @@ import Api, { API_URL } from "../config/Api";
 import SmoothScroll from "../components/SmoothScroll";
 import ArticleBox from "../components/ArticleBox";
 import Popup from "../components/Popup";
-
 import Heading from "../components/Heading";
+import Animated from "../components/Animated";
+
+import Fade from "react-reveal";
 
 //import "../styles/home.css";
 
@@ -161,9 +163,11 @@ class Home extends React.Component {
 
                     <div className="content">
                         <h2 className="landing-title">Akcia 1+1 rám zdarma</h2>
+
                         <p className="text">
                             Využite jedinečnú príležitosť a získajte pri kúpe dvoch rámov ten druhý úplne zadarmo. Akcia trvá do konca marca, nezmeškajte!
                         </p>
+
                         <a className="button" href="/obchod">Nakupuj</a>
 
                         <img className="arrow" src={require("../assets/arrow.png")} alt="Šípka dole" onClick={() => SmoothScroll.scroll("#bestsellers")} />
@@ -257,10 +261,6 @@ class Home extends React.Component {
 
                 <div className="brands" id="brands">
                     <a href="/obchod"><img className="image" id="brands-1" src={require("../assets/brands.svg")} alt="Značky" /></a>
-                    <Lottie options={defaultOptions}
-                        height={400}
-                        width={400}
-                    />
                 </div>
 
                 <div className="whyus">
@@ -274,7 +274,7 @@ class Home extends React.Component {
                         <div className="item">
                             <div className="number">1</div>
                             <ion-icon name="glasses"></ion-icon>
-                            <h3 className="item-title">Široký výber okuliarií</h3>
+                            <h3 className="item-title">Široký výber okuliarov</h3>
                             <p className="item-text">
                                 Ponúkame široký výber okuliarií dostupný na prevádzkach tak ako aj na e-shope.
                             </p>
@@ -283,9 +283,9 @@ class Home extends React.Component {
                         <div className="item">
                             <div className="number">2</div>
                             <ion-icon name="people"></ion-icon>
-                            <h3 className="item-title">Kvalitné poradenstvo</h3>
+                            <h3 className="item-title">Okuliare na počkanie</h3>
                             <p className="item-text">
-                                Náš personál Vám vždy rád poradí a pomôže so všetkým, čo budete potrebovať.
+                                Náš personál Vám vždy rád poradí a svoje okuliare Vám pomôžeme vybrať a zabezpečiť na počkanie.
                             </p>
                         </div>
 
@@ -347,7 +347,7 @@ class Home extends React.Component {
 
                         <div className="content">
                             <a className="branch" href="/prevadzky/bratislava-obchodna">
-                                <img className="image" src={require("../assets/bratislava-obchodna/image-title.jpg")} alt="Prevádzka IMOOPTIK Obchodná 57 Bratislava" />
+                                <img className="image" src={require("../assets/bratislava-obchodna/1.jpg")} alt="Prevádzka IMOOPTIK Obchodná 57 Bratislava" />
                                 <div className="overlay" />
                                 <h3 className="title">IMOOPTIK OBCHODNÁ</h3>
                                 <p className="text">Obchodná 57, Bratislava 811 06</p>
@@ -355,7 +355,7 @@ class Home extends React.Component {
                             </a>
 
                             <a className="branch" href="/prevadzky/bratislava-mileticova">
-                                <img className="image" src={require("../assets/about-1.jpg")} alt="Prevádzka IMOOPTIK Miletičova 38 Bratislava" />
+                                <img className="image" src={require("../assets/bratislava-mileticova/1.jpg")} alt="Prevádzka IMOOPTIK Miletičova 38 Bratislava" />
                                 <div className="overlay" />
                                 <h3 className="title">IMOOPTIK MILETIČOVA</h3>
                                 <p className="text">Miletičova 38, Bratislava 821 08</p>
@@ -363,15 +363,15 @@ class Home extends React.Component {
                             </a>
 
                             <a className="branch" href="/prevadzky/bratislava-rolnicka">
-                                <img className="image" src={require("../assets/about-1.jpg")} alt="Prevádzka IMOOPTIK Roľnícka 1 Bratislava" />
+                                <img className="image" src={require("../assets/bratislava-vajnory/1.jpg")} alt="Prevádzka IMOOPTIK Roľnícka 1 Bratislava" />
                                 <div className="overlay" />
                                 <h3 className="title">IMOOPTIK ROĽNÍCKA</h3>
-                                <p className="text">Roľnícka 1, Bratislava 831 07</p>
+                                <p className="text">Roľnícka 1, Poliklinika Vajnory, Bratislava 831 07</p>
                                 <div className="button">Viac o pobočke</div>
                             </a>
 
                             <a className="branch" href="/prevadzky/bratislava-vajnorska">
-                                <img className="image" src={require("../assets/about-1.jpg")} alt="Prevádzka IMOOPTIK Vajnorská Bratislava" />
+                                <img className="image" src={require("../assets/bratislava-vajnory/1.jpg")} alt="Prevádzka IMOOPTIK Vajnorská Bratislava" />
                                 <div className="overlay" />
                                 <h3 className="title">IMOOPTIK VAJNORSKÁ</h3>
                                 <p className="text">Vajnorská, Bratislava 831 07</p>
@@ -379,10 +379,10 @@ class Home extends React.Component {
                             </a>
 
                             <a className="branch" href="/prevadzky/senica-namestie-oslobodenia">
-                                <img className="image" src={require("../assets/about-1.jpg")} alt="Prevádzka IMOOPTIK Nám. Oslobodenia 17 Senica" />
+                                <img className="image" src={require("../assets/senica-namestie-oslobodenia/1.jpg")} alt="Prevádzka IMOOPTIK Nám. Oslobodenia 17 Senica" />
                                 <div className="overlay" />
                                 <h3 className="title">IMOOPTIK SENICA</h3>
-                                <p className="text">Nám. Oslobodenia 17, Senica</p>
+                                <p className="text">Nám. Oslobodenia 17, OC Branč, Senica</p>
                                 <div className="button">Viac o pobočke</div>
                             </a>
                         </div>

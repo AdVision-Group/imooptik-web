@@ -1,7 +1,7 @@
 import React from "react";
 
-//export const API_URL = "https://coronashop.store:8080";
-export const API_URL = "https://imooptik-backend-jbuievsjdq-ew.a.run.app";
+export const API_URL = "https://coronashop.store:8080";
+//export const API_URL = "https://imooptik-backend-jbuievsjdq-ew.a.run.app";
 
 export default class Api extends React.Component {
 

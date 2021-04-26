@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter } from "next/router";
 
 import Api from "../config/Api";
+import { branches } from "../config/Database";
 import Title from "../components/Title";
 import Popup from "../components/Popup";
 import Heading from "../components/Heading";
@@ -11,6 +12,8 @@ import Gallery from "../components/Gallery";
 class Branch extends React.Component {
 
     state = {
+        services: [],
+
         galleryShowing: false,
         currentPhoto: 0,
 
@@ -72,10 +75,6 @@ class Branch extends React.Component {
         }
     }
 
-    componentDidMount() {
-        
-    }
-
     openGallery(currentPhoto) {
         this.setState({ galleryShowing: true, currentPhoto: currentPhoto });
     }
@@ -85,14 +84,17 @@ class Branch extends React.Component {
     }
 
     render() {
-        const branch = this.props.branch;
-        const services = this.props.services || [];
+        const branch = JSON.parse(this.props.branch);
+        const services = JSON.parse(this.props.services);
+
+        console.log(branch);
+        console.log(services);
 
         return(
             <div className="screen" id="branch">
                 <Title
                     title={branch.label}
-                    image={require("../assets/about-2.jpg")}
+                    image={branch.gallery.length > 0 ? branch.gallery[0] : require("../assets/about-2.jpg")}
                 />
 
                 <div className="body">
@@ -115,17 +117,36 @@ class Branch extends React.Component {
                         </div>
                     </div>
 
-                    {services.length > 0 ?
+                    {branch.services && branch.services.length > 0 &&
                     <div className="section">
                         <Heading
                             heading="SLUŽBY"
+                            title="Služby na pobočke"
+                            withBorder
+                        />
+
+                        <div className="icon-panel">
+                            {branch.services.map(service =>
+                                <div className="item">
+                                    <img className="icon" src={service.icon} />
+                                    <div className="info">{service.title}</div>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                    }
+
+                    {services && services.length > 0 ?
+                    <div className="section">
+                        <Heading
+                            heading="VYŠETRENIA"
                             title="Vyšetrenia, ktoré ponúkame"
                             withBorder
                         />
 
                         <div className="services-panel">
                             {services.map((service) => (
-                                <a className="pricing-panel" href="/rezervacia-terminu">
+                                <a className="pricing-panel" href="/rezervacia-terminu" onClick={() => redirect(this.props.location, "/rezervacia-terminu")}>
                                     <div className="top-panel">
                                         <h3 className="name">{service.name}</h3>
                                         <p className="price">{service.price}€</p>
@@ -147,6 +168,7 @@ class Branch extends React.Component {
                     </div>
                     : null}
 
+                    {branch.employees.length > 0 &&
                     <div className="section">
                         <Heading
                             heading="NÁŠ TÍM"
@@ -158,14 +180,20 @@ class Branch extends React.Component {
                             {branch.employees ? branch.employees.map((person) => {
                                 return(
                                     <div className="item">
-                                        <div className="image" />
-                                        <div className="name">{person}</div>
+                                        <div className="image-panel">
+                                            <img className="image-serious" src={person[2]} />
+                                            <img className="image-funny" src={person[3]} />
+                                        </div>
+                                        <div className="name">{person[0]}</div>
+                                        <div className="position">{person[1].toUpperCase()}</div>
                                     </div>
                                 )
                             }) : null}
                         </div>
                     </div>
+                    }
 
+                    {branch.gallery.length > 0 &&
                     <div className="section">
                         <Heading
                             heading="GALÉRIA"
@@ -177,6 +205,7 @@ class Branch extends React.Component {
                             {branch.gallery ? branch.gallery.map((image, index) => <img className="image" src={image} onClick={() => this.openGallery(index)} alt="Fotka z galérie priestorov pobočky IMOOPTIK" />) : null}
                         </div>
                     </div>
+                    }
 
                     <div className="section form-panel">
                         <Heading
@@ -214,7 +243,7 @@ class Branch extends React.Component {
                     </div>
                 </div>
 
-                <iframe className="map" src={this.props.branch.map} allowfullscreen="" loading="lazy"></iframe>
+                <iframe className="map" src={branch.map} allowfullscreen="" loading="lazy"></iframe>
 
                 {this.state.galleryShowing ?
                     <Gallery gallery={this.props.branch.gallery} currentPhoto={this.state.currentPhoto} close={this.closeGallery} />

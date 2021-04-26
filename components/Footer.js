@@ -49,43 +49,43 @@ class Footer extends React.Component {
                     <div className="column">
                         <p className="title">Pobočky</p>
 
-                        <div className="text" to="/bratislava-obchodna" onClick={() => redirect(this.props.location, "/bratislava-obchodna")}>
+                        <a className="text" href="/prevadzky/bratislava-obchodna">
                             <ion-icon name="storefront-outline"></ion-icon>
                             Obchodná 57, Bratislava
-                        </div>
+                        </a>
+                        <a className="text" href="tel: +421904533732"><ion-icon name="call-outline"></ion-icon>+421 904 533 732</a>
 
-                        <div className="text" to="/bratislava-mileticova" onClick={() => redirect(this.props.location, "/bratislava-mileticova")}>
+                        <div style={{ height: 15 }} />
+
+                        <a className="text" href="/prevadzky/bratislava-mileticova">
                             <ion-icon name="storefront-outline"></ion-icon>
                             Miletičova 38, Bratislava
-                        </div>
+                        </a>
+                        <a className="text" href="tel: +421948784197"><ion-icon name="call-outline"></ion-icon>+421 948 784 197</a>
 
-                        <div className="text" to="/bratislava-rolnicka" onClick={() => redirect(this.props.location, "/bratislava-rolnicka")}>
+                        <div style={{ height: 15 }} />
+
+                        <a className="text" href="/prevadzky/bratislava-rolnicka">
                             <ion-icon name="storefront-outline"></ion-icon>
                             Vajnory, Bratislava
-                        </div>
+                        </a>
+                        <a className="text" href="tel: +421917093148"><ion-icon name="call-outline"></ion-icon>+421 917 093 148</a>
 
-                        <div className="text" to="/bratislava-vajnorska" onClick={() => redirect(this.props.location, "/bratislava-vajnorska")}>
+                        <div style={{ height: 15 }} />
+
+                        <a className="text" href="/prevadzky/bratislava-vajnorska">
                             <ion-icon name="storefront-outline"></ion-icon>
                             Vajnorská, Bratislava
-                        </div>
-
-                        <div className="text" to="/senica-namestie-oslobodenia" onClick={() => redirect(this.props.location, "/senica-namestie-oslobodenia")}>
-                            <ion-icon name="storefront-outline"></ion-icon>
-                            Senica, OC Branč
-                        </div>
-                    </div>
-
-                    <div className="column">
-                        <p className="title">Kontakt</p>
-
-                        <p className="text"><ion-icon name="location-outline"></ion-icon>Obchodná 57, Bratislava</p>
-                        <a className="text" href="mailto: info@imooptik.sk"><ion-icon name="mail-outline"></ion-icon>info@imooptik.sk</a>
+                        </a>
                         <a className="text" href="tel: +421905553250"><ion-icon name="call-outline"></ion-icon>+421 905 553 250</a>
 
-                        <div style={{ height: 20 }} />
+                        <div style={{ height: 15 }} />
 
-                        <a className="text" href="https://facebook.com"><ion-icon name="logo-facebook"></ion-icon>Facebook</a>
-                        <a className="text" href="https://instagram.com"><ion-icon name="logo-instagram"></ion-icon>Instagram</a>
+                        <a className="text" href="/prevadzky/senica-namestie-oslobodenia">
+                            <ion-icon name="storefront-outline"></ion-icon>
+                            Senica, OC Branč
+                        </a>
+                        <a className="text" href="tel: +421948176626"><ion-icon name="call-outline"></ion-icon>+421 948 176 626</a>
                     </div>
 
                     <div className="column">
