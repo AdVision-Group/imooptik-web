@@ -181,34 +181,119 @@ export const services = [
         title: "Vyšetrenie zraku",
         link: "vysetrenie-zraku",
         photo: require("../assets/sluzby/vysetrenie-zraku/photo.jpg"),
+
         video: "https://www.youtube.com/embed/YlTZehELz7Y",
-        heading: "Prečo absolvovať vyšetrenie zraku?",
-        description: "Naše zrakové centrum disponuje kompletným moderným prístrojovým zariadením na aplikáciu kontaktných šošoviek a vyšetrenie zrakovej ostrosti. Náš tím optometristov je pripravený Vám pomôcť. Prikladáme zaujímavé video prečo by ste mali absolvovať vyšetrenie zrakovej ostrosti v rámci Vašej prevencie.",
+        videoDescription: "Pozrite si video, ktoré vám ukáže dôvody, prečo by ste mali absolvovať vyšetrenie zrakovej ostrosti v rámci prevencie",
+
+        heading: "Vyšetrenie zraku u nás",
+        description: "Naši skúsení optometristi vám radi pomôžu s nastavením zrakovej korekcie k vašej spokojnosti. Vyšetrenia trvá od 20 do 45 minút, je to čas, ktorý investujete do svojho zdravia.",
+        
+        preparation: [
+            {
+                icon: require("../assets/sluzby/vysetrenie-zraku/priprava/1.png"),
+                text: "Pre klientov pracujúcich s počítačmi alebo inými zariadeniami odporúčame prísť na vyšetrenie pred prácou, prípadne počas voľna."
+            },
+            {
+                icon: require("../assets/sluzby/vysetrenie-zraku/priprava/2.png"),
+                text: "Pre nositeľov kontaktných šošoviek je nutné 2 hodiny pred vyšetrením kontaktné šošovky vybrať a prísť na vyšetrenie v okuliaroch. Pre maximálny komfort a najpresnejšie výsledky vyšetrenia je najlepšie kontaktné šošovky nenosiť 48 hodín pred vyšetrením."
+            },
+            {
+                icon: require("../assets/sluzby/vysetrenie-zraku/priprava/3.png"),
+                text: "Pred vyšetrením odporúčame sa dobre vyspať. :)"
+            }
+        ],
+
+        process: [
+            {
+                title: "Anamnéza",
+                text: "Pre lekára vykonávajúceho vyšetrenie je dôležité zistiť vaše aktuálne problémy so zrakom, problémy z minulosti, prekonané choroby a operácie. Taktiež ho bude zaujímať vaše povolanie, čas strávený za počítačom. Dobré je vedieť aj vzdialenosť od obrazovky počítača v prípade, že pociťujete problémy s videním pri práci za počítačom."
+            },
+            {
+                title: "Naturálny vízus",
+                text: "Naturálny vízus kontrolujeme pomocou špeciálnych znakov, ktoré vám budeme premietať na LCD displeji. Displej sa nachádza vo vzdialenosti 5m. Tu sledujeme ako je klient schopný čítať znaky bez okuliarov v rôznych veľkostiach. Riadky, ktoré čítate sú označené číslami, ktoré nám povedia váš vízus."
+            },
+            {
+                title: "Objektívna refrakcia",
+                text: "Po zistení stavu vášho vizusu – videnia, vám zmeriame zrak pomocou špeciálneho prístroja, ktorý sa nazýva autorefraktokeratometer. Tento prístroj nám určí Vašu objektívnu refrakciu, teda výšku vašej dioptrie a cylindra."
+            },
+            {
+                title: "Subjektívna refrakcia",
+                text: "Týmto vyšetrením sa ukáže umenie skutočného odborníka. Do skušobnej obruby vám budeme postupne vkladať skušobné dioptrické sklá, cez ktoré nám budete na displeji LCD obrazovky čítať jednotlivé znaky. Na základe výsledku vám určíme presnú dioptrickú hodnotu, respektíve hodnotu astigmatizmu. Konečnú silu korekcie následne kontrolujeme pomocou červeno-zelených testov, po ktorých nasleduje aj dôležitý test binokulárneho videnia, čiže spolupráce oboch očí."
+            },
+            {
+                title: "Kontrola refrakcie",
+                text: "Ide o finálnu kontrolu v reálnom svete. Budú vám nasadené zvolené dioptrie, s ktorými sa prejdete po priestoroch našej optiky a poobzeráte sa po okolí. Je potrebné zistiť, akú mohutnosť dioptrií, respektíve mohutnosť cylindra znášate aj v praxi. Následne vám korekciu doladíme k vašej spokojnosti."
+            },
+            {
+                title: "Videnie do blízka",
+                text: "Na záver vám otestujeme aj vašu schopnosť zaostrenia na blízko."
+            },
+            {
+                title: "Záver vyšetrenia",
+                text: "Výsledkom vyšetrenia zraku je správa o vašich aktuálnych dioptriách do diaľky, do blízka, prípadne na inú pracovnú vzdialenosť. Na základe tohto vyšetrenia vám radi zhotovíme okuliare priamo v našej optike, pričom vyšetrenie zraku v prípade kúpy okuliarov dostanete od nás ZADARMO. Vyšetrením u nás sa ale nijak nezaväzujete k nákupu okuliarov v našej optike. Vyšetrenie môžete absolvovať aj keď máte vybrané okuliare v inej optike – správu vám vydáme, na základe nej vám vydajú príslušné okuliare, avšak je potrebné si uvedomiť, že pre každého zákazníka je lepšie ma všetko pod jednou strechou. Mercedes je lepšie servírovať v Mercedese :)"
+            }
+        ],
+
+        carouselPhotos: [
+            require("../assets/bratislava-obchodna/1.jpg"),
+            require("../assets/bratislava-obchodna/2.jpg"),
+            require("../assets/bratislava-obchodna/3.jpg"),
+            require("../assets/bratislava-obchodna/4.jpg"),
+            require("../assets/bratislava-obchodna/5.jpg"),
+        ],
+
         teamDescription: "Náš tím optometristov disponuje potrebným vzdelaním v oblasti optometrie a kontaktológie. Zabezpečujeme odborné vyšetrenie zraku, aplikáciu kontaktných šošoviek a poradenstvo. Na naše vyšetrenia poskytujeme plnú záruku. V prípade akýchkoľvek otázok nás neváhajte kontaktovať.",
         team: [
             {
-                name: "Bc. Pavel Honek",
+                name: "Veronika Španková",
                 role: "Optometrista, kontaktológ",
+                branch: "Senica, OC Branč",
+                days: "Pondelok - piatok",
                 icons: [ require("../assets/sluzby/icons/vysetrenie-zraku.png"), require("../assets/sluzby/icons/aplikacia-sosoviek.png") ]
             },
             {
                 name: "Helena Šišuláková",
                 role: "Optometrista, kontaktológ",
+                branch: "Miletičova 38, Bratislava",
+                days: "Pondelok a piatok",
                 icons: [ require("../assets/sluzby/icons/vysetrenie-zraku.png"), require("../assets/sluzby/icons/aplikacia-sosoviek.png") ]
             },
             {
                 name: "Daniela Kolarčíková",
                 role: "Optometrista",
+                branch: "Obchodná 57, Bratislava",
+                days: "Pondelok a utorok",
                 icons: [ require("../assets/sluzby/icons/vysetrenie-zraku.png") ]
             },
             {
                 name: "Ingrid Matuškovičová",
                 role: "Optometrista, kontaktológ",
+                branch: "Obchodná 57, Bratislava",
+                days: "Streda a piatok",
                 icons: [ require("../assets/sluzby/icons/vysetrenie-zraku.png"), require("../assets/sluzby/icons/aplikacia-sosoviek.png") ]
+            },
+            {
+                name: "Očný lekár",
+                role: "Doktor",
+                branch: "Roľnícka 1, Vajnory",
+                days: "Sobota",
+                icons: [ require("../assets/sluzby/icons/vysetrenie-zraku.png") ]
             }
         ],
-        pricingDescription: "Informácie o cenách a rozsah poskytovaných služieb v našom zrakovom centre. Upozorňujeme že u nás pri kúpe kompletných dioptrických okuliarov je vyšetrenie zraku zdarma. V cene aplikácie kontaktných šošoviek je zahrnutý roztok na šošovky, kontaktné šošovky, konzultácia, tréning a kontrola zákazníka. Kontaktné šošovky nám dodávajú firmy Cooper Vision a Johnson & Johnson.",
-        pricing: [ 15, 25 ]
+        
+        equipment: {
+            heading: "Vybavenie",
+            title: "Strojové vybavenie",
+            description: "O váš zrak sa postarajú nielen skúsený odborníci ale i kvalitne prístroje značky Top con auto Kerato Refraktometer KR-1/RM-1 nová generácia refrakčnej starostlivosti",
+            logo: require("../assets/sluzby/vysetrenie-zraku/topcon-logo.png"),
+            photos: [
+                require("../assets/bratislava-obchodna/1.jpg"),
+                require("../assets/bratislava-obchodna/2.jpg"),
+                require("../assets/bratislava-obchodna/3.jpg"),
+                require("../assets/bratislava-obchodna/4.jpg"),
+                require("../assets/bratislava-obchodna/5.jpg"),
+            ]
+        }
     },
     {
         title: "Aplikácia kontaktných šošoviek",
@@ -219,23 +304,17 @@ export const services = [
         teamDescription: "Náš tím optometristov disponuje potrebným vzdelaním v oblasti optometrie a kontaktológie. Zabezpečujeme odborné vyšetrenie zraku, aplikáciu kontaktných šošoviek a poradenstvo. Na naše vyšetrenia poskytujeme plnú záruku. V prípade akýchkoľvek otázok nás neváhajte kontaktovať.",
         team: [
             {
-                name: "Bc. Pavel Honek",
+                name: "Veronika Španková",
                 role: "Optometrista, kontaktológ",
+                branch: "Senica, OC Branč",
+                days: "Pondelok - piatok",
                 icons: [ require("../assets/sluzby/icons/vysetrenie-zraku.png"), require("../assets/sluzby/icons/aplikacia-sosoviek.png") ]
-            },
-            {
-                name: "Helena Šišuláková",
-                role: "Optometrista, kontaktológ",
-                icons: [ require("../assets/sluzby/icons/vysetrenie-zraku.png"), require("../assets/sluzby/icons/aplikacia-sosoviek.png") ]
-            },
-            {
-                name: "Daniela Kolarčíková",
-                role: "Optometrista",
-                icons: [ require("../assets/sluzby/icons/vysetrenie-zraku.png") ]
             },
             {
                 name: "Ingrid Matuškovičová",
                 role: "Optometrista, kontaktológ",
+                branch: "Obchodná 57, Bratislava",
+                days: "Streda a piatok",
                 icons: [ require("../assets/sluzby/icons/vysetrenie-zraku.png"), require("../assets/sluzby/icons/aplikacia-sosoviek.png") ]
             }
         ],

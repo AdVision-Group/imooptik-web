@@ -273,38 +273,57 @@ class Home extends React.Component {
                     <div className="content">
                         <div className="item">
                             <div className="number">1</div>
-                            <ion-icon name="glasses"></ion-icon>
-                            <h3 className="item-title">Široký výber okuliarov</h3>
+                            <img className="icon" src={require("../assets/why-us-1.png")} />
+                            <h3 className="item-title">Očné vyšetrenie</h3>
                             <p className="item-text">
-                                Ponúkame široký výber okuliarií dostupný na prevádzkach tak ako aj na e-shope.
+                                Objednajte sa online na odborné vyšetrenie zraku alebo aplikáciu  kontaktných šošoviek pomocou  nášho rezervačného systému.
                             </p>
+                            <div style={{ flex: 1 }} />
+                            <a className="button" href="/rezervacia-terminu">Objednať</a>
                         </div>
 
                         <div className="item">
                             <div className="number">2</div>
-                            <ion-icon name="people"></ion-icon>
-                            <h3 className="item-title">Okuliare na počkanie</h3>
+                            <img className="icon" src={require("../assets/why-us-2.png")} />
+                            <h3 className="item-title">Expresné vyhotovenie okuliarov</h3>
                             <p className="item-text">
-                                Náš personál Vám vždy rád poradí a svoje okuliare Vám pomôžeme vybrať a zabezpečiť na počkanie.
+                                Potrebujete okuliare ihneď? Služba expresného vyhotovenia okuliarov do 45 minút je tu pre vás. 
                             </p>
+                            <div style={{ flex: 1 }} />
+                            <div className="button" onClick={() => SmoothScroll.scroll("#branches")}>Prevádzky</div>
                         </div>
 
                         <div className="item">
                             <div className="number">3</div>
-                            <ion-icon name="cart"></ion-icon>
-                            <h3 className="item-title">Pohodlné nakupovanie</h3>
+                            <img className="icon" src={require("../assets/why-us-3.png")} />
+                            <h3 className="item-title">Servis okuliarov</h3>
                             <p className="item-text">
-                                Nakupujte z nášho nového e-shopu rýchlo a pohodlne. Tovar Vám bude doručený priamo domov.
+                                Ponúkame kompletný servis vašich okuliarov od výmeny skla až po úpravu rámov
                             </p>
+                            <div style={{ flex: 1 }} />
+                            <a className="button" href="/sluzby/servis-okuliarov">Servis</a>
                         </div>
 
                         <div className="item">
                             <div className="number">4</div>
-                            <ion-icon name="eye"></ion-icon>
-                            <h3 className="item-title">Očné vyšetrenia</h3>
+                            <img className="icon" src={require("../assets/why-us-4.png")} />
+                            <h3 className="item-title">Široký výber okuliarov</h3>
                             <p className="item-text">
-                                Objednajte sa na vyšetrenie alebo konzultáciu pomocou nášho formulára na webstránke.
+                                Ponúkame široký výber dioptrických a slnečných okuliarov rôznych svetových značiek 
                             </p>
+                            <div style={{ flex: 1 }} />
+                            <a className="button" href="/obchod">E-shop</a>
+                        </div>
+
+                        <div className="item">
+                            <div className="number">1</div>
+                            <img className="icon" src={require("../assets/why-us-5.png")} />
+                            <h3 className="item-title">Výhodné akčné ponuky</h3>
+                            <p className="item-text">
+                                Pri kúpe jedného rámu dostanete druhý zadarmo. Pozrite si našu bohatú ponuku a výhodné ceny online
+                            </p>
+                            <div style={{ flex: 1 }} />
+                            <a className="button" href="/obchod">E-shop</a>
                         </div>
                     </div>
                 </div>
@@ -350,7 +369,9 @@ class Home extends React.Component {
                                 <img className="image" src={require("../assets/bratislava-obchodna/1.jpg")} alt="Prevádzka IMOOPTIK Obchodná 57 Bratislava" />
                                 <div className="overlay" />
                                 <h3 className="title">IMOOPTIK OBCHODNÁ</h3>
+                                <div style={{ flex: 1 }} />
                                 <p className="text">Obchodná 57, Bratislava 811 06</p>
+                                <div style={{ flex: 1 }} />
                                 <div className="button">Viac o pobočke</div>
                             </a>
 
@@ -358,7 +379,9 @@ class Home extends React.Component {
                                 <img className="image" src={require("../assets/bratislava-mileticova/1.jpg")} alt="Prevádzka IMOOPTIK Miletičova 38 Bratislava" />
                                 <div className="overlay" />
                                 <h3 className="title">IMOOPTIK MILETIČOVA</h3>
+                                <div style={{ flex: 1 }} />
                                 <p className="text">Miletičova 38, Bratislava 821 08</p>
+                                <div style={{ flex: 1 }} />
                                 <div className="button">Viac o pobočke</div>
                             </a>
 
@@ -366,7 +389,9 @@ class Home extends React.Component {
                                 <img className="image" src={require("../assets/bratislava-vajnory/1.jpg")} alt="Prevádzka IMOOPTIK Roľnícka 1 Bratislava" />
                                 <div className="overlay" />
                                 <h3 className="title">IMOOPTIK ROĽNÍCKA</h3>
+                                <div style={{ flex: 1 }} />
                                 <p className="text">Roľnícka 1, Poliklinika Vajnory, Bratislava 831 07</p>
+                                <div style={{ flex: 1 }} />
                                 <div className="button">Viac o pobočke</div>
                             </a>
 
@@ -374,7 +399,9 @@ class Home extends React.Component {
                                 <img className="image" src={require("../assets/bratislava-vajnory/1.jpg")} alt="Prevádzka IMOOPTIK Vajnorská Bratislava" />
                                 <div className="overlay" />
                                 <h3 className="title">IMOOPTIK VAJNORSKÁ</h3>
+                                <div style={{ flex: 1 }} />
                                 <p className="text">Vajnorská, Bratislava 831 07</p>
+                                <div style={{ flex: 1 }} />
                                 <div className="button">Viac o pobočke</div>
                             </a>
 
@@ -382,7 +409,9 @@ class Home extends React.Component {
                                 <img className="image" src={require("../assets/senica-namestie-oslobodenia/1.jpg")} alt="Prevádzka IMOOPTIK Nám. Oslobodenia 17 Senica" />
                                 <div className="overlay" />
                                 <h3 className="title">IMOOPTIK SENICA</h3>
+                                <div style={{ flex: 1 }} />
                                 <p className="text">Nám. Oslobodenia 17, OC Branč, Senica</p>
+                                <div style={{ flex: 1 }} />
                                 <div className="button">Viac o pobočke</div>
                             </a>
                         </div>
