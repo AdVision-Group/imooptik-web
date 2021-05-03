@@ -224,14 +224,18 @@ class Header extends React.Component {
                             </a>
                         </Link>
 
-                        <Link href="/">
-                            <a className="link" onClick={() => showTransition()}>
+                        <Link href={this.props.router.pathname === "/" ? "/" : { pathname: "/", query: { scrollTo: "#services" }, as: "/" }}>
+                            <a className="link" onClick={() => {
+                                if (this.props.router.pathname === "/") SmoothScroll.scroll("#services");
+                            }}>
                                 Služby
                             </a>
                         </Link>
 
-                        <Link href="/">
-                            <a className="link" onClick={() => showTransition()}>
+                        <Link href={this.props.router.pathname === "/" ? "/" : { pathname: "/", query: { scrollTo: "#branches" }, as: "/" }}>
+                            <a className="link" onClick={() => {
+                                if (this.props.router.pathname === "/") SmoothScroll.scroll("#branches");
+                            }}>
                                 Prevádzky
                             </a>
                         </Link>

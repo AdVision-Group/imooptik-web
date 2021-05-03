@@ -753,6 +753,9 @@ class Product extends React.Component {
     }
 
     async componentDidMount() {
+        showTransition();
+        this.props.router.push("/pripravujeme");
+
         await this.loadData();
 
         this.handleDeviceType();
@@ -854,9 +857,6 @@ class Product extends React.Component {
     }
 
     render() {
-        showTransition();
-        this.props.router.push("/pripravujeme");
-
         const product = this.state.product;
 
         if (product === null) return null;

@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "docker-build": "docker build -t darken141/imooptik-frontend:latest . && docker push darken141/imooptik-frontend:latest"
   },
   "dependencies": {
     "@brainhubeu/react-carousel": "^1.12.9-alpha",

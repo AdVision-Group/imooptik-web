@@ -49,6 +49,9 @@ class Shop extends React.Component {
     }
 
     componentDidMount() {
+        showTransition();
+        this.props.router.push("/pripravujeme");
+
         if (this.state.products.length === 0) {
             this.setState({ products: this.props.products });
         }
@@ -142,9 +145,6 @@ class Shop extends React.Component {
     render() {
         const { kategoria, kolekcia, cena, znacka, ram, vyhladavanie, skip } = this.props.router.query;
         const products = this.state.products;
-
-        showTransition();
-        this.props.router.push("/pripravujeme");
 
         return(
             <div className="screen" id="shop">

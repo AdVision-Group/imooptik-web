@@ -180,15 +180,15 @@ class Profile extends React.Component {
     }
 
     async componentDidMount() {
+        showTransition();
+        this.props.router.push("/pripravujeme");
+
         await this.getUser();
 
         hideTransition();
     }
 
     render() {
-        showTransition();
-        this.props.router.push("/pripravujeme");
-
         return(
             <div className="screen" id="profile">
                 <div className="body">

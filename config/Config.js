@@ -1,5 +1,6 @@
 
 import React from "react";
+import { withRouter } from "next/router";
 import Cookies from "js-cookie";
 
 import Api from "./Api";
@@ -29,15 +30,17 @@ export const redirect = (location, path) => {
 }
 
 export const showTransition = () => {
+    /*
     var transition = document.getElementById("transition");
 
     transition.style.display = "flex";
     transition.style.transition = "none";
     transition.style.opacity = "1";
+    */
 }
 
 export const hideTransition = () => {
-    var transiton = document.getElementById("transition");
+    var transition = document.getElementById("transition");
 
     setTimeout(() => {
         transition.style.transition = "opacity 200ms";

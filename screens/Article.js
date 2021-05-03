@@ -30,15 +30,18 @@ class Article extends React.Component {
         return formatted.toUpperCase();
     }
 
+    componentDidMount() {
+        showTransition();
+        this.props.router.push("/pripravujeme");
+
+        hideTransition();
+    }
 
     render() {
         const article = this.props.article;
         const moreArticles = this.props.moreArticles;
 
         if (!article) return null;
-
-        showTransition();
-        this.props.router.push("/pripravujeme");
 
         return(
             <div className="screen" id="article">

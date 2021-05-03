@@ -81,13 +81,13 @@ class Register extends React.Component {
     }
 
     componentDidMount() {
+        showTransition();
+        this.props.router.push("/pripravujeme");
+
         hideTransition();
     }
 
     render() {
-        showTransition();
-        this.props.router.push("/pripravujeme");
-
         if (isLogged()) {
             return <Redirect to="/profil" />
         }

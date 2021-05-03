@@ -54,6 +54,9 @@ class Forgot extends React.Component {
     }
 
     componentDidMount() {
+        showTransition();
+        this.props.router.push("/pripravujeme");
+
         const token = getStorageItem("token");
 
         if (token) {
@@ -63,9 +66,6 @@ class Forgot extends React.Component {
     }
 
     render() {
-        showTransition();
-        this.props.router.push("/pripravujeme");
-
         return(
             <div className="screen" id="login">
                 <div className="body">

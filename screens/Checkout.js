@@ -260,15 +260,15 @@ class Checkout extends React.Component {
     }
 
     async componentDidMount() {
+        showTransition();
+        this.props.router.push("/pripravujeme");
+
         await this.loadData();
 
         hideTransition();
     }
 
     render() {
-        showTransition();
-        this.props.router.push("/pripravujeme");
-
         var summaryData = [];
         summaryData.push([ "Suma", (this.state.price / 100).toFixed(2) ]);
         summaryData.push([ "Kupón", (this.state.discount / 100).toFixed(2) ]);

@@ -16,6 +16,13 @@ class NotFound extends React.Component {
         super();
     }
 
+    componentDidMount() {
+        showTransition();
+        this.props.router.push("/pripravujeme");
+
+        hideTransition();
+    }
+
     render() {
         return(
             <div id="not-found">

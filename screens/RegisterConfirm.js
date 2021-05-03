@@ -15,13 +15,13 @@ class RegisterConfirm extends React.Component {
     }
 
     componentDidMount() {
+        showTransition();
+        this.props.router.push("/pripravujeme");
+
         hideTransition();
     }
 
     render() {
-        showTransition();
-        this.props.router.push("/pripravujeme");
-
         const success = this.props.success;
 
         return(

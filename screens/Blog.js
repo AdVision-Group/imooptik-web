@@ -22,15 +22,15 @@ class Blog extends React.Component {
     }
 
     componentDidMount() {
+        showTransition();
+        this.props.router.push("/pripravujeme");
+
         hideTransition();
     }
 
     render() {
         const blogs = this.props.blogs;
         const count = this.state.count;
-
-        showTransition();
-        this.props.router.push("/pripravujeme");
 
         return(
             <div className="screen" id="blog">

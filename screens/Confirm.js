@@ -170,6 +170,9 @@ class Confirm extends React.Component {
     }
 
     async componentDidMount() {
+        showTransition();
+        this.props.router.push("/pripravujeme");
+
         await this.loadData();
         
         hideTransition();
@@ -188,9 +191,6 @@ class Confirm extends React.Component {
     }
 
     render() {
-        showTransition();
-        this.props.router.push("/pripravujeme");
-
         var orderData = {
             paymentType: this.state.paymentType,
             deliveryType: this.state.deliveryType,

@@ -93,6 +93,11 @@ class Home extends React.Component {
         await this.loadBestsellers();
         
         hideTransition();
+
+        if (this.props.router.query.scrollTo) {
+            SmoothScroll.scroll(this.props.router.query.scrollTo);
+            this.props.router.replace("/");
+        }
     }
 
     componentWillUnmount() {
@@ -194,7 +199,7 @@ class Home extends React.Component {
                     </div>
                 </div>
 
-                <div className="products services">
+                <div className="products services" id="services">
                     <Heading
                         heading="SLUŽBY"
                         title="Naše služby"
