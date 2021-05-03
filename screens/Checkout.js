@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "next/router";
 
-import { getStorageItem, setStorageItem, removeStorageItem, removeFromCart, addToCart, increaseCartAmount, decreaseCartAmount, redirect, hideTransition } from "../config/Config";
+import { getStorageItem, setStorageItem, removeStorageItem, removeFromCart, addToCart, increaseCartAmount, decreaseCartAmount, redirect, hideTransition, showTransition } from "../config/Config";
 import Api from "../config/Api";
 import Loading from "../components/Loading";
 import Popup from "../components/Popup";
@@ -63,7 +63,7 @@ class Checkout extends React.Component {
 
     async loadData() {
         this.loadOrderData();
-        this.loadUserData();
+        await this.loadUserData();
     }
 
     async loadUserData() {
@@ -149,7 +149,8 @@ class Checkout extends React.Component {
             const call = await Api.editUser(data, token);
 
             if (call.user) {
-                window.location.href = "/doprava-a-platba";
+                showTransition();
+                this.props.router.push("/doprava-a-platba");
             } else {
                 this.setState({
                     popup: true,
@@ -260,9 +261,14 @@ class Checkout extends React.Component {
 
     async componentDidMount() {
         await this.loadData();
+
+        hideTransition();
     }
 
     render() {
+        showTransition();
+        this.props.router.push("/pripravujeme");
+
         var summaryData = [];
         summaryData.push([ "Suma", (this.state.price / 100).toFixed(2) ]);
         summaryData.push([ "Kupón", (this.state.discount / 100).toFixed(2) ]);

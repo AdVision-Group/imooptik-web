@@ -1,8 +1,9 @@
 import React from "react";
 import { withRouter } from "next/router";
+import Link from "next/link";
 
 import { API_URL } from "../config/Api";
-import { redirect } from "../config/Config";
+import { redirect, showTransition } from "../config/Config";
 import Image from "./Image";
 
 //import "../styles/shop.css";
@@ -24,26 +25,28 @@ function Product(props) {
     }
 
     return(
-        <a
-            className="product-item"
-            href={"/obchod/" + product.link}
-        >
-            {product.image ?
-                <img className="image" src={API_URL + "/uploads/" + product.image.imagePath} alt={"Fotka produktu " + product.name} />
-            :
-                <div className="placeholder" />
-            }
+        <Link href={"/obchod/" + product.link}>
+            <a
+                className="product-item"
+                onClick={() => showTransition()}
+            >
+                {product.image ?
+                    <img className="image" src={API_URL + "/uploads/" + product.image.imagePath} alt={"Fotka produktu " + product.name} />
+                :
+                    <div className="placeholder" />
+                }
 
-            <div className="name">{product.name}</div>
-            <div className="available" style={{ color: available ? colors.green : colors.red }}>{available ? "Na sklade" : "Nedostupné"}</div>
+                <div className="name">{product.name}</div>
+                <div className="available" style={{ color: available ? colors.green : colors.red }}>{available ? "Na sklade" : "Nedostupné"}</div>
 
-            <div style={{ flex: 1 }} />
+                <div style={{ flex: 1 }} />
 
-            <div className="bottom">
-                <div className="button">Kúpiť</div>
-                <div className="price">{(product.price / 100).toFixed(2)}€</div>
-            </div>
-        </a>
+                <div className="bottom">
+                    <div className="button">Kúpiť</div>
+                    <div className="price">{(product.price / 100).toFixed(2)}€</div>
+                </div>
+            </a>
+        </Link>
     )
 }
 

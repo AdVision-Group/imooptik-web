@@ -28,6 +28,26 @@ export const redirect = (location, path) => {
     hideBanner();
 }
 
+export const showTransition = () => {
+    var transition = document.getElementById("transition");
+
+    transition.style.display = "flex";
+    transition.style.transition = "none";
+    transition.style.opacity = "1";
+}
+
+export const hideTransition = () => {
+    var transiton = document.getElementById("transition");
+
+    setTimeout(() => {
+        transition.style.transition = "opacity 200ms";
+        transition.style.opacity = "0";
+        setTimeout(() => {
+            transition.style.display = "none";
+        }, 210);
+    }, 1000);
+}
+
 export function removeStorageItem(name) {
     Cookies.remove(name);
 }

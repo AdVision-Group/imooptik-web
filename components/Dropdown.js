@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { withRouter } from "next/router";
 
-import { redirect } from "../config/Config";
+import { redirect, showTransition } from "../config/Config";
 import { categories, collections, pricing, frameStyles, brands } from "../config/Database";
 import Loading from "../components/Loading";
 
@@ -54,12 +54,14 @@ class Dropdown extends React.Component {
 
                         <div className="list">
                             {collections.slice(1, collections.length).map((sex, index) => 
-                                <a
-                                    className="item"
-                                    href={"/obchod?kategoria=" + this.props.category + "&kolekcia=" + sex.sex}
-                                >
-                                    {sex.title}
-                                </a>
+                                <Link href={"/obchod?kategoria=" + this.props.category + "&kolekcia=" + sex.sex}>
+                                    <a
+                                        className="item"
+                                        onClick={() => showTransition()}
+                                    >
+                                        {sex.title}
+                                    </a>
+                                </Link>
                             )}
                         </div>
                     </div>
@@ -69,12 +71,14 @@ class Dropdown extends React.Component {
 
                         <div className="list">
                             {this.state.brands.map((brand) => 
-                                <a
-                                    className="item"
-                                    href={"/obchod?kategoria=" + this.props.category + "&znacka=" + brand.name}
-                                >
-                                    {brand.name}
-                                </a>
+                                <Link href={"/obchod?kategoria=" + this.props.category + "&znacka=" + brand.name}>
+                                    <a
+                                        className="item"
+                                        onClick={() => showTransition()}
+                                    >
+                                        {brand.name}
+                                    </a>
+                                </Link>
                             )}                       
                         </div>
                     </div>
@@ -84,13 +88,15 @@ class Dropdown extends React.Component {
 
                         <div className="list">
                             {frameStyles.slice(1, frameStyles.length).map(item =>
-                                <a
-                                    className="item"
-                                    href={"/obchod?kategoria=" + this.props.category + "&ram=" + item.frameStyle}
-                                >
-                                    {item.icon !== null ? <img className="icon" src={item.icon} alt="Ikona pre tvar rámu okuliarov" /> : null}
-                                    {item.title}
-                                </a>
+                                <Link href={"/obchod?kategoria=" + this.props.category + "&ram=" + item.frameStyle}>
+                                    <a
+                                        className="item"
+                                        onClick={() => showTransition()}
+                                    >
+                                        {item.icon !== null ? <img className="icon" src={item.icon} alt="Ikona pre tvar rámu okuliarov" /> : null}
+                                        {item.title}
+                                    </a>
+                                </Link>
                             )}
                         </div>
                     </div>
@@ -100,12 +106,14 @@ class Dropdown extends React.Component {
 
                         <div className="list">
                             {pricing.slice(1, pricing.length).map(price =>
-                                <a
-                                    className="item"
-                                    href={"/obchod?kategoria=" + this.props.category + "&cena=" + price.price}
-                                >
-                                    {price.title}
-                                </a>
+                                <Link href={"/obchod?kategoria=" + this.props.category + "&cena=" + price.price}>
+                                    <a
+                                        className="item"
+                                        onClick={() => showTransition()}
+                                    >
+                                        {price.title}
+                                    </a>
+                                </Link>
                             )}
                         </div>
                     </div>

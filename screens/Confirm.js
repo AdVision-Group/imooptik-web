@@ -4,7 +4,7 @@ import { withRouter } from "next/router";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 
-import { getStorageItem, setStorageItem, getTotalPrice, courierDeliveryPrice, courierPaymentPrice, mailPaymentPrice, redirect, hideTransition } from "../config/Config";
+import { getStorageItem, setStorageItem, getTotalPrice, courierDeliveryPrice, courierPaymentPrice, mailPaymentPrice, redirect, hideTransition, showTransition } from "../config/Config";
 import Api, { API_URL } from "../config/Api";
 import Loading from "../components/Loading";
 import Popup from "../components/Popup";
@@ -60,8 +60,8 @@ class Confirm extends React.Component {
     }
 
     redirectHome() {
-        window.location.href = "/";
-        //redirect(this.props.location, "/dakujeme-za-nakup");
+        showTransition();
+        this.props.router.push("/");
     }
 
     async createOrder() {
@@ -124,8 +124,8 @@ class Confirm extends React.Component {
         if (call.order) {
             setStorageItem("cart", []);
             
-            window.location.href = "/";
-            //redirect(this.props.location, "/dakujeme-za-nakup");
+            showTransition();
+            this.props.router.push("/");
         } else {
             this.setState({
                 loading: false,
@@ -134,7 +134,7 @@ class Confirm extends React.Component {
         }
     }
 
-    loadData() {
+    async loadData() {
         this.loadUserData();
         this.loadOrderData();
     }
@@ -170,7 +170,9 @@ class Confirm extends React.Component {
     }
 
     async componentDidMount() {
-        this.loadData();
+        await this.loadData();
+        
+        hideTransition();
     }
 
     isInSaleProducts(id) {
@@ -186,6 +188,9 @@ class Confirm extends React.Component {
     }
 
     render() {
+        showTransition();
+        this.props.router.push("/pripravujeme");
+
         var orderData = {
             paymentType: this.state.paymentType,
             deliveryType: this.state.deliveryType,

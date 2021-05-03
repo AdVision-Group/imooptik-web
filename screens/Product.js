@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { withRouter } from "next/router";
+import Link from "next/link";
 
 import Api, { API_URL } from "../config/Api";
-import { addToCart, getStorageItem, hideTransition, redirect, diopterValues, cylinderValues, cylinderAxisValues, distanceValues, setStorageItem } from "../config/Config";
+import { addToCart, getStorageItem, hideTransition, redirect, diopterValues, cylinderValues, cylinderAxisValues, distanceValues, setStorageItem, showTransition } from "../config/Config";
 import { brands } from "../config/Database";
 
 import Panel from "../components/Panel";
@@ -515,7 +516,8 @@ class Product extends React.Component {
                         loading: false,
                         message: "Produkt úspešne pridaný do košíka",
                         onPopupClose: () => {
-                            window.location.href = "/kosik";
+                            showTransition();
+                            this.props.router.push("/kosik");
                         },
                         secondButtonClose: false
                     });
@@ -556,8 +558,8 @@ class Product extends React.Component {
                         loading: false,
                         message: "Produkt úspešne pridaný do košíka",
                         onPopupClose: () => {
-                            this.props.history.push("/kosik");
-                            redirect(this.props.location, "/kosik");
+                            showTransition();
+                            this.props.router.push("/kosik");
                         },
                         secondButtonClose: false
                     });
@@ -580,7 +582,8 @@ class Product extends React.Component {
                         loading: false,
                         message: "Produkt úspešne pridaný do košíka",
                         onPopupClose: () => {
-                            window.location.href = "/kosik";
+                            showTransition();
+                            this.props.history.push("/kosik");
                         },
                         secondButtonClose: false
                     });
@@ -749,10 +752,12 @@ class Product extends React.Component {
         }
     }
 
-    componentDidMount() {
-        this.loadData();
+    async componentDidMount() {
+        await this.loadData();
 
         this.handleDeviceType();
+
+        hideTransition();
     }
 
     componentDidUpdate(prevProps) {
@@ -849,6 +854,9 @@ class Product extends React.Component {
     }
 
     render() {
+        showTransition();
+        this.props.router.push("/pripravujeme");
+
         const product = this.state.product;
 
         if (product === null) return null;
@@ -893,13 +901,15 @@ class Product extends React.Component {
 
                                         <div className="color-variants">
                                             {this.state.colorVariants.map(variant => (
-                                                <a
-                                                    className={"item" + (variant.colorCode === this.state.product.colorCode ? " current" : "")}
-                                                    href={"/obchod/" + variant.link}
-                                                    style={{ margin: 0 }}
-                                                >
-                                                    <div className="color">{variant.specs.frameColor}</div>
-                                                </a>
+                                                <Link href={"/obchod/" + variant.link}>
+                                                    <a
+                                                        className={"item" + (variant.colorCode === this.state.product.colorCode ? " current" : "")}
+                                                        onClick={() => showTransition()}
+                                                        style={{ margin: 0 }}
+                                                    >
+                                                        <div className="color">{variant.specs.frameColor}</div>
+                                                    </a>
+                                                </Link>
                                             ))}
                                         </div>
                                     </div>
@@ -909,13 +919,15 @@ class Product extends React.Component {
 
                                         <div className="color-variants size-variants">
                                             {this.state.sizeVariants.map(variant => (
-                                                <a
-                                                    className={"item" + (variant._id === this.state.product._id ? " current" : "")}
-                                                    href={"/obchod/" + variant.link}
-                                                    style={{ margin: 0 }}
-                                                >
-                                                    <div className="color">{variant.specs.size[0] + "-" + variant.specs.size[1] + "-" + variant.specs.size[2] + "-" + variant.specs.size[3]}</div>
-                                                </a>
+                                                <Link href={"/obchod/" + variant.link}>
+                                                    <a
+                                                        className={"item" + (variant._id === this.state.product._id ? " current" : "")}
+                                                        onClick={() => showTransition()}
+                                                        style={{ margin: 0 }}
+                                                    >
+                                                        <div className="color">{variant.specs.size[0] + "-" + variant.specs.size[1] + "-" + variant.specs.size[2] + "-" + variant.specs.size[3]}</div>
+                                                    </a>
+                                                </Link>
                                             ))}
                                         </div>
                                     </div>
@@ -991,13 +1003,15 @@ class Product extends React.Component {
 
                                         <div className="color-variants">
                                             {this.state.colorVariants.map(variant => (
-                                                <a
-                                                    className={"item" + (variant.colorCode === this.state.product.colorCode ? " current" : "")}
-                                                    href={"/obchod/" + variant.link}
-                                                    style={{ margin: 0 }}
-                                                >
-                                                    <div className="color">{variant.specs.frameColor}</div>
-                                                </a>
+                                                <Link href={"/obchod/" + variant.link}>
+                                                    <a
+                                                        className={"item" + (variant.colorCode === this.state.product.colorCode ? " current" : "")}
+                                                        onClick={() => showTransition()}
+                                                        style={{ margin: 0 }}
+                                                    >
+                                                        <div className="color">{variant.specs.frameColor}</div>
+                                                    </a>
+                                                </Link>
                                             ))}
                                         </div>
                                     </div>
@@ -1007,13 +1021,15 @@ class Product extends React.Component {
 
                                         <div className="color-variants size-variants">
                                             {this.state.sizeVariants.map(variant => (
-                                                <a
-                                                    className={"item" + (variant._id === this.state.product._id ? " current" : "")}
-                                                    href={"/obchod/" + variant.link}
-                                                    style={{ margin: 0 }}
-                                                >
-                                                    <div className="color">{variant.specs.size[0] + "-" + variant.specs.size[1] + "-" + variant.specs.size[2] + "-" + variant.specs.size[3]}</div>
-                                                </a>
+                                                <Link href={"/obchod/" + variant.link}>
+                                                    <a
+                                                        className={"item" + (variant._id === this.state.product._id ? " current" : "")}
+                                                        onClick={() => showTransition()}
+                                                        style={{ margin: 0 }}
+                                                    >
+                                                        <div className="color">{variant.specs.size[0] + "-" + variant.specs.size[1] + "-" + variant.specs.size[2] + "-" + variant.specs.size[3]}</div>
+                                                    </a>
+                                                </Link>
                                             ))}
                                         </div>
                                     </div>

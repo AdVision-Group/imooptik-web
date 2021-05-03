@@ -2,7 +2,7 @@ import React from "react";
 import { withRouter } from "next/router";
 
 import Heading from "../components/Heading";
-import { redirect, hideTransition } from "../config/Config";
+import { redirect, hideTransition, showTransition } from "../config/Config";
 import Loading from "../components/Loading";
 import Title from "../components/Title";
 import Api from "../config/Api";
@@ -21,9 +21,16 @@ class Blog extends React.Component {
         super();
     }
 
+    componentDidMount() {
+        hideTransition();
+    }
+
     render() {
         const blogs = this.props.blogs;
         const count = this.state.count;
+
+        showTransition();
+        this.props.router.push("/pripravujeme");
 
         return(
             <div className="screen" id="blog">

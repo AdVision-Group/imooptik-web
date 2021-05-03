@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { withRouter } from "next/router";
 
-import { redirect } from "../config/Config";
+import { redirect, showTransition } from "../config/Config";
 import SmoothScroll from "../components/SmoothScroll";
 
 //import "../styles/footer.css";
@@ -20,71 +20,91 @@ class Footer extends React.Component {
                     <div className="column">
                         <p className="title">Navigácia</p>
 
-                        <div className="text" to="/obchod">
-                            <ion-icon name="storefront-outline"></ion-icon>
-                            E-shop
-                        </div>
+                        <Link href="/obchod">
+                            <a className="text" onClick={() => showTransition()}>
+                                <ion-icon name="storefront-outline"></ion-icon>
+                                E-shop
+                            </a>
+                        </Link>
 
-                        <div className="text" to="/blog">
-                            <ion-icon name="newspaper-outline"></ion-icon>
-                            Blog
-                        </div>
+                        <Link href="/blog">
+                            <a className="text" onClick={() => showTransition()}>
+                                <ion-icon name="newspaper-outline"></ion-icon>
+                                Blog
+                            </a>
+                        </Link>
 
-                        <div className="text" to="/" onClick={() => setTimeout(() => SmoothScroll.scroll("#services"), 20)}>
-                            <ion-icon name="hammer-outline"></ion-icon>
-                            Služby
-                        </div>
+                        <Link href="/">
+                            <a className="text" onClick={() => showTransition()}>
+                                <ion-icon name="hammer-outline"></ion-icon>
+                                Služby
+                            </a>
+                        </Link>
 
-                        <div className="text" to="/" onClick={() => setTimeout(() => SmoothScroll.scroll("#branches"), 20)}>
-                        <ion-icon name="storefront-outline"></ion-icon>
-                            Prevádzky
-                        </div>
+                        <Link href="/">
+                            <a className="text" onClick={() => showTransition()}>
+                                <ion-icon name="storefront-outline"></ion-icon>
+                                Prevádzky
+                            </a>
+                        </Link>
 
-                        <div className="text" to="/rezervacia-terminu">
-                            <ion-icon name="time-outline"></ion-icon>
-                            Rezervácia online
-                        </div>
+                        <Link href="/rezervacia-terminu">
+                            <a className="text" onClick={() => showTransition()}>
+                                <ion-icon name="time-outline"></ion-icon>
+                                Rezervácia online
+                            </a>
+                        </Link>
                     </div>
 
                     <div className="column">
                         <p className="title">Pobočky</p>
 
-                        <a className="text" href="/prevadzky/bratislava-obchodna">
-                            <ion-icon name="storefront-outline"></ion-icon>
-                            Obchodná 57, Bratislava
-                        </a>
+                        <Link href="/prevadzky/bratislava-obchodna">
+                            <a className="text" onClick={() => showTransition()}>
+                                <ion-icon name="storefront-outline"></ion-icon>
+                                Obchodná 57, Bratislava
+                            </a>
+                        </Link>
                         <a className="text" href="tel: +421904533732"><ion-icon name="call-outline"></ion-icon>+421 904 533 732</a>
 
                         <div style={{ height: 15 }} />
 
-                        <a className="text" href="/prevadzky/bratislava-mileticova">
-                            <ion-icon name="storefront-outline"></ion-icon>
-                            Miletičova 38, Bratislava
-                        </a>
+                        <Link href="/prevadzky/bratislava-mileticova">
+                            <a className="text" onClick={() => showTransition()}>
+                                <ion-icon name="storefront-outline"></ion-icon>
+                                Miletičova 38, Bratislava
+                            </a>
+                        </Link>
                         <a className="text" href="tel: +421948784197"><ion-icon name="call-outline"></ion-icon>+421 948 784 197</a>
 
                         <div style={{ height: 15 }} />
 
-                        <a className="text" href="/prevadzky/bratislava-rolnicka">
-                            <ion-icon name="storefront-outline"></ion-icon>
-                            Vajnory, Bratislava
-                        </a>
+                        <Link href="/prevadzky/bratislava-rolnicka">
+                            <a className="text" onClick={() => showTransition()}>
+                                <ion-icon name="storefront-outline"></ion-icon>
+                                Vajnory, Bratislava
+                            </a>
+                        </Link>
                         <a className="text" href="tel: +421917093148"><ion-icon name="call-outline"></ion-icon>+421 917 093 148</a>
 
                         <div style={{ height: 15 }} />
 
-                        <a className="text" href="/prevadzky/bratislava-vajnorska">
-                            <ion-icon name="storefront-outline"></ion-icon>
-                            Vajnorská, Bratislava
-                        </a>
+                        <Link href="/prevadzky/bratislava-vajnorska">
+                            <a className="text" onClick={() => showTransition()}>
+                                <ion-icon name="storefront-outline"></ion-icon>
+                                Vajnorská, Bratislava
+                            </a>
+                        </Link>
                         <a className="text" href="tel: +421905553250"><ion-icon name="call-outline"></ion-icon>+421 905 553 250</a>
 
                         <div style={{ height: 15 }} />
 
-                        <a className="text" href="/prevadzky/senica-namestie-oslobodenia">
-                            <ion-icon name="storefront-outline"></ion-icon>
-                            Senica, OC Branč
-                        </a>
+                        <Link href="/prevadzky/senica-namestie-oslobodenia">
+                            <a className="text" onClick={() => showTransition()}>
+                                <ion-icon name="storefront-outline"></ion-icon>
+                                Senica, OC Branč
+                            </a>
+                        </Link>
                         <a className="text" href="tel: +421948176626"><ion-icon name="call-outline"></ion-icon>+421 948 176 626</a>
                     </div>
 
@@ -108,10 +128,12 @@ class Footer extends React.Component {
                             Ochrana osobných údajov
                         </div>
 
-                        <div className="text" to="/obchodne-podmienky" onClick={() => redirect(this.props.location, "/obchodne-podmienky")}>
-                            <ion-icon name="card-outline"></ion-icon>
-                            Obchodné podmienky
-                        </div>
+                        <Link href="/obchodne-podmienky">
+                            <div className="text" onClick={() => showTransition()}>
+                                <ion-icon name="card-outline"></ion-icon>
+                                Obchodné podmienky
+                            </div>
+                        </Link>
 
                         <div className="text">
                             <ion-icon name="filter-circle-outline"></ion-icon>

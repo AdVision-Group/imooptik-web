@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "next/router";
 
-import { getStorageItem, setStorageItem, courierDeliveryPrice, courierPaymentPrice, mailPaymentPrice, redirect, hideTransition } from "../config/Config";
+import { getStorageItem, setStorageItem, courierDeliveryPrice, courierPaymentPrice, mailPaymentPrice, redirect, hideTransition, showTransition } from "../config/Config";
 import { branches, deliveryCompanies } from "../config/Database";
 import Api from "../config/Api";
 import Loading from "../components/Loading";
@@ -48,7 +48,8 @@ class Payment extends React.Component {
             pickUpPremisesName: branches[pickUpPremises].name
         });
 
-        window.location.href = "/potvrdenie";
+        showTransition();
+        this.props.router.push("/potvrdenie");
     }
 
     loadOrderData() {
@@ -63,9 +64,14 @@ class Payment extends React.Component {
 
     async componentDidMount() {
         await this.loadData();
+
+        hideTransition();
     }
 
     render() {
+        showTransition();
+        this.props.router.push("/pripravujeme");
+
         var summaryData = [];
         summaryData.push([ "Suma", (this.state.price / 100).toFixed(2) ]);
         summaryData.push([ "Kupón", (this.state.discount / 100).toFixed(2) ]);

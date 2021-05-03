@@ -1,7 +1,8 @@
 import React from "react";
 import { withRouter } from "next/router";
+import Link from "next/link";
 
-import { getStorageItem, setStorageItem, isLogged, logout, redirect, hideTransition } from "../config/Config";
+import { getStorageItem, setStorageItem, isLogged, logout, redirect, hideTransition, showTransition } from "../config/Config";
 
 import Api from "../config/Api";
 import Popup from "../components/Popup";
@@ -72,13 +73,21 @@ class Register extends React.Component {
                 loading: false,
                 title: "Na e-mail sme Vám zaslali potvrdenie registrácie, po ktorej sa budete môcť prihlásiť do Vášho účtu",
                 popupClose: () => {
-                    window.location.href = "/";
+                    showTransition();
+                    this.props.router.push("/");
                 }
             });
         }
     }
 
+    componentDidMount() {
+        hideTransition();
+    }
+
     render() {
+        showTransition();
+        this.props.router.push("/pripravujeme");
+
         if (isLogged()) {
             return <Redirect to="/profil" />
         }

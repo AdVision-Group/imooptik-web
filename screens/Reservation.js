@@ -1,8 +1,9 @@
 import React from "react";
 import { withRouter } from "next/router";
+import Link from "next/link";
 
 import { getValidTimesByDate } from "../config/Calendar";
-import { redirect, hideTransition } from "../config/Config";
+import { redirect, hideTransition, showTransition } from "../config/Config";
 import { hideBanner, showBanner } from "../components/Banner";
 
 import SmoothScroll from "../components/SmoothScroll";
@@ -102,8 +103,8 @@ class Reservation extends React.Component {
         });
 
         if (call.userBooking) {
+            showTransition();
             this.props.history.push("/dakujeme-za-rezervaciu");
-            redirect(this.props.location, "/dakujeme-za-rezervaciu");
         } else {
             this.setState({ popupLoading: false, title: "Nepodarilo sa objednať termín" });
         }
@@ -261,8 +262,10 @@ class Reservation extends React.Component {
         }
     }
 
-    componentDidMount() {
-        this.getCalendars();
+    async componentDidMount() {
+        await this.getCalendars();
+
+        hideTransition();
     }
 
     render() {

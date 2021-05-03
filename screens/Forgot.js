@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "next/router";
 
-import { getStorageItem, setStorageItem, isLogged, hideTransition } from "../config/Config";
+import { getStorageItem, setStorageItem, isLogged, hideTransition, showTransition } from "../config/Config";
 
 import Api from "../config/Api";
 import Popup from "../components/Popup";
@@ -39,7 +39,10 @@ class Forgot extends React.Component {
             this.setState({
                 loading: false,
                 title: "Na mail Vám bol zaslaný link na resetovanie hesla",
-                onClose: () => window.location.href = "/"
+                onClose: () => {
+                    showTransition();
+                    this.props.router.push("/");
+                }
             });
         } else {
             this.setState({
@@ -53,10 +56,16 @@ class Forgot extends React.Component {
     componentDidMount() {
         const token = getStorageItem("token");
 
-        if (token) this.props.router.push("/profil");
+        if (token) {
+            showTransition();
+            this.props.router.push("/profil");
+        }
     }
 
     render() {
+        showTransition();
+        this.props.router.push("/pripravujeme");
+
         return(
             <div className="screen" id="login">
                 <div className="body">

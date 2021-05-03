@@ -14,6 +14,10 @@ export default class Terms extends React.Component {
         super();
     }
 
+    componentDidMount() {
+        hideTransition();
+    }
+
     render() {
         return(
             <div className="screen" id="terms">

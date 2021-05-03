@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from "next/router";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 import Api, { API_URL } from "../config/Api";
 import SmoothScroll from "../components/SmoothScroll";
@@ -9,12 +10,15 @@ import Popup from "../components/Popup";
 import Heading from "../components/Heading";
 import Animated from "../components/Animated";
 
+import { services } from "../config/Database";
+
 import Fade from "react-reveal";
 
 //import "../styles/home.css";
 
 import Lottie from "react-lottie";
 import brands from "../assets/animation/brands.json";
+import { hideTransition, showTransition } from "../config/Config";
 
 const defaultOptions = {
     loop: true,
@@ -86,7 +90,9 @@ class Home extends React.Component {
         this.referencesInterval = setInterval(() => this.setState((state) => ({ currentReference: state.currentReference + 1 })), 5000);
         this.bestsellersInterval = setInterval(() => this.setState((state) => ({ currentBestseller: state.currentBestseller + 1 })), 5000);
 
-        this.loadBestsellers();
+        await this.loadBestsellers();
+        
+        hideTransition();
     }
 
     componentWillUnmount() {
@@ -168,7 +174,9 @@ class Home extends React.Component {
                             Využite jedinečnú príležitosť a získajte pri kúpe dvoch rámov ten druhý úplne zadarmo. Akcia trvá do konca marca, nezmeškajte!
                         </p>
 
-                        <a className="button" href="/obchod">Nakupuj</a>
+                        <Link href="/obchod">
+                            <a className="button" onClick={() => showTransition()}>Nakupuj</a>
+                        </Link>
 
                         <img className="arrow" src={require("../assets/arrow.png")} alt="Šípka dole" onClick={() => SmoothScroll.scroll("#bestsellers")} />
                     </div>
@@ -186,69 +194,114 @@ class Home extends React.Component {
                     </div>
                 </div>
 
-                <div className="services">
+                <div className="products services">
+                    <Heading
+                        heading="SLUŽBY"
+                        title="Naše služby"
+                        withBorder
+                    />
+
                     <div className="content">
-                        <a className="item service-1" href="/sluzby/vysetrenie-zraku" id="services">
-                            <img className="background" src={require("../assets/vysetrenie-zraku.jpg")} alt="Vyšetrenie zraku" />
-                            <div className="overlay" />
-                            <h3 className="title">Vyšetrenie zraku</h3>
-                            <p className="text">
-                                V našich troch optikách v Bratislave a v Senici Vám vyšetríme zrak a poskytneme odborné poradenstvo.
-                            </p>
-                            <div className="button">Zisti viac</div>
-                        </a>
+                        <Link href="/sluzby/vysetrenie-zraku">
+                            <a className="item" onClick={() => showTransition()}>
+                                <img className="image" src={services[0].photo} />
 
-                        <a className="item service-2" href="/sluzby/aplikacia-kontaktnych-sosoviek">
-                            {/*<img className="background" src={require("../assets/aplikacia-sosoviek.jpg")} />*/}
-                            <img className="background" src={require("../assets/service-yellow-2.jpg")} alt="Aplikácia kontaktných šošoviek" />
-                            <div className="overlay" />
-                            <h3 className="title">Aplikácia šošoviek</h3>
-                            <p className="text">
-                                Vykonávame i aplikáciu kontaktných šošoviek a následný predaj vo všetkých našich optikách.
-                            </p>
-                            <div className="button">Zisti viac</div>
-                        </a>
+                                <h3 className="title">Vyšetrenie zraku</h3>
+                                <p className="text">
+                                    V našich troch optikách v Bratislave a v Senici Vám vyšetríme zrak a poskytneme odborné poradenstvo.
+                                </p>
 
-                        <a className="item service-3" href="/sluzby/servis-okuliarov">
-                            <img className="background" src={require("../assets/servis-okuliarov.jpg")} alt="Servis okuliarov" />
-                            <div className="overlay" />
-                            <h3 className="title">Servis okuliarov</h3>
-                            <p className="text">
-                                Zabezpečujeme rôzne úpravy a opravy okuliarov. Servis na naše okuliare je zadarmo.
-                            </p>
-                            <div className="button">Zisti viac</div>
-                        </a>
+                                <div className="button">Zisti viac</div>
+                            </a>
+                        </Link>
 
-                        <a className="item service-4" href="/obchod?kategoria=1" id="products">
-                            {/*<img className="background" src={require("../assets/dioptricke-okuliare.jpg")} />*/}
-                            <img className="background" src={require("../assets/service-yellow-1.jpg")} alt="Dioptrické okuliare" />
-                            <div className="overlay" />
-                            <h3 className="title">Dioptrické okuliare</h3>
-                            <p className="text">
-                                Ponúkame široký výber značkových i neznačkových okuliarových rámov za priaznivé ceny.
-                            </p>
-                            <div className="button">Zisti viac</div>
-                        </a>
+                        <Link href="/sluzby/aplikacia-kontaktnych-sosoviek">
+                            <a className="item" onClick={() => showTransition()}>
+                                <img className="image" src={require("../assets/sluzba-aplikacia-sosoviek.png")} />
 
-                        <a className="item service-5" href="/obchod?kategoria=2">
-                            <img className="background" src={require("../assets/eyeglasses-services.jpg")} alt="Slnečné okuliare" />
-                            <div className="overlay" />
-                            <h3 className="title">Slnečné okuliare</h3>
-                            <p className="text">
-                                Slnečné okuliare sú u nás zastúpené všetkými kategóriami. Či už hľadáte slnečné okuliare na šport, šoférovanie alebo s dioptriou. Máme pre Vás pripravený široký výber.
-                            </p>
-                            <div className="button">Zisti viac</div>
-                        </a>
+                                <h3 className="title">Aplikácia šošoviek</h3>
+                                <p className="text">
+                                    Vykonávame i aplikáciu kontaktných šošoviek a následný predaj vo všetkých našich optikách.
+                                </p>
 
-                        <a className="item service-6" href="/obchod?kategoria=4">
-                            <img className="background" src={require("../assets/dioptricke-skla.jpg")} alt="Športové okuliare" />
-                            <div className="overlay" />
-                            <h3 className="title">Športové okuliare</h3>
-                            <p className="text">
-                                Zastrešujeme širokú ponuku dioptrických skiel od popredných svetových výrobcov – Rodenstock, Essilor, Jai Kudo.
-                            </p>
-                            <div className="button">Zisti viac</div>
-                        </a>
+                                <div className="button">Zisti viac</div>
+                            </a>
+                        </Link>
+
+                        <Link href="/sluzby/servis-okuliarov">
+                            <a className="item" onClick={() => showTransition()}>
+                                <img className="image" src={require("../assets/sluzba-servis-okuliarov.png")} />
+
+                                <h3 className="title">Servis okuliarov</h3>
+                                <p className="text">
+                                    Zabezpečujeme rôzne úpravy a opravy okuliarov. Servis na naše okuliare je zadarmo.
+                                </p>
+
+                                <div className="button">Zisti viac</div>
+                            </a>
+                        </Link>
+
+                        <Link href="/sluzby/expresne-vyhotovenie-okuliarov">
+                            <a className="item" onClick={() => showTransition()}>
+                                <img className="image" src={require("../assets/sluzba-expresne-vyhotovenie.png")} />
+
+                                <h3 className="title">Expresné vyhotovenie okuliarov</h3>
+                                <p className="text">
+                                    Zabezpečujeme rôzne úpravy a opravy okuliarov. Servis na naše okuliare je zadarmo.
+                                </p>
+
+                                <div className="button">Zisti viac</div>
+                            </a>
+                        </Link>
+                    </div>
+                </div>
+
+                <div className="products">
+                    <Heading
+                        heading="PRODUKTY"
+                        title="Naše produkty"
+                        withBorder
+                    />
+
+                    <div className="content">
+                        <Link href="/obchod?kategoria=2">
+                            <a className="item" onClick={() => showTransition()}>
+                                <img className="image" src={require("../assets/produkt-slnecne-okuliare.png")} />
+
+                                <h3 className="title">Slnečné okuliare</h3>
+                                <p className="text">
+                                    Máme pre Vás pripravený široký výber slnečných okuliarov rôznych značiek.
+                                </p>
+
+                                <div className="button">Zisti viac</div>
+                            </a>
+                        </Link>
+
+                        <Link href="/obchod?kategoria=1">
+                            <a className="item" onClick={() => showTransition()}>
+                                <img className="image" src={require("../assets/produkt-dioptricke-okuliare.png")} />
+
+                                <h3 className="title">Dioptrické okuliare</h3>
+                                <p className="text">
+                                    Máme pre Vás pripravený široký výber dioptrických okuliarov rôznych značiek.
+                                </p>
+
+                                <div className="button">Zisti viac</div>
+                            </a>
+                        </Link>
+
+                        <Link href="/obchod?kategoria=4">
+                            <a className="item" onClick={() => showTransition()}>
+                                <img className="image" src={require("../assets/produkt-sportove-okuliare.png")} />
+
+                                <h3 className="title">Športové okuliare</h3>
+                                <p className="text">
+                                    Máme pre Vás pripravený široký výber športových okuliarov rôznych značiek.
+                                </p>
+
+                                <div className="button">Zisti viac</div>
+                            </a>
+                        </Link>
                     </div>
                 </div>
 
@@ -260,7 +313,9 @@ class Home extends React.Component {
                 </div>
 
                 <div className="brands" id="brands">
-                    <a href="/obchod"><img className="image" id="brands-1" src={require("../assets/brands.svg")} alt="Značky" /></a>
+                    <Link href="/obchod">
+                        <img className="image" onClick={() => showTransition()} id="brands-1" src={require("../assets/brands.svg")} alt="Značky" />
+                    </Link>
                 </div>
 
                 <div className="whyus">
@@ -279,7 +334,9 @@ class Home extends React.Component {
                                 Objednajte sa online na odborné vyšetrenie zraku alebo aplikáciu  kontaktných šošoviek pomocou  nášho rezervačného systému.
                             </p>
                             <div style={{ flex: 1 }} />
-                            <a className="button" href="/rezervacia-terminu">Objednať</a>
+                            <Link href="/rezervacia-terminu">
+                                <a className="button" onClick={() => showTransition()}>Objednať</a>
+                            </Link>
                         </div>
 
                         <div className="item">
@@ -301,7 +358,9 @@ class Home extends React.Component {
                                 Ponúkame kompletný servis vašich okuliarov od výmeny skla až po úpravu rámov
                             </p>
                             <div style={{ flex: 1 }} />
-                            <a className="button" href="/sluzby/servis-okuliarov">Servis</a>
+                            <Link href="/sluzby/servis-okuliarov">
+                                <a className="button" onClick={() => showTransition()}>Servis</a>
+                            </Link>
                         </div>
 
                         <div className="item">
@@ -312,7 +371,9 @@ class Home extends React.Component {
                                 Ponúkame široký výber dioptrických a slnečných okuliarov rôznych svetových značiek 
                             </p>
                             <div style={{ flex: 1 }} />
-                            <a className="button" href="/obchod">E-shop</a>
+                            <Link href="/obchod">
+                                <a className="button" onClick={() => showTransition()}>E-shop</a>
+                            </Link>
                         </div>
 
                         <div className="item">
@@ -323,7 +384,9 @@ class Home extends React.Component {
                                 Pri kúpe jedného rámu dostanete druhý zadarmo. Pozrite si našu bohatú ponuku a výhodné ceny online
                             </p>
                             <div style={{ flex: 1 }} />
-                            <a className="button" href="/obchod">E-shop</a>
+                            <Link href="/obchod">
+                                <a className="button" onClick={() => showTransition()}>E-shop</a>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -365,55 +428,65 @@ class Home extends React.Component {
                         />
 
                         <div className="content">
-                            <a className="branch" href="/prevadzky/bratislava-obchodna">
-                                <img className="image" src={require("../assets/bratislava-obchodna/1.jpg")} alt="Prevádzka IMOOPTIK Obchodná 57 Bratislava" />
-                                <div className="overlay" />
-                                <h3 className="title">IMOOPTIK OBCHODNÁ</h3>
-                                <div style={{ flex: 1 }} />
-                                <p className="text">Obchodná 57, Bratislava 811 06</p>
-                                <div style={{ flex: 1 }} />
-                                <div className="button">Viac o pobočke</div>
-                            </a>
+                            <Link href="/prevadzky/bratislava-obchodna">
+                                <a className="branch" onClick={() => showTransition()}>
+                                    <img className="image" src={require("../assets/bratislava-obchodna/1.jpg")} alt="Prevádzka IMOOPTIK Obchodná 57 Bratislava" />
+                                    <div className="overlay" />
+                                    <h3 className="title">IMOOPTIK OBCHODNÁ</h3>
+                                    <div style={{ flex: 1 }} />
+                                    <p className="text">Obchodná 57, Bratislava 811 06</p>
+                                    <div style={{ flex: 1 }} />
+                                    <div className="button">Viac o pobočke</div>
+                                </a>
+                            </Link>
 
-                            <a className="branch" href="/prevadzky/bratislava-mileticova">
-                                <img className="image" src={require("../assets/bratislava-mileticova/1.jpg")} alt="Prevádzka IMOOPTIK Miletičova 38 Bratislava" />
-                                <div className="overlay" />
-                                <h3 className="title">IMOOPTIK MILETIČOVA</h3>
-                                <div style={{ flex: 1 }} />
-                                <p className="text">Miletičova 38, Bratislava 821 08</p>
-                                <div style={{ flex: 1 }} />
-                                <div className="button">Viac o pobočke</div>
-                            </a>
+                            <Link href="/prevadzky/bratislava-mileticova">
+                                <a className="branch">
+                                    <img className="image" src={require("../assets/bratislava-mileticova/1.jpg")} alt="Prevádzka IMOOPTIK Miletičova 38 Bratislava" />
+                                    <div className="overlay" />
+                                    <h3 className="title">IMOOPTIK MILETIČOVA</h3>
+                                    <div style={{ flex: 1 }} />
+                                    <p className="text">Miletičova 38, Bratislava 821 08</p>
+                                    <div style={{ flex: 1 }} />
+                                    <div className="button">Viac o pobočke</div>
+                                </a>
+                            </Link>
 
-                            <a className="branch" href="/prevadzky/bratislava-rolnicka">
-                                <img className="image" src={require("../assets/bratislava-vajnory/1.jpg")} alt="Prevádzka IMOOPTIK Roľnícka 1 Bratislava" />
-                                <div className="overlay" />
-                                <h3 className="title">IMOOPTIK ROĽNÍCKA</h3>
-                                <div style={{ flex: 1 }} />
-                                <p className="text">Roľnícka 1, Poliklinika Vajnory, Bratislava 831 07</p>
-                                <div style={{ flex: 1 }} />
-                                <div className="button">Viac o pobočke</div>
-                            </a>
+                            <Link href="/prevadzky/bratislava-rolnicka">
+                                <a className="branch">
+                                    <img className="image" src={require("../assets/bratislava-vajnory/1.jpg")} alt="Prevádzka IMOOPTIK Roľnícka 1 Bratislava" />
+                                    <div className="overlay" />
+                                    <h3 className="title">IMOOPTIK ROĽNÍCKA</h3>
+                                    <div style={{ flex: 1 }} />
+                                    <p className="text">Roľnícka 1, Poliklinika Vajnory, Bratislava 831 07</p>
+                                    <div style={{ flex: 1 }} />
+                                    <div className="button">Viac o pobočke</div>
+                                </a>
+                            </Link>
 
-                            <a className="branch" href="/prevadzky/bratislava-vajnorska">
-                                <img className="image" src={require("../assets/bratislava-vajnory/1.jpg")} alt="Prevádzka IMOOPTIK Vajnorská Bratislava" />
-                                <div className="overlay" />
-                                <h3 className="title">IMOOPTIK VAJNORSKÁ</h3>
-                                <div style={{ flex: 1 }} />
-                                <p className="text">Vajnorská, Bratislava 831 07</p>
-                                <div style={{ flex: 1 }} />
-                                <div className="button">Viac o pobočke</div>
-                            </a>
+                            <Link href="/prevadzky/bratislava-vajnorska">
+                                <a className="branch">
+                                    <img className="image" src={require("../assets/bratislava-vajnory/1.jpg")} alt="Prevádzka IMOOPTIK Vajnorská Bratislava" />
+                                    <div className="overlay" />
+                                    <h3 className="title">IMOOPTIK VAJNORSKÁ</h3>
+                                    <div style={{ flex: 1 }} />
+                                    <p className="text">Vajnorská, Bratislava 831 07</p>
+                                    <div style={{ flex: 1 }} />
+                                    <div className="button">Viac o pobočke</div>
+                                </a>
+                            </Link>
 
-                            <a className="branch" href="/prevadzky/senica-namestie-oslobodenia">
-                                <img className="image" src={require("../assets/senica-namestie-oslobodenia/1.jpg")} alt="Prevádzka IMOOPTIK Nám. Oslobodenia 17 Senica" />
-                                <div className="overlay" />
-                                <h3 className="title">IMOOPTIK SENICA</h3>
-                                <div style={{ flex: 1 }} />
-                                <p className="text">Nám. Oslobodenia 17, OC Branč, Senica</p>
-                                <div style={{ flex: 1 }} />
-                                <div className="button">Viac o pobočke</div>
-                            </a>
+                            <Link href="/prevadzky/senica-namestie-oslobodenia">
+                                <a className="branch">
+                                    <img className="image" src={require("../assets/senica-namestie-oslobodenia/1.jpg")} alt="Prevádzka IMOOPTIK Nám. Oslobodenia 17 Senica" />
+                                    <div className="overlay" />
+                                    <h3 className="title">IMOOPTIK SENICA</h3>
+                                    <div style={{ flex: 1 }} />
+                                    <p className="text">Nám. Oslobodenia 17, OC Branč, Senica</p>
+                                    <div style={{ flex: 1 }} />
+                                    <div className="button">Viac o pobočke</div>
+                                </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -494,7 +567,9 @@ function Bestseller(props) {
             <div className="available" style={{ color: available ? colors.green : colors.red }}>{available ? "Na sklade" : "Nedostupné"}</div>
             
             <div className="bottom">
-                <a className="button" href={"/obchod/" + product.link}>Kúpiť</a>
+                <Link href={"/obchod/" + product.link}>
+                    <a className="button" onClick={() => showTransition()}>Kúpiť</a>
+                </Link>
                 <div className="price">{(product.price / 100).toFixed(2)}€</div>
             </div>
         </div>

@@ -1,7 +1,8 @@
 import React from "react";
 import { withRouter } from "next/router";
+import Link from "next/link";
 
-import { getStorageItem, setStorageItem, isLogged, logout, redirect, hideTransition } from "../config/Config";
+import { getStorageItem, setStorageItem, isLogged, logout, redirect, hideTransition, showTransition } from "../config/Config";
 
 import Api from "../config/Api";
 import Popup from "../components/Popup";
@@ -39,7 +40,8 @@ class Login extends React.Component {
         if (call.authToken) {
             setStorageItem("token", call.authToken);
 
-            window.location.href = "/profil";
+            showTransition();
+            this.props.router.push("/profil");
         } else {
             const message = call.error === "registration-unfinished" ? "Prihlásiť sa môžete až po potvrdení registrácie, ktoré sme Vám zaslali na e-mail" : call.messageSK;
 
@@ -53,10 +55,18 @@ class Login extends React.Component {
     componentDidMount() {
         const token = getStorageItem("token");
 
-        if (token) this.props.router.push("/profil");
+        if (token) {
+            showTransition();
+            this.props.router.push("/profil");
+        }
+
+        hideTransition();
     }
 
     render() {
+        showTransition();
+        this.props.router.push("/pripravujeme");
+
         return(
             <div className="screen" id="login">
                 <div className="body">
@@ -73,12 +83,16 @@ class Login extends React.Component {
                         <div className="heading">Heslo</div>
                         <input className="field" type="password" value={this.state.password} onChange={(event) => this.setState({ password: event.target.value })} />
 
-                        <a className="forgot-link" href="/resetovanie-hesla">Zabudli ste Vaše heslo?</a>
+                        <Link href="/resetovanie-hesla">
+                            <a className="forgot-link" onClick={() => showTransition()}>Zabudli ste Vaše heslo?</a>
+                        </Link>
 
                         <div className="button-panel">
                             <div className="button" onClick={() => this.login()}>Prihlásiť sa</div>
                             <div style={{ width: 30 }} />
-                            <a className="button" href="/registracia">Registrácia</a>
+                            <Link href="/registracia">
+                                <a className="button" onClick={() => showTransition()}>Registrácia</a>
+                            </Link>
                         </div>
                     </div>
                 </div>

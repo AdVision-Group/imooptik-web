@@ -1,7 +1,8 @@
 import React from "react";
-import { Link, withRouter } from "next/router";
+import { withRouter } from "next/router";
+import Link from "next/link";
 
-import { hideTransition, redirect } from "../config/Config";
+import { hideTransition, redirect, showTransition } from "../config/Config";
 import Api, { API_URL } from "../config/Api";
 import Popup from "../components/Popup";
 import Loading from "../components/Loading";
@@ -28,12 +29,8 @@ class Banner extends React.Component {
                     <p className="text">
                         Zarezervujte si termín prehliadky online na jednej z našich prevádzok pomocou nášho formulára.
                     </p>
-                    <Link
-                        className="button"
-                        to="/rezervacia-terminu"
-                        onClick={() => redirect(this.props.location, "/rezervacia-terminu")}
-                    >
-                        Rezervovať
+                    <Link href="/rezervacia-terminu">
+                        <a className="button" onClick={() => showTransition()}>Rezervovať</a>
                     </Link>
                 </div>
             </div>

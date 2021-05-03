@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { withRouter } from "next/router";
-import { redirect } from "../config/Config";
+import { redirect, showTransition } from "../config/Config";
 
 //import "../styles/menu.css";
 
@@ -16,82 +16,112 @@ class Menu extends React.Component {
         return(
             <div id="menu">
                 <div className="content">
-                    <a
-                        className="link"
-                        href="/obchod?kategoria=1"
-                        onClick={() => closeMenu()}
-                    >
-                        <img className="icon" src={require("../assets/icons/dioptricke-okuliare.svg")} alt="Ikona pre dioptrické okuliare" />
-                        Dioptrické
-                    </a>
+                    <Link href="/obchod?kategoria=1">
+                        <a
+                            className="link"
+                            onClick={() => {
+                                closeMenu();
+                                showTransition();
+                            }}
+                        >
+                            <img className="icon" src={require("../assets/icons/dioptricke-okuliare.svg")} alt="Ikona pre dioptrické okuliare" />
+                            Dioptrické
+                        </a>
+                    </Link>
 
-                    <a
-                        className="link"
-                        href="/obchod?kategoria=2"
-                        onClick={() => closeMenu()}
-                    >
-                        <img className="icon" src={require("../assets/icons/slnecne-okuliare.svg")} alt="Ikona pre slnečné okuliare" />
-                        Slnečné
-                    </a>
+                    <Link href="/obchod?kategoria=2">
+                        <a
+                            className="link"
+                            onClick={() => {
+                                closeMenu();
+                                showTransition();
+                            }}
+                        >
+                            <img className="icon" src={require("../assets/icons/slnecne-okuliare.svg")} alt="Ikona pre slnečné okuliare" />
+                            Slnečné
+                        </a>
+                    </Link>
 
-                    <a
-                        className="link"
-                        href="/obchod?kategoria=4"
-                        onClick={() => closeMenu()}
-                    >
-                        <img className="icon" src={require("../assets/icons/sportove-okuliare.svg")} alt="Ikona pre športové okuliare" />
-                        Športové
-                    </a>
+                    <Link href="/obchod?kategoria=4">
+                        <a
+                            className="link"
+                            onClick={() => {
+                                closeMenu();
+                                showTransition();
+                            }}
+                        >
+                            <img className="icon" src={require("../assets/icons/sportove-okuliare.svg")} alt="Ikona pre športové okuliare" />
+                            Športové
+                        </a>
+                    </Link>
 
-                    <a
-                        className="link"
-                        href="/obchod?kategoria=3"
-                        onClick={() => closeMenu()}
-                    >
-                        <img className="icon" src={require("../assets/icons/sosovky.svg")} alt="Ikona pre šošovky" />
-                        Šošovky
-                    </a>
+                    <Link href="/obchod?kategoria=3">
+                        <a
+                            className="link"
+                            onClick={() => {
+                                closeMenu();
+                                showTransition();
+                            }}
+                        >
+                            <img className="icon" src={require("../assets/icons/sosovky.svg")} alt="Ikona pre šošovky" />
+                            Šošovky
+                        </a>
+                    </Link>
 
-                    <a
-                        className="link"
-                        href="/obchod?kategoria=5"
-                        onClick={() => closeMenu()}
-                    >
-                        <img className="icon" src={require("../assets/icons/doplnky.svg")} alt="Ikona pre doplnky" />
-                        Doplnky
-                    </a>
+                    <Link href="/obchod?kategoria=5">
+                        <a
+                            className="link"
+                            onClick={() => {
+                                closeMenu();
+                                showTransition();
+                            }}
+                        >
+                            <img className="icon" src={require("../assets/icons/doplnky.svg")} alt="Ikona pre doplnky" />
+                            Doplnky
+                        </a>
+                    </Link>
 
-                    <a
-                        className="link"
-                        href="/blog"
-                        onClick={() => closeMenu()}
-                    >
-                        Blog
-                    </a>
+                    <Link href="/blog">
+                        <a
+                            className="link"
+                            onClick={() => {
+                                closeMenu();
+                                showTransition();
+                            }}
+                        >
+                            Blog
+                        </a>
+                    </Link>
 
-                    <a
-                        className="link"
-                        href="/"
-                    >
-                        Služby
-                    </a>
+                    <Link href="/">
+                        <a
+                            className="link"
+                        >
+                            Služby
+                        </a>
+                    </Link>
 
-                    <a
-                        className="link"
-                        href="/"
-                    >
-                        Prevádzky
-                    </a>
+                    <Link href="/">
+                        <a
+                            className="link"
+                        >
+                            Prevádzky
+                        </a>
+                    </Link>
 
-                    <a
-                        className="button"
-                        href="/rezervacia-terminu"
-                        onClick={() => closeMenu()}
-                    >
-                        <img className="icon open" src={require("../assets/eye-open.png")} alt="Ikona pre otvorené oko" />
-                        <img className="icon closed" src={require("../assets/eye-closed.png")} alt="Ikona pre zavreté oko" />
-                        Rezervácia online
-                    </a>
+                    <Link href="/rezervacia-terminu">
+                        <a
+                            className="button"
+                            onClick={() => {
+                                closeMenu();
+                                showTransition();
+                            }}
+                        >
+                            <img className="icon open" src={require("../assets/eye-open.png")} alt="Ikona pre otvorené oko" />
+                            <img className="icon closed" src={require("../assets/eye-closed.png")} alt="Ikona pre zavreté oko" />
+                            Rezervácia online
+                        </a>
+                    </Link>
                 </div>
             </div>
         )

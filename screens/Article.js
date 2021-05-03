@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "next/router";
+import Link from "next/link";
 
 import Heading from "../components/Heading";
 import Api from "../config/Api";
@@ -35,6 +36,9 @@ class Article extends React.Component {
         const moreArticles = this.props.moreArticles;
 
         if (!article) return null;
+
+        showTransition();
+        this.props.router.push("/pripravujeme");
 
         return(
             <div className="screen" id="article">

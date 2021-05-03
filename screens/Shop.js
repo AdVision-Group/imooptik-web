@@ -1,10 +1,11 @@
 import React from "react";
 import { withRouter } from "next/router";
+import Link from "next/link";
 
 import Product from "../components/Product";
 import Loading from "../components/Loading";
 
-import { redirect, hideTransition } from "../config/Config";
+import { redirect, hideTransition, showTransition } from "../config/Config";
 import { categories, collections, pricing, frameStyles, brands } from "../config/Database";
 
 import Api from "../config/Api";
@@ -58,6 +59,8 @@ class Shop extends React.Component {
 
         var searchField = document.getElementById("search-field");
         searchField.addEventListener("keypress", this.handkeKeyPress);
+
+        hideTransition();
     }
 
     componentDidUpdate(prevProps) {
@@ -139,6 +142,9 @@ class Shop extends React.Component {
     render() {
         const { kategoria, kolekcia, cena, znacka, ram, vyhladavanie, skip } = this.props.router.query;
         const products = this.state.products;
+
+        showTransition();
+        this.props.router.push("/pripravujeme");
 
         return(
             <div className="screen" id="shop">

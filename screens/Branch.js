@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "next/router";
+import Link from "next/link";
 
 import Api from "../config/Api";
 import { branches } from "../config/Database";
@@ -8,6 +9,7 @@ import Popup from "../components/Popup";
 import Heading from "../components/Heading";
 
 import Gallery from "../components/Gallery";
+import { hideTransition, showTransition } from "../config/Config";
 
 class Branch extends React.Component {
 
@@ -83,12 +85,13 @@ class Branch extends React.Component {
         this.setState({ galleryShowing: false });
     }
 
+    componentDidMount() {
+        hideTransition();
+    }
+
     render() {
         const branch = JSON.parse(this.props.branch);
         const services = JSON.parse(this.props.services);
-
-        console.log(branch);
-        console.log(services);
 
         return(
             <div className="screen" id="branch">
@@ -146,23 +149,25 @@ class Branch extends React.Component {
 
                         <div className="services-panel">
                             {services.map((service) => (
-                                <a className="pricing-panel" href="/rezervacia-terminu" onClick={() => redirect(this.props.location, "/rezervacia-terminu")}>
-                                    <div className="top-panel">
-                                        <h3 className="name">{service.name}</h3>
-                                        <p className="price">{service.price}€</p>
-                                    </div>
+                                <Link href="/rezervacia-terminu">
+                                    <a className="pricing-panel" onClick={() => showTransition()}>
+                                        <div className="top-panel">
+                                            <h3 className="name">{service.name}</h3>
+                                            <p className="price">{service.price}€</p>
+                                        </div>
 
-                                    <div className="bottom-panel">
-                                        <p className="parameter">
-                                            <ion-icon name="time-outline"></ion-icon>
-                                            {service.time} minút
-                                        </p>
-                                        
-                                        <p className="text">{service.description}</p>
+                                        <div className="bottom-panel">
+                                            <p className="parameter">
+                                                <ion-icon name="time-outline"></ion-icon>
+                                                {service.time} minút
+                                            </p>
+                                            
+                                            <p className="text">{service.description}</p>
 
-                                        <div className="button">Rezervácia termínu</div>
-                                    </div>
-                                </a>
+                                            <div className="button">Rezervácia termínu</div>
+                                        </div>
+                                    </a>
+                                </Link>
                             ))}
                         </div>
                     </div>

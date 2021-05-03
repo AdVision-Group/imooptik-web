@@ -1,8 +1,8 @@
 import React from "react";
-import { Link } from "next/router";
+import Link from "next/link";
 
 import { API_URL } from "../config/Api";
-import { redirect } from "../config/Config";
+import { redirect, showTransition } from "../config/Config";
 
 //import "../styles/articlebox.css";
 
@@ -11,18 +11,20 @@ export default function ArticleBox(props) {
     const src = API_URL + "/uploads/" + article.image.imagePath;
 
     return(
-        <a
-            className="article-box"
-            href={"/blog/" + article._id}
-        >
-            <img className="article-box-image" src={src} alt="Titulná fotka blogového príspevku" />
-            
-            <p className="article-box-date">{getFormattedDate(article.date)}</p>
-            <h3 className="article-box-title">{article.name}</h3>
-            <p className="article-box-description">{article.description}</p>
+        <Link href={"/blog/" + article._id}>
+            <a
+                className="article-box"
+                onClick={() => showTransition()}
+            >
+                <img className="article-box-image" src={src} alt="Titulná fotka blogového príspevku" />
+                
+                <p className="article-box-date">{getFormattedDate(article.date)}</p>
+                <h3 className="article-box-title">{article.name}</h3>
+                <p className="article-box-description">{article.description}</p>
 
-            <div className="button">Čítať viac</div>
-        </a>
+                <div className="button">Čítať viac</div>
+            </a>
+        </Link>
     )
 }
 

@@ -1,7 +1,8 @@
 import React from "react";
 import { withRouter } from "next/router";
+import Link from "next/link";
 
-import { getStorageItem, setStorageItem, removeStorageItem, removeFromCart, addToCart, increaseCartAmount, decreaseCartAmount, hideTransition, redirect } from "../config/Config";
+import { getStorageItem, setStorageItem, removeStorageItem, removeFromCart, addToCart, increaseCartAmount, decreaseCartAmount, hideTransition, redirect, showTransition } from "../config/Config";
 import Api, { API_URL } from "../config/Api";
 import Popup from "../components/Popup";
 import Loading from "../components/Loading";
@@ -12,6 +13,10 @@ class Success extends React.Component {
 
     constructor() {
         super();
+    }
+
+    componentDidMount() {
+        hideTransition();
     }
 
     render() {
@@ -25,7 +30,9 @@ class Success extends React.Component {
                         <p className="text">
                             Ďakujeme Vám za rezerváciu termínu na prehliadku v IMOOPTIK. Dve hodiny pred prehliadkou Vás budeme kontaktovať pomocou SMS správy.
                         </p>
-                        <a className="button" href="/">Domov</a>
+                        <Link href="/">
+                            <a className="button" onClick={() => showTransition()}>Domov</a>
+                        </Link>
                     </div>
                 </div>
             )
@@ -37,7 +44,9 @@ class Success extends React.Component {
                         <p className="text">
                             Ďakujeme Vám za nákup okuliarov v IMOOPTIK. O Vašej objednávke Vás budeme informovať pomocou e-mailu.
                         </p>
-                        <a className="button" href="/">Domov</a>
+                        <Link href="/">
+                            <a className="button" onClick={() => showTransition()}>Domov</a>
+                        </Link>
                     </div>
                 </div>
             )

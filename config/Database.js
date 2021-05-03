@@ -287,20 +287,127 @@ export const services = [
             description: "O váš zrak sa postarajú nielen skúsený odborníci ale i kvalitne prístroje značky Top con auto Kerato Refraktometer KR-1/RM-1 nová generácia refrakčnej starostlivosti",
             logo: require("../assets/sluzby/vysetrenie-zraku/topcon-logo.png"),
             photos: [
-                require("../assets/bratislava-obchodna/1.jpg"),
-                require("../assets/bratislava-obchodna/2.jpg"),
-                require("../assets/bratislava-obchodna/3.jpg"),
-                require("../assets/bratislava-obchodna/4.jpg"),
-                require("../assets/bratislava-obchodna/5.jpg"),
+                require("../assets/sluzby/vysetrenie-zraku/stroje/1.jpg"),
+                require("../assets/sluzby/vysetrenie-zraku/stroje/2.jpg"),
+                require("../assets/sluzby/vysetrenie-zraku/stroje/3.jpg"),
+                require("../assets/sluzby/vysetrenie-zraku/stroje/4.jpg"),
+                require("../assets/sluzby/vysetrenie-zraku/stroje/5.jpg")
             ]
         }
     },
     {
         title: "Aplikácia kontaktných šošoviek",
-        photo: require("../assets/sluzby/vysetrenie-zraku/photo.jpg"),
         link: "aplikacia-kontaktnych-sosoviek",
+        photo: require("../assets/sluzby/vysetrenie-zraku/photo.jpg"),
+
         heading: "Aplikácia šošoviek u nás",
         description: "Naše zrakové centrum disponuje kompletným moderným prístrojovým zariadením na aplikáciu kontaktných šošoviek a vyšetrenie zrakovej ostrosti. Náš tím optometristov je pripravený Vám pomôcť. Prikladáme zaujímavé video prečo by ste mali absolvovať vyšetrenie zrakovej ostrosti v rámci Vašej prevencie.",
+        
+        withOptions: [
+            {
+                title: "Prvonositeľ",
+
+                preparation: [
+                    {
+                        icon: require("../assets/sluzby/aplikacia-kontaktnych-sosoviek/priprava/1.png"),
+                        text: "Na aplikáciu šošoviek vás prosíme prísť nenalíčení."
+                    },
+                    {
+                        icon: require("../assets/sluzby/aplikacia-kontaktnych-sosoviek/priprava/2.png"),
+                        text: "Pri aplikácií šošoviek je vhodné mať upravéne krátke nechty."
+                    }
+                ],
+
+                processHeading: "Priebeh aplikácie u začiatočníkov - prvonositeľov",
+                processTime: "Približne 1 hod. 30 min.",
+                processPrice: "40-60€",
+                processPhotos: [
+                    require("../assets/bratislava-obchodna/1.jpg"),
+                    require("../assets/bratislava-obchodna/2.jpg"),
+                    require("../assets/bratislava-obchodna/3.jpg"),
+                    require("../assets/bratislava-obchodna/4.jpg"),
+                    require("../assets/bratislava-obchodna/5.jpg"),
+                ],
+                process: [
+                    {
+                        title: "Zraková ostrosť",
+                        text: "V prvom kroku, okrem vstupnej anamnézy, vykonáme vyšetrenie zrakovej ostrosti, ktoré sa zhoduje s vyšetrením na okuliare. Následne hodnoty upravíme pre kontaktné šošovky. Zistíme anatomické parametre rohovky: priemer a zakrivenie."
+                    },
+                    {
+                        title: "Kontrola predného segmentu oka",
+                        text: "Pomocou štrbinovej lampy predovšetkým kontrolujeme patologické stavy celého predného segmentu, hlavne rohovky a spojiviek. Veľmi dôležité je aj zistenie stavu slzného filmu."
+                    },
+                    {
+                        title: "Typ kontaktných šošoviek",
+                        text: "Po zvážení ďalších faktorov, ako prostredie, v ktorom ich chcete používať, a hlavne činnosť, pri ktorej sa budú šošovky nosiť, Vám odporučíme vhodný typ šošoviek. Veľmi dôležitú úlohu zohráva i Váš zdravotný stav, užívanie liekov, alergie alebo fajčenie."
+                    },
+                    {
+                        title: "„Špeciálne“ kontaktné šošovky",
+                        text: "V prípade, ak máte refrakčnú chybu Astigmatizmus, alebo potrebujete multifokálne kontaktné šošovky, ich úspešná aplikácia je časovo náročnejšia (vyžaduje si 2 až 3 návštevy, aby sa zaistila najlepšia možná korekcia videnia pacienta) a testovacie šošovky musia byť vyrábane na mieru."
+                    },
+                    {
+                        title: "Nácvik nasadzovania a vyberania kontaktných šošoviek",
+                        text: "Cieľom nácviku je naučiť každého, aby si dokázal sám nasadiť a vybrať kontaktnú šošovku. Vysvetlíme a poradíme správnu manipuláciu a starostlivosť o šošovky. Od tohto kroku závisí aj dĺžka celej aplikácie, nemusíte mať obavy, určite vás to dokážeme naučiť. Po úspešnom nasadení nasleduje krátka prechádzka, dôležitá pre stabilizáciu."
+                    },
+                    {
+                        title: "Kontrola šošovky",
+                        text: "Na záver aplikáciu zhodnotíme ,skontrolujeme videnie v kontaktných šošovkách a skonzultujeme Váš subjektívny pocit s nimi. Niekedy je nutná ešte jedna krátka kontrola, približne do mesiaca po aplikácii."
+                    }
+                ],
+
+                ending: "Odporúčame vždy ponechať výber šošoviek na odborníkov. Je potrebné si uvedomiť, že náhodné skúšanie akýchkoľvek šošoviek je riziko pre vaše oči. Riskujete problémy s výskytom rôznych komplikácií a zápalových ochorení. Je nutné dodržiavať zvýšené hygienické návyky a podstupovať pravidelné kontroly. Dodržiavaním týchto zásad si predlžujete možnosť nosenia kontaktných šošoviek. Odporúčame pravidelné kontroly kontaktných šošoviek, a to raz ročne pri jednodňových šošovkách a raz za pol roka pri šošovkách s plánovanou výmenou ( dvojtýždňové, mesačné)."
+            },
+            {
+                title: "Skúsený nositeľ",
+
+                preparation: [
+                    {
+                        icon: require("../assets/sluzby/aplikacia-kontaktnych-sosoviek/priprava/1.png"),
+                        text: "Na aplikáciu šošoviek vás prosíme prísť nenalíčení."
+                    },
+                    {
+                        icon: require("../assets/sluzby/aplikacia-kontaktnych-sosoviek/priprava/2.png"),
+                        text: "Pri aplikácií šošoviek je vhodné mať upravéne krátke nechty."
+                    }
+                ],
+
+                processHeading: "Postup aplikácie skúseným nositeľom šošoviek",
+                processTime: "60-90 min.",
+                processPrice: "40-60€",
+                processPhotos: [
+                    require("../assets/bratislava-mileticova/1.jpg"),
+                    require("../assets/bratislava-mileticova/2.jpg"),
+                    require("../assets/bratislava-mileticova/3.jpg"),
+                    require("../assets/bratislava-mileticova/4.jpg"),
+                    require("../assets/bratislava-mileticova/5.jpg"),
+                ],
+                process: [
+                    {
+                        title: "Zraková ostrosť",
+                        text: "Vykonáme kompletné vyšetrenie zrakovej ostrosti a následne upravíme korekciu pre kontaktné šošovky. Hodnoty dioptrií pre kontaktné šošovky sa poväčšine nezhodujú s hodnotami dioptrií pre okuliare. Premeriame aj hodnoty predného segmentu oka, čiže priemer a zakrivenie rohovky."
+                    },
+                    {
+                        title: "Štrbinová lampa",
+                        text: "Pomocou štrbinovej lampy premeriame slzný film, prípadne vylúčime zápaľové ochorenia."
+                    },
+                    {
+                        title: "Typ šošoviek",
+                        text: "Prejdeme si vaše požiadavky na kontaktné šošovky a činnosť na ktorú budú využívané."
+                    },
+                    {
+                        title: "Šošovky na mieru",
+                        text: "Vybraný typ šošoviek vám priamo naaplikujeme. V prípade cylindrických, respektíve multifokálnych kontaktných šošoviek musíme šošovky objednať, nakoľko sú vyrábané presne na mieru zákazníka – objednáme si vás opäť na aplikáciu šošoviek."
+                    },
+                    {
+                        title: "Kontrola na šošovky",
+                        text: "Na záver vás ešte raz poučíme, dostanete skúšobné šošovky, roztok, púzdro na šošovky a objednáme vás na kontrolu približne po týždni od aplikácie šošoviek."
+                    }
+                ],
+
+                ending: "Odporúčame vždy ponechať výber šošoviek na odborníkov. Je potrebné si uvedomiť, že náhodné skúšanie akýchkoľvek šošoviek je riziko pre vaše oči. Riskujete problémy s výskytom rôznych komplikácií a zápalových ochorení. Je nutné dodržiavať zvýšené hygienické návyky a podstupovať pravidelné kontroly. Dodržiavaním týchto zásad si predlžujete možnosť nosenia kontaktných šošoviek. Odporúčame pravidelné kontroly kontaktných šošoviek, a to raz ročne pri jednodňových šošovkách a raz za pol roka pri šošovkách s plánovanou výmenou ( dvojtýždňové, mesačné)."
+            },
+        ],
+
         teamDescription: "Náš tím optometristov disponuje potrebným vzdelaním v oblasti optometrie a kontaktológie. Zabezpečujeme odborné vyšetrenie zraku, aplikáciu kontaktných šošoviek a poradenstvo. Na naše vyšetrenia poskytujeme plnú záruku. V prípade akýchkoľvek otázok nás neváhajte kontaktovať.",
         team: [
             {
@@ -318,15 +425,20 @@ export const services = [
                 icons: [ require("../assets/sluzby/icons/vysetrenie-zraku.png"), require("../assets/sluzby/icons/aplikacia-sosoviek.png") ]
             }
         ],
-        pricingDescription: "Informácie o cenách a rozsah poskytovaných služieb v našom zrakovom centre. Upozorňujeme že u nás pri kúpe kompletných dioptrických okuliarov je vyšetrenie zraku zdarma. V cene aplikácie kontaktných šošoviek je zahrnutý roztok na šošovky, kontaktné šošovky, konzultácia, tréning a kontrola zákazníka. Kontaktné šošovky nám dodávajú firmy Cooper Vision a Johnson & Johnson.",
-        pricing: [ 30, 40 ]
+
+        collaboration: [
+            require("../assets/sluzby/aplikacia-kontaktnych-sosoviek/brands/acuvue.png"),
+            require("../assets/sluzby/aplikacia-kontaktnych-sosoviek/brands/cooper-vision.png")
+        ]
     },
     {
         title: "Servis okuliarov",
-        photo: require("../assets/sluzby/vysetrenie-zraku/photo.jpg"),
         link: "servis-okuliarov",
+        photo: require("../assets/sluzby/vysetrenie-zraku/photo.jpg"),
+
         heading: "Ako robíme servis okuliarov?",
         description: "Naše zrakové centrum disponuje kompletným moderným prístrojovým zariadením na aplikáciu kontaktných šošoviek a vyšetrenie zrakovej ostrosti. Náš tím optometristov je pripravený Vám pomôcť. Prikladáme zaujímavé video prečo by ste mali absolvovať vyšetrenie zrakovej ostrosti v rámci Vašej prevencie.",
+        
         teamDescription: "Náš tím optometristov disponuje potrebným vzdelaním v oblasti optometrie a kontaktológie. Zabezpečujeme odborné vyšetrenie zraku, aplikáciu kontaktných šošoviek a poradenstvo. Na naše vyšetrenia poskytujeme plnú záruku. V prípade akýchkoľvek otázok nás neváhajte kontaktovať.",
         team: [
             {
@@ -349,9 +461,39 @@ export const services = [
                 role: "Optometrista, kontaktológ",
                 icons: [ require("../assets/sluzby/icons/vysetrenie-zraku.png"), require("../assets/sluzby/icons/aplikacia-sosoviek.png") ]
             }
-        ],
-        pricingDescription: "Informácie o cenách a rozsah poskytovaných služieb v našom zrakovom centre. Upozorňujeme že u nás pri kúpe kompletných dioptrických okuliarov je vyšetrenie zraku zdarma. V cene aplikácie kontaktných šošoviek je zahrnutý roztok na šošovky, kontaktné šošovky, konzultácia, tréning a kontrola zákazníka. Kontaktné šošovky nám dodávajú firmy Cooper Vision a Johnson & Johnson.",
-        pricing: [ 20, 60 ]
+        ]
+    },
+    {
+        title: "Expresné vyhotovenie okuliarov",
+        link: "expresne-vyhotovenie-okuliarov",
+        photo: require("../assets/sluzby/vysetrenie-zraku/photo.jpg"),
+
+        heading: "Ako robíme servis okuliarov?",
+        description: "Naše zrakové centrum disponuje kompletným moderným prístrojovým zariadením na aplikáciu kontaktných šošoviek a vyšetrenie zrakovej ostrosti. Náš tím optometristov je pripravený Vám pomôcť. Prikladáme zaujímavé video prečo by ste mali absolvovať vyšetrenie zrakovej ostrosti v rámci Vašej prevencie.",
+        
+        teamDescription: "Náš tím optometristov disponuje potrebným vzdelaním v oblasti optometrie a kontaktológie. Zabezpečujeme odborné vyšetrenie zraku, aplikáciu kontaktných šošoviek a poradenstvo. Na naše vyšetrenia poskytujeme plnú záruku. V prípade akýchkoľvek otázok nás neváhajte kontaktovať.",
+        team: [
+            {
+                name: "Bc. Pavel Honek",
+                role: "Optometrista, kontaktológ",
+                icons: [ require("../assets/sluzby/icons/vysetrenie-zraku.png"), require("../assets/sluzby/icons/aplikacia-sosoviek.png") ]
+            },
+            {
+                name: "Helena Šišuláková",
+                role: "Optometrista, kontaktológ",
+                icons: [ require("../assets/sluzby/icons/vysetrenie-zraku.png"), require("../assets/sluzby/icons/aplikacia-sosoviek.png") ]
+            },
+            {
+                name: "Daniela Kolarčíková",
+                role: "Optometrista",
+                icons: [ require("../assets/sluzby/icons/vysetrenie-zraku.png") ]
+            },
+            {
+                name: "Ingrid Matuškovičová",
+                role: "Optometrista, kontaktológ",
+                icons: [ require("../assets/sluzby/icons/vysetrenie-zraku.png"), require("../assets/sluzby/icons/aplikacia-sosoviek.png") ]
+            }
+        ]
     }
 ]
 

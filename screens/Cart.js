@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "next/router";
 
-import { getStorageItem, setStorageItem, removeStorageItem, removeFromCart, addToCart, increaseCartAmount, decreaseCartAmount, hideTransition, redirect } from "../config/Config";
+import { getStorageItem, setStorageItem, removeStorageItem, removeFromCart, addToCart, increaseCartAmount, decreaseCartAmount, hideTransition, redirect, showTransition } from "../config/Config";
 import Api, { API_URL } from "../config/Api";
 import Popup from "../components/Popup";
 import Loading from "../components/Loading";
@@ -38,8 +38,6 @@ class Cart extends React.Component {
 
     async loadData() {
         const { combinedProducts, price } = this.props;
-
-        console.log(combinedProducts);
 
         this.setState({
             combinedProducts: combinedProducts,
@@ -103,12 +101,15 @@ class Cart extends React.Component {
             saleProducts: saleProducts
         });
 
-        window.location.href = "/osobne-udaje";
+        showTransition();
+        this.props.router.push("/osobne-udaje");
     }
 
     async componentDidMount() {
         await this.loadData();
         await this.calculateSaleDiscount();
+
+        hideTransition();
     }
 
     async calculateSaleDiscount() {
@@ -188,6 +189,9 @@ class Cart extends React.Component {
     }
 
     render() {
+        showTransition();
+        this.props.router.push("/pripravujeme");
+
         var summaryData = [];
         summaryData.push([ "Suma", (this.state.price / 100).toFixed(2) ]);
         summaryData.push([ "Kupón", (this.state.discount / 100).toFixed(2) ]);

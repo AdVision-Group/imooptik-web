@@ -1,7 +1,8 @@
 import React from "react";
 import { withRouter } from "next/router";
+import Link from "next/link";
 
-import { getStorageItem, isLogged, logout, redirect, hideTransition, diopterValues, cylinderValues, cylinderAxisValues, distanceValues, removeStorageItem, setStorageItem, addToCart } from "../config/Config";
+import { getStorageItem, isLogged, logout, redirect, hideTransition, diopterValues, cylinderValues, cylinderAxisValues, distanceValues, removeStorageItem, setStorageItem, addToCart, showTransition } from "../config/Config";
 
 import Loading from "../components/Loading";
 import Popup from "../components/Popup";
@@ -80,6 +81,7 @@ class Profile extends React.Component {
                 distanceOption: user.distanceOption,
             });
         } else {
+            showTransition();
             this.props.router.push("/prihlasenie");
         }
     }
@@ -159,7 +161,8 @@ class Profile extends React.Component {
     logout() {
         logout();
 
-        window.location.href = "/prihlasenie";
+        showTransition();
+        this.props.router.push("/prihlasenie");
     }
 
     repeatOrder(order) {
@@ -176,11 +179,16 @@ class Profile extends React.Component {
         const userId = order.orderedBy._id;
     }
 
-    componentDidMount() {
-        this.getUser();
+    async componentDidMount() {
+        await this.getUser();
+
+        hideTransition();
     }
 
     render() {
+        showTransition();
+        this.props.router.push("/pripravujeme");
+
         return(
             <div className="screen" id="profile">
                 <div className="body">
@@ -192,10 +200,13 @@ class Profile extends React.Component {
                                 <div className={"item" + (this.state.section === 1 ? " active" : "")} onClick={() => this.setState({ section: 1 }, () => this.getUser())}><ion-icon name={"person" + (this.state.section !== 1 ? "-outline" : "")}></ion-icon>Osobné údaje</div>
                                 <div className={"item" + (this.state.section === 2 ? " active" : "")} onClick={() => this.setState({ section: 2 }, () => this.getUser())}><ion-icon name={"albums" + (this.state.section !== 2 ? "-outline" : "")}></ion-icon>Objednávky</div>
                                 <div className={"item" + (this.state.section === 3 ? " active" : "")} onClick={() => this.setState({ section: 3 })}><ion-icon name={"key" + (this.state.section !== 3 ? "-outline" : "")}></ion-icon>Zmena hesla</div>
-                                <a className="item" href="/prihlasenie" onClick={() => logout()}>
-                                    <ion-icon name="log-out-outline"></ion-icon>
-                                    Odhlásiť sa
-                                </a>
+                                
+                                <Link href="/prihlasenie">
+                                    <a className="item" onClick={() => logout()}>
+                                        <ion-icon name="log-out-outline"></ion-icon>
+                                        Odhlásiť sa
+                                    </a>
+                                </Link>
                             </div>
                         </div>
 

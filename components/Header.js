@@ -5,8 +5,9 @@ import { withRouter } from "next/router";
 import SmoothScroll from "../components/SmoothScroll";
 import Api from "../config/Api";
 import Dropdown from "./Dropdown";
-import { redirect, hideTransition, isLogged, getStorageItem } from "../config/Config";
+import { redirect, hideTransition, isLogged, getStorageItem, showTransition } from "../config/Config";
 import { openMenu, closeMenu, isMenuOpen } from "./Menu";
+import { showBanner } from "./Banner";
 
 //import "../styles/header.css";
 
@@ -135,28 +136,42 @@ class Header extends React.Component {
         return(
             <div id="header" style={{ top: this.state.top }}>
                 <div className="top-panel">
-                    <a className="logo-panel" href="/">
-                        <img className="logo" src={require("../assets/logo.png")} alt="Logo" />
-                    </a>
+                    <Link href="/">
+                        <a className="logo-panel" onClick={() => showTransition()}>
+                            <img className="logo" src={require("../assets/logo.png")} alt="Logo" />
+                        </a>
+                    </Link>
 
                     <div style={{ flex: 1 }} />
 
                     <div className="search-panel">
                         <input className="field" id="header-search-bar" type="text" value={this.state.search} onChange={(event) => this.setState({ search: event.target.value })} placeholder="Vyhľadávať na e-shope" />
 
-                        <a className="button" href={"/obchod?kategoria=-1&vyhladavanie=" + this.state.search.trim()} onClick={() => closeMenu()}>
-                            <ion-icon name="search-outline"></ion-icon>
-                        </a>
+                        <Link href={"/obchod?kategoria=-1&vyhladavanie=" + this.state.search.trim()}>
+                            <a className="button" onClick={() => {
+                                closeMenu();
+                                showTransition();
+                            }}>
+                                <ion-icon name="search-outline"></ion-icon>
+                            </a>
+                        </Link>
                     </div>
 
-                    <a className="link" href="/kosik" onClick={() => closeMenu()}>
-                        <ion-icon name="bag"></ion-icon>
-                        {getStorageItem("cart") && getStorageItem("cart").length > 0 ? <div className="cart-count">{getStorageItem("cart").length}</div> : null}
-                    </a>
+                    <Link href="/kosik">
+                        <a className="link" onClick={() => {
+                            closeMenu();
+                            showTransition();
+                        }}>
+                            <ion-icon name="bag"></ion-icon>
+                            {getStorageItem("cart") && getStorageItem("cart").length > 0 ? <div className="cart-count">{getStorageItem("cart").length}</div> : null}
+                        </a>
+                    </Link>
 
-                    <a className="link" href={getStorageItem("token") ? "/profil" : "/prihlasenie"}>
-                        <ion-icon name="person"></ion-icon>
-                    </a>
+                    <Link href={getStorageItem("token") ? "/profil" : "/prihlasenie"}>
+                        <a className="link" onClick={() => showTransition()}>
+                            <ion-icon name="person"></ion-icon>
+                        </a>
+                    </Link>
 
                     <div className="hamburger" onClick={() => isMenuOpen() ? closeMenu() : openMenu()}>
                         <div className="line" />
@@ -168,48 +183,66 @@ class Header extends React.Component {
                 <div className="bottom-panel">
 
                     <div className="menu">
-                        <a className="link" href="/obchod?kategoria=1" id="header-link-1">
-                            <img className="icon" src={require("../assets/icons/dioptricke-okuliare.svg")} alt="Ikona pre dioptrické okuliare" />
-                            Dioptrické
-                        </a>
+                        <Link href="/obchod?kategoria=1">
+                            <a className="link" onClick={() => showTransition()} id="header-link-1">
+                                <img className="icon" src={require("../assets/icons/dioptricke-okuliare.svg")} alt="Ikona pre dioptrické okuliare" />
+                                Dioptrické
+                            </a>
+                        </Link>
 
-                        <a className="link" href="/obchod?kategoria=2" id="header-link-2">
-                            <img className="icon" src={require("../assets/icons/slnecne-okuliare.svg")} alt="Ikona pre slnečné okuliare" />
-                            Slnečné
-                        </a>
+                        <Link href="/obchod?kategoria=2">
+                            <a className="link" onClick={() => showTransition()} id="header-link-2">
+                                <img className="icon" src={require("../assets/icons/slnecne-okuliare.svg")} alt="Ikona pre slnečné okuliare" />
+                                Slnečné
+                            </a>
+                        </Link>
 
-                        <a className="link" href="/obchod?kategoria=4" id="header-link-3">
-                            <img className="icon" src={require("../assets/icons/sportove-okuliare.svg")} alt="Ikona pre športové okuliare" />
-                            Športové
-                        </a>
+                        <Link href="/obchod?kategoria=4">
+                            <a className="link" onClick={() => showTransition()} id="header-link-3">
+                                <img className="icon" src={require("../assets/icons/sportove-okuliare.svg")} alt="Ikona pre športové okuliare" />
+                                Športové
+                            </a>
+                        </Link>
 
-                        <a className="link" href="/obchod?kategoria=3" id="header-link-4">
-                            <img className="icon" src={require("../assets/icons/sosovky.svg")} alt="Ikona pre šošovky" />
-                            Šošovky
-                        </a>
+                        <Link href="/obchod?kategoria=3">
+                            <a className="link" onClick={() => showTransition()} id="header-link-4">
+                                <img className="icon" src={require("../assets/icons/sosovky.svg")} alt="Ikona pre šošovky" />
+                                Šošovky
+                            </a>
+                        </Link>
 
-                        <a className="link" href="/obchod?kategoria=5" id="header-link-5">
-                            <img className="icon" src={require("../assets/icons/doplnky.svg")} alt="Ikona pre doplnky ku okulariom" />
-                            Doplnky
-                        </a>
+                        <Link href="/obchod?kategoria=5">
+                            <a className="link" onClick={() => showTransition()} id="header-link-5">
+                                <img className="icon" src={require("../assets/icons/doplnky.svg")} alt="Ikona pre doplnky ku okulariom" />
+                                Doplnky
+                            </a>
+                        </Link>
 
-                        <a className="link" href="/blog">
-                            Blog
-                        </a>
+                        <Link href="/blog">
+                            <a className="link" onClick={() => showTransition()}>
+                                Blog
+                            </a>
+                        </Link>
 
-                        <a className="link" href="/">
-                            Služby
-                        </a>
+                        <Link href="/">
+                            <a className="link" onClick={() => showTransition()}>
+                                Služby
+                            </a>
+                        </Link>
 
-                        <a className="link" href="/">
-                            Prevádzky
-                        </a>
+                        <Link href="/">
+                            <a className="link" onClick={() => showTransition()}>
+                                Prevádzky
+                            </a>
+                        </Link>
 
-                        <a className="button" href="/rezervacia-terminu">
-                            <img className="icon open" src={require("../assets/eye-open.png")} alt="Ikona pre otvorené oko" />
-                            <img className="icon closed" src={require("../assets/eye-closed.png")} alt="Ikona pre zatvorené oko" />
-                            Rezervácia online
-                        </a>
+                        <Link href="/rezervacia-terminu">
+                            <a className="button" onClick={() => showTransition()}>
+                                <img className="icon open" src={require("../assets/eye-open.png")} alt="Ikona pre otvorené oko" />
+                                <img className="icon closed" src={require("../assets/eye-closed.png")} alt="Ikona pre zatvorené oko" />
+                                Rezervácia online
+                            </a>
+                        </Link>
                     </div>
 
                 </div>
