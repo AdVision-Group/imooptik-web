@@ -186,11 +186,11 @@ class Service extends React.Component {
                             )}
                         </div>
 
-                        {allowProcessCarousel &&
+                        {/*allowProcessCarousel &&
                         <div className="carousel">
                             <this.state.carousel slides={processPhotos} offsetRadius={5} goToSlide={currentProcessPhoto} animationConfig={{ tension: 120, friction: 14 }} />
                         </div>
-                        }
+                        */}
                     </div>
                     }
 
