@@ -93,6 +93,8 @@ class Branch extends React.Component {
         const branch = JSON.parse(this.props.branch);
         const services = JSON.parse(this.props.services);
 
+        console.log(branch.gallery);
+
         return(
             <div className="screen" id="branch">
                 <Title
@@ -251,7 +253,7 @@ class Branch extends React.Component {
                 <iframe className="map" src={branch.map} allowfullscreen="" loading="lazy"></iframe>
 
                 {this.state.galleryShowing ?
-                    <Gallery gallery={this.props.branch.gallery} currentPhoto={this.state.currentPhoto} close={this.closeGallery} />
+                    <Gallery gallery={branch.gallery} currentPhoto={this.state.currentPhoto} close={this.closeGallery} />
                 : null}
 
                 {this.state.popup ? (

@@ -230,7 +230,7 @@ export const services = [
             },
             {
                 title: "Záver vyšetrenia",
-                text: "Výsledkom vyšetrenia zraku je správa o vašich aktuálnych dioptriách do diaľky, do blízka, prípadne na inú pracovnú vzdialenosť. Na základe tohto vyšetrenia vám radi zhotovíme okuliare priamo v našej optike, pričom vyšetrenie zraku v prípade kúpy okuliarov dostanete od nás ZADARMO. Vyšetrením u nás sa ale nijak nezaväzujete k nákupu okuliarov v našej optike. Vyšetrenie môžete absolvovať aj keď máte vybrané okuliare v inej optike – správu vám vydáme, na základe nej vám vydajú príslušné okuliare, avšak je potrebné si uvedomiť, že pre každého zákazníka je lepšie ma všetko pod jednou strechou. Mercedes je lepšie servírovať v Mercedese :)"
+                text: "Výsledkom vyšetrenia zraku je správa o vašich aktuálnych dioptriách do diaľky, do blízka, prípadne na inú pracovnú vzdialenosť. Na základe tohto vyšetrenia vám radi zhotovíme okuliare priamo v našej optike, pričom vyšetrenie zraku v prípade kúpy okuliarov dostanete od nás ZADARMO. Vyšetrením u nás sa ale nijak nezaväzujete k nákupu okuliarov v našej optike. Vyšetrenie môžete absolvovať aj keď máte vybrané okuliare v inej optike – správu vám vydáme, na základe nej vám vydajú príslušné okuliare, avšak je potrebné si uvedomiť, že pre každého zákazníka je lepšie mať všetko pod jednou strechou. Mercedes je lepšie servírovať v Mercedese :)"
             }
         ],
 
@@ -421,7 +421,7 @@ export const services = [
                 name: "Ingrid Matuškovičová",
                 role: "Optometrista, kontaktológ",
                 branch: "Obchodná 57, Bratislava",
-                days: "Streda a piatok",
+                days: "Streda, štvrtok, piatok, sobota",
                 icons: [ require("../assets/sluzby/icons/vysetrenie-zraku.png"), require("../assets/sluzby/icons/aplikacia-sosoviek.png") ]
             }
         ],

@@ -85,7 +85,7 @@ class Footer extends React.Component {
                                 Vajnory, Bratislava
                             </a>
                         </Link>
-                        <a className="text" href="tel: +421917093148"><ion-icon name="call-outline"></ion-icon>+421 917 093 148</a>
+                        <a className="text">Otvárame čoskoro</a>
 
                         <div style={{ height: 15 }} />
 

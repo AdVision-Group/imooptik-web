@@ -54,7 +54,7 @@ class Dropdown extends React.Component {
 
                         <div className="list">
                             {collections.slice(1, collections.length).map((sex, index) => 
-                                <Link href={"/obchod?kategoria=" + this.props.category + "&kolekcia=" + sex.sex}>
+                                <Link href={"/obchod?kategoria=" + this.props.category + "&kolekcia=" + sex.sex} key={index}>
                                     <a
                                         className="item"
                                         onClick={() => showTransition()}
@@ -70,8 +70,8 @@ class Dropdown extends React.Component {
                         <div className="heading">Značka</div>
 
                         <div className="list">
-                            {this.state.brands.map((brand) => 
-                                <Link href={"/obchod?kategoria=" + this.props.category + "&znacka=" + brand.name}>
+                            {this.state.brands.map((brand, index) => 
+                                <Link href={"/obchod?kategoria=" + this.props.category + "&znacka=" + brand.name} key={index}>
                                     <a
                                         className="item"
                                         onClick={() => showTransition()}
@@ -87,8 +87,8 @@ class Dropdown extends React.Component {
                         <div className="heading">Tvar rámu</div>
 
                         <div className="list">
-                            {frameStyles.slice(1, frameStyles.length).map(item =>
-                                <Link href={"/obchod?kategoria=" + this.props.category + "&ram=" + item.frameStyle}>
+                            {frameStyles.slice(1, frameStyles.length).map((item, index) =>
+                                <Link href={"/obchod?kategoria=" + this.props.category + "&ram=" + item.frameStyle} key={index}>
                                     <a
                                         className="item"
                                         onClick={() => showTransition()}
@@ -105,8 +105,8 @@ class Dropdown extends React.Component {
                         <div className="heading">Cena</div>
 
                         <div className="list">
-                            {pricing.slice(1, pricing.length).map(price =>
-                                <Link href={"/obchod?kategoria=" + this.props.category + "&cena=" + price.price}>
+                            {pricing.slice(1, pricing.length).map((price, index) =>
+                                <Link href={"/obchod?kategoria=" + this.props.category + "&cena=" + price.price} key={index}>
                                     <a
                                         className="item"
                                         onClick={() => showTransition()}

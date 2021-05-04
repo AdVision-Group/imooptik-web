@@ -252,7 +252,7 @@ class Home extends React.Component {
 
                                 <h3 className="title">Expresné vyhotovenie okuliarov</h3>
                                 <p className="text">
-                                    Zabezpečujeme rôzne úpravy a opravy okuliarov. Servis na naše okuliare je zadarmo.
+                                    Vaše okuliare Vám vyhotovíme na počkanie v Bratislave i v senci.
                                 </p>
 
                                 <div className="button">Zisti viac</div>
@@ -390,7 +390,7 @@ class Home extends React.Component {
                             </p>
                             <div style={{ flex: 1 }} />
                             <Link href="/obchod">
-                                <a className="button" onClick={() => showTransition()}>E-shop</a>
+                                <a className="button" onClick={() => showTransition()}>Viac info</a>
                             </Link>
                         </div>
                     </div>
@@ -419,7 +419,7 @@ class Home extends React.Component {
                     />
 
                     <div className="content">
-                        {blogs.map((article, index) => <ArticleBox article={article} index={index} history={this.props.history} location={this.props.location}  />)}
+                        {blogs.map((article, index) => <ArticleBox article={article} index={index} history={this.props.history} location={this.props.location} key={index} />)}
                     </div>
                 </div>
                 : null}
@@ -469,15 +469,17 @@ class Home extends React.Component {
                                 </a>
                             </Link>
 
-                            <Link href="/prevadzky/bratislava-vajnorska">
+                            <Link /*href="/prevadzky/bratislava-vajnorska"*/ href="/pripravujeme">
                                 <a className="branch">
-                                    <img className="image" src={require("../assets/bratislava-vajnory/1.jpg")} alt="Prevádzka IMOOPTIK Vajnorská Bratislava" />
+                                    <div className="no-image" />
+                                    {/*<img className="image" src={require("../assets/bratislava-vajnory/1.jpg")} alt="Prevádzka IMOOPTIK Vajnorská Bratislava" />*/}
                                     <div className="overlay" />
                                     <h3 className="title">IMOOPTIK VAJNORSKÁ</h3>
                                     <div style={{ flex: 1 }} />
                                     <p className="text">Vajnorská, Bratislava 831 07</p>
                                     <div style={{ flex: 1 }} />
-                                    <div className="button">Viac o pobočke</div>
+                                    <div className="soon">Otvárame čoskoro</div>
+                                    {/*<div className="button">Viac o pobočke</div>*/}
                                 </a>
                             </Link>
 
@@ -539,7 +541,7 @@ function Reference(props) {
         <div className="item">
             <div className="name">{name}</div>
             <div className="score">
-                {stars.map(() => <ion-icon name="star"></ion-icon>)}
+                {stars.map((star, index) => <ion-icon name="star" key={index}></ion-icon>)}
             </div>
             <p className="text">{text}</p>
         </div>

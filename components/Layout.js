@@ -11,21 +11,6 @@ import Transition from "./Transition";
 import { showTransition } from "../config/Config";
 
 const Layout = ({ children }) => {
-
-    const router = useRouter();
-
-    useEffect(() => {
-        Router.events.on("routeChangeStart", (data) => {
-            if (data !== router.pathname) {
-                var transition = document.getElementById("transition");
-
-                transition.style.display = "flex";
-                transition.style.transition = "none";
-                transition.style.opacity = "1";
-            }
-        });
-    }, []);
-
     return(
         <div>
             <Header />
